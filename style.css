@@ -159,62 +159,36 @@ header {
     border-color: var(--biostart-red);
 }
 
-/* --- SITE NAVIGATION BAR (ROUNDED FLOATING DESIGN) --- */
+/* --- SITE NAVIGATION BAR --- */
 nav {
     background-color: var(--biostart-black);
-    max-width: 1280px;
-    margin: 20px auto 0;
-    padding: 6px 12px;
+    border-bottom: 1px solid #222;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4px;
     overflow-x: auto;
     white-space: nowrap;
-    border-radius: 50px;
-    border: 2px solid #222;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-
-    /* Hide scrollbar track across Firefox, IE, and Edge */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-/* Hide scrollbar track across WebKit browsers (Chrome, Safari, Opera) */
-nav::-webkit-scrollbar {
-    display: none;
-    width: 0;
-    height: 0;
+    padding: 0 20px;
 }
 
 nav a.nav-btn {
-    background: transparent;
+    background: none;
     border: none;
     color: var(--biostart-white);
-    padding: 10px 16px;
+    padding: 16px 20px;
     font-weight: 800;
     text-transform: uppercase;
-    font-size: 11.5px;
+    font-size: 12px;
     letter-spacing: 0.5px;
     cursor: pointer;
-    transition: all 0.22s ease-in-out;
+    transition: all 0.2s;
+    border-bottom: 4px solid transparent;
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    border-radius: 30px;
-    flex-shrink: 0;
+    display: inline-block;
 }
 
-nav a.nav-btn:hover {
-    color: #ffffff;
-    background-color: rgba(217, 56, 41, 0.25);
-    transform: translateY(-1px);
-}
-
-nav a.nav-btn.active {
-    color: #ffffff;
-    background-color: var(--biostart-red);
-    box-shadow: 0 3px 10px rgba(217, 56, 41, 0.5);
+nav a.nav-btn:hover, nav a.nav-btn.active {
+    color: var(--biostart-red);
+    border-bottom-color: var(--biostart-red);
+    background-color: #161616;
 }
 
 /* --- MAIN CONTAINER & PAGES --- */
@@ -524,20 +498,193 @@ h2 {
     background: white;
     border: 2px solid var(--biostart-black);
     padding: 36px;
-    border-radius: 8px;
+    border-radius: 0 0 8px 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     min-height: 520px;
     position: relative;
 }
 
-.dna-accent-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid #000;
-    padding-bottom: 10px;
+/* --- RESUME BUILDER & TEMPLATES CANVA STYLES --- */
+.template-selector-section {
+    background: white;
+    border: 3px solid var(--biostart-black);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 0 var(--biostart-black);
+}
+
+.template-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.template-card {
+    background: #fafafa;
+    border: 2px solid var(--biostart-black);
+    border-radius: 6px;
+    padding: 16px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.template-card:hover, .template-card.selected {
+    border-color: var(--biostart-red);
+    background: #fff;
+    box-shadow: 0 4px 0 var(--biostart-red);
+    transform: translateY(-2px);
+}
+
+.template-badge {
+    position: absolute;
+    top: -10px; right: 10px;
+    background: var(--biostart-red);
+    color: white;
+    font-size: 9px;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.template-icon { font-size: 28px; margin-bottom: 6px; }
+.template-title { font-size: 14px; font-weight: 900; text-transform: uppercase; margin-bottom: 4px; }
+.template-desc { font-size: 11px; color: #555; line-height: 1.35; }
+
+/* FORM GROUPS & INPUTS */
+.form-section-group {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-left: 4px solid var(--biostart-black);
+    padding: 14px;
+    border-radius: 4px;
     margin-bottom: 16px;
 }
+
+.form-section-title {
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--biostart-black);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+@media (max-width: 600px) {
+    .form-row-2 { grid-template-columns: 1fr; }
+}
+
+.form-label {
+    font-size: 10.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    display: block;
+    color: #333;
+}
+
+.btn-action-sm {
+    background: var(--biostart-black);
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    font-weight: 800;
+    font-size: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.btn-action-sm:hover { background: var(--biostart-red); }
+
+.preview-header-bar {
+    background: var(--biostart-black);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* RESUME DOCUMENT TEMPLATE OUTPUT STYLES */
+#printable-resume {
+    background: #ffffff;
+    color: #111111;
+    font-size: 10pt;
+    line-height: 1.4;
+}
+
+.tpl-flex { display: flex; justify-content: space-between; align-items: baseline; }
+.tpl-sec { margin-bottom: 14px; }
+.tpl-p { margin-top: 3px; font-size: 9.5pt; color: #222; }
+
+.resume-bullet-list {
+    margin-left: 18px;
+    margin-top: 4px;
+    font-size: 9.5pt;
+}
+
+.resume-bullet-list li { margin-bottom: 3px; }
+
+/* 1. Modern Biotech */
+.tpl-modern .tpl-modern-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--biostart-red);
+    padding-bottom: 8px;
+}
+.tpl-modern .tpl-name { font-size: 20pt; font-weight: bold; text-transform: uppercase; margin: 0; }
+.tpl-modern .tpl-modern-title { font-size: 11pt; color: var(--biostart-red); font-weight: bold; }
+.tpl-modern .tpl-dna-icon { font-size: 26pt; }
+.tpl-modern .tpl-modern-contact { font-size: 9.5pt; margin: 8px 0 16px; color: #444; }
+.tpl-modern-head {
+    font-size: 11pt; font-weight: bold; text-transform: uppercase;
+    border-left: 4px solid var(--biostart-red); padding-left: 8px;
+    margin-bottom: 6px; color: var(--biostart-black);
+}
+.skill-pill {
+    display: inline-block;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 2px 7px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    border-radius: 3px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
+
+/* 2. Academic & Research */
+.tpl-academic { font-family: 'Georgia', 'Times New Roman', serif; }
+.tpl-academic-name { font-size: 18pt; letter-spacing: 1px; margin-bottom: 2px; }
+.tpl-acad-head {
+    font-size: 10.5pt; font-weight: bold; text-transform: uppercase;
+    border-bottom: 1px solid #000; padding-bottom: 2px; margin-bottom: 6px;
+}
+
+/* 3. Industry Corporate */
+.tpl-corporate { font-family: 'Arial', sans-serif; }
+.tpl-corp-name { font-size: 20pt; font-weight: 800; text-transform: uppercase; margin: 0; }
+.tpl-corp-head {
+    font-size: 10pt; font-weight: bold; background: #eee;
+    padding: 3px 6px; text-transform: uppercase; margin-bottom: 6px;
+}
+
+/* 4. Compact Lab Specialist (2-Column) */
+.tpl-compact-grid { display: grid; grid-template-columns: 32% 65%; gap: 3%; }
+.tpl-compact-left { background: #f8f9fa; padding: 12px; border-right: 2px solid #ddd; }
+.tpl-compact-head { font-size: 9.5pt; font-weight: bold; text-transform: uppercase; border-bottom: 1.5px solid var(--biostart-red); padding-bottom: 2px; margin-bottom: 6px; }
+.tpl-compact-box { margin-bottom: 14px; }
 
 /* --- MODAL DIALOG --- */
 .modal-overlay {
@@ -628,13 +775,19 @@ h2 {
    STRICT PRINT STYLESHEET FOR CLEAN RESUME PRINTING ONLY
    ========================================================================== */
 @media print {
-    body {
+    html, body {
         background: #ffffff !important;
         color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
     }
 
     header, nav, #splash-overlay, .floating-widget, .modal-overlay,
-    .form-card, h2, .btn-action, .filter-header-bar, .canva-choice-grid {
+    .form-card, h2, .btn-action, .btn-action-sm, .filter-header-bar, .canva-choice-grid,
+    .template-selector-section, .preview-header-bar, p {
         display: none !important;
     }
 
@@ -654,13 +807,14 @@ h2 {
         width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
-        font-family: 'Times New Roman', Times, serif !important;
-        font-size: 12pt !important;
-        line-height: 1.4 !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
     @page {
         size: letter portrait;
-        margin: 0.75in;
+        margin: 0.6in;
     }
 }
