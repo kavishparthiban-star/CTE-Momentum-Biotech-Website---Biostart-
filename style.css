@@ -31,7 +31,7 @@ body {
 #splash-overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    background-color: var(--biostart-black);
+    background-color: var(--biostart-white);
     color: var(--biostart-white);
     z-index: 9999;
     display: flex;
@@ -44,8 +44,8 @@ body {
 }
 
 .splash-logo-img {
-    width: 140px;
-    height: 140px;
+    width: 560px;
+    height: 560px;
     object-fit: contain;
     margin-bottom: 16px;
     filter: drop-shadow(0 0 12px rgba(217, 56, 41, 0.6));
@@ -56,7 +56,7 @@ body {
     font-weight: 900;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: white;
+    color: black;
     line-height: 1;
 }
 
@@ -73,7 +73,7 @@ body {
 .splash-desc {
     max-width: 680px;
     font-size: 16px;
-    color: #ddd;
+    color: black;
     margin-bottom: 36px;
     line-height: 1.6;
 }
