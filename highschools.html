@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colleges & Universities - BIOSTART</title>
+    <title>Vocational High Schools - BIOSTART</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,8 +23,8 @@
     <nav>
         <a href="index.html" class="nav-btn">Home</a>
         <a href="survey.html" class="nav-btn">Take Survey</a>
-        <a href="highschools.html" class="nav-btn">Vocational High Schools</a>
-        <a href="colleges.html" class="nav-btn active">Colleges</a>
+        <a href="highschools.html" class="nav-btn active">Vocational High Schools</a>
+        <a href="colleges.html" class="nav-btn">Colleges</a>
         <a href="jobs.html" class="nav-btn">Internships & Jobs</a>
         <a href="opportunities.html" class="nav-btn">Opportunities</a>
         <a href="resume.html" class="nav-btn">Create Resume</a>
@@ -32,24 +32,30 @@
     </nav>
 
     <div class="container">
-        <h2>Colleges & Universities</h2>
-        <div class="canva-choice-grid">
-            <div class="choice-card selected" id="col-card-foryou" onclick="selectCollegeTab('foryou')">
-                <div class="choice-card-icon">🎓</div>
-                <div class="choice-card-title">FOR YOU: COLLEGES</div>
-                <div class="choice-card-desc">Personalized college recommendations based on your answers in the survey, including your preferences and work ethics.</div>
+        <h2>Public CTE High Schools</h2>
+        <p style="margin-bottom: 20px; font-weight: 700; color: #444;">For middle-school students in New Jersey, and their parents. Interested in getting an early educational background in biotechnology?</p>
+        <div class="hs-layout">
+            <div class="hs-sidebar">
+                <h3 style="font-size: 14px; text-transform: uppercase; font-weight: 900; margin-bottom: 10px; border-bottom: 2px solid var(--biostart-black); padding-bottom: 5px;">Filter by NJ County</h3>
+                <ul class="county-list">
+                    <li class="active" onclick="filterCounty('ALL', this)">[ALL COUNTIES]</li>
+                    <li onclick="filterCounty('Bergen', this)">BERGEN COUNTY</li>
+                    <li onclick="filterCounty('Burlington', this)">BURLINGTON COUNTY</li>
+                    <li onclick="filterCounty('Camden', this)">CAMDEN COUNTY</li>
+                    <li onclick="filterCounty('Gloucester', this)">GLOUCESTER COUNTY</li>
+                    <li onclick="filterCounty('Hunterdon', this)">HUNTERDON COUNTY</li>
+                    <li onclick="filterCounty('Middlesex', this)">MIDDLESEX COUNTY</li>
+                    <li onclick="filterCounty('Monmouth', this)">MONMOUTH COUNTY</li>
+                    <li onclick="filterCounty('Morris', this)">MORRIS COUNTY</li>
+                    <li onclick="filterCounty('Passaic', this)">PASSAIC COUNTY</li>
+                    <li onclick="filterCounty('Somerset', this)">SOMERSET COUNTY</li>
+                    <li onclick="filterCounty('Union', this)">UNION COUNTY</li>
+                </ul>
             </div>
-            <div class="choice-card" id="col-card-all" onclick="selectCollegeTab('all')">
-                <div class="choice-card-icon">🏛️</div>
-                <div class="choice-card-title">ALL COLLEGES</div>
-                <div class="choice-card-desc">Browse higher education institutions, degree programs, and campus options across NJ and nationwide.</div>
+            <div>
+                <div id="grid-hs" class="grid"></div>
             </div>
         </div>
-        <div class="filter-header-bar">
-            <span>FILTER BY AGE, SEASON</span>
-            <span>SEARCH HIGHER EDUCATION</span>
-        </div>
-        <div id="grid-col" class="grid"></div>
     </div>
 
     <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
