@@ -1,0 +1,640 @@
+/* ==========================================================================
+   BIOSTART CANVA DESIGN SYSTEM (RED #D93829, BLACK #0D0D0D, CREAM #FAF8F5)
+   ========================================================================== */
+:root {
+    --biostart-red: #D93829;
+    --biostart-red-hover: #b82a1d;
+    --biostart-black: #0d0d0d;
+    --biostart-white: #ffffff;
+    --biostart-bg: #FAF8F5;
+    --biostart-card-bg: #ffffff;
+    --biostart-gray-light: #f3f4f6;
+    --biostart-border: #0d0d0d;
+    --biostart-font-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--biostart-font-main);
+    background-color: var(--biostart-bg);
+    color: var(--biostart-black);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- SPLASH OVERLAY PAGE --- */
+#splash-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: var(--biostart-black);
+    color: var(--biostart-white);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.splash-logo-img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 12px rgba(217, 56, 41, 0.6));
+}
+
+.splash-title {
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: white;
+    line-height: 1;
+}
+
+.splash-sub {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    color: var(--biostart-red);
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 24px;
+}
+
+.splash-desc {
+    max-width: 680px;
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 36px;
+    line-height: 1.6;
+}
+
+.splash-btn {
+    background-color: var(--biostart-red);
+    color: white;
+    border: 3px solid white;
+    padding: 18px 46px;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 6px 0 white;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.splash-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 0 white;
+    background-color: var(--biostart-red-hover);
+}
+
+/* --- SITE HEADER & BRANDING --- */
+header {
+    background-color: var(--biostart-black);
+    color: var(--biostart-white);
+    border-bottom: 6px solid var(--biostart-red);
+    padding: 14px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.brand-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.brand-logo-img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-title h1 {
+    font-size: 26px; font-weight: 900;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--biostart-white); margin: 0; line-height: 1;
+}
+
+.brand-title p {
+    font-size: 11px; text-transform: uppercase;
+    letter-spacing: 1.5px; color: var(--biostart-red);
+    font-weight: 800; margin-top: 4px;
+}
+
+.user-pill {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.user-pill:hover {
+    background: #2a2a2a;
+    border-color: var(--biostart-red);
+}
+
+/* --- SITE NAVIGATION BAR --- */
+nav {
+    background-color: var(--biostart-black);
+    border-bottom: 1px solid #222;
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0 20px;
+}
+
+nav a.nav-btn {
+    background: none;
+    border: none;
+    color: var(--biostart-white);
+    padding: 16px 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 4px solid transparent;
+    text-decoration: none;
+    display: inline-block;
+}
+
+nav a.nav-btn:hover, nav a.nav-btn.active {
+    color: var(--biostart-red);
+    border-bottom-color: var(--biostart-red);
+    background-color: #161616;
+}
+
+/* --- MAIN CONTAINER & PAGES --- */
+.container {
+    max-width: 1280px;
+    margin: 28px auto;
+    padding: 0 24px;
+    min-height: 75vh;
+}
+
+/* --- CANVA HERO BANNER --- */
+.hero-card {
+    background: white;
+    border: 3px solid var(--biostart-black);
+    border-radius: 12px;
+    padding: 42px 32px;
+    text-align: center;
+    box-shadow: 0 8px 0 var(--biostart-black);
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.hero-title {
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--biostart-black);
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.hero-tagline {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--biostart-red);
+    text-transform: uppercase;
+    margin-top: 28px;
+}
+
+.arrow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--biostart-red);
+    color: white;
+    border: 3px solid var(--biostart-black);
+    padding: 16px 36px;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0 4px 0 var(--biostart-black);
+    transition: transform 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+}
+
+.arrow-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 0 var(--biostart-black);
+    background-color: var(--biostart-red-hover);
+}
+
+/* --- CANVA VISUAL CHOICE CARDS --- */
+.canva-choice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .canva-choice-grid { grid-template-columns: 1fr; }
+}
+
+.choice-card {
+    background: white;
+    border: 3px solid var(--biostart-black);
+    border-radius: 10px;
+    padding: 28px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 6px 0 var(--biostart-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.choice-card:hover, .choice-card.selected {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 0 var(--biostart-red);
+    border-color: var(--biostart-red);
+}
+
+.choice-card-icon {
+    font-size: 42px;
+    margin-bottom: 14px;
+}
+
+.choice-card-title {
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: var(--biostart-black);
+}
+
+.choice-card-desc {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.45;
+}
+
+/* --- HEADINGS & FILTER HEADERS --- */
+h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--biostart-black);
+    margin-bottom: 18px;
+    border-left: 6px solid var(--biostart-red);
+    padding-left: 14px;
+}
+
+.filter-header-bar {
+    background: var(--biostart-black);
+    color: white;
+    padding: 10px 18px;
+    font-weight: 900;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- CARDS GRID LAYOUT --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border: 2px solid var(--biostart-black);
+    border-radius: 8px;
+    padding: 22px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 0 var(--biostart-black);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 0 var(--biostart-black);
+}
+
+.card-tag {
+    background-color: var(--biostart-black);
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    width: fit-content;
+}
+
+.card-title {
+    font-size: 17px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--biostart-black);
+}
+
+.card-body {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 16px;
+    line-height: 1.45;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #ddd;
+}
+
+.btn-action {
+    background: var(--biostart-black);
+    color: white;
+    border: none;
+    padding: 9px 16px;
+    font-weight: 800;
+    font-size: 11px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+    text-decoration: none;
+}
+
+.btn-action:hover {
+    background: var(--biostart-red);
+}
+
+.like-heart {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.2s;
+    user-select: none;
+}
+
+.like-heart.liked {
+    color: var(--biostart-red);
+}
+
+/* --- CTE HIGH SCHOOL SIDEBAR --- */
+.hs-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 800px) {
+    .hs-layout { grid-template-columns: 1fr; }
+}
+
+.hs-sidebar {
+    background: white;
+    border: 2px solid var(--biostart-black);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 0 var(--biostart-black);
+    height: fit-content;
+}
+
+.county-list {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.county-list li {
+    padding: 8px 12px;
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    margin-bottom: 4px;
+}
+
+.county-list li:hover, .county-list li.active {
+    background: var(--biostart-red);
+    color: white;
+    border-color: var(--biostart-black);
+}
+
+/* --- RESUME & PROFILE FORMS --- */
+.resume-grid, .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 850px) {
+    .resume-grid, .profile-grid { grid-template-columns: 1fr; }
+}
+
+.form-card {
+    background: white;
+    border: 3px solid var(--biostart-black);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 6px 0 var(--biostart-black);
+}
+
+.resume-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 14px;
+    border: 2px solid var(--biostart-black);
+    border-radius: 4px;
+    font-family: var(--biostart-font-main);
+    font-size: 13px;
+    background: white;
+}
+
+/* RESUME DISPLAY PREVIEW BOX IN APP */
+.resume-preview-container {
+    background: white;
+    border: 2px solid var(--biostart-black);
+    padding: 36px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-height: 520px;
+    position: relative;
+}
+
+.dna-accent-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+}
+
+/* --- MODAL DIALOG --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-card {
+    background: white;
+    border: 3px solid var(--biostart-black);
+    padding: 32px;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 8px;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 26px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+/* --- FLOATING ASSISTANT WIDGETS --- */
+.floating-widget {
+    position: fixed;
+    bottom: 20px;
+    z-index: 1000;
+    background: var(--biostart-black);
+    color: white;
+    border: 2px solid var(--biostart-red);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.chatbot-widget { right: 20px; width: 310px; }
+.spotify-widget { left: 20px; width: 300px; }
+
+@media (max-width: 700px) {
+    .spotify-widget { display: none; }
+}
+
+.widget-header {
+    background: var(--biostart-red);
+    padding: 10px 16px;
+    font-weight: 900;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.widget-body {
+    padding: 14px;
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    background: #111;
+}
+
+.widget-body.open { display: block; }
+
+.chat-msg {
+    margin-bottom: 10px;
+    font-size: 12px;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.chat-bot { background: #222; color: #fff; border-left: 3px solid var(--biostart-red); }
+.chat-user { background: var(--biostart-red); color: #fff; text-align: right; }
+
+/* ==========================================================================
+   STRICT PRINT STYLESHEET FOR CLEAN RESUME PRINTING ONLY
+   ========================================================================== */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    header, nav, #splash-overlay, .floating-widget, .modal-overlay,
+    .form-card, h2, .btn-action, .filter-header-bar, .canva-choice-grid {
+        display: none !important;
+    }
+
+    .container, .resume-grid, .resume-preview-container {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: #ffffff !important;
+    }
+
+    #printable-resume {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-family: 'Times New Roman', Times, serif !important;
+        font-size: 12pt !important;
+        line-height: 1.4 !important;
+    }
+
+    @page {
+        size: letter portrait;
+        margin: 0.75in;
+    }
+}

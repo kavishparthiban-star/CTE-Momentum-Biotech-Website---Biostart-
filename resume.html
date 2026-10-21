@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Resume - BIOSTART</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a class="brand-box" href="index.html">
+            <img src="logo.png" alt="BIOSTART Logo" class="brand-logo-img">
+            <div class="brand-title">
+                <h1>BIOSTART</h1>
+                <p>Great Resources, Stat</p>
+            </div>
+        </a>
+        <a class="user-pill" href="profile.html">
+            👤 <span id="user-greeting">Guest Account</span>
+        </a>
+    </header>
+
+    <nav>
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="survey.html" class="nav-btn">Take Survey</a>
+        <a href="highschools.html" class="nav-btn">Vocational High Schools</a>
+        <a href="colleges.html" class="nav-btn">Colleges</a>
+        <a href="jobs.html" class="nav-btn">Internships & Jobs</a>
+        <a href="opportunities.html" class="nav-btn">Opportunities</a>
+        <a href="resume.html" class="nav-btn active">Create Resume</a>
+        <a href="profile.html" class="nav-btn">Account Profile</a>
+    </nav>
+
+    <div class="container">
+        <h2>Create Your Resume</h2>
+        <div class="resume-grid">
+            <div class="form-card">
+                <h3 style="font-size: 16px; text-transform: uppercase; font-weight: 900; margin-bottom: 12px;">🧬 Resume Template Inputs</h3>
+                <input type="text" id="res-name" class="resume-field" placeholder="Full Name" value="Alex Smith" oninput="updateResume()">
+                <input type="text" id="res-contact" class="resume-field" placeholder="City, State | Phone | Email | LinkedIn" value="Denville, NJ | (973) 555-0199 | alex.smith@mcvts.org" oninput="updateResume()">
+                <input type="text" id="res-school" class="resume-field" placeholder="School Name & Grad Year" value="Morris County School of Technology - Expected Grad: June 2027" oninput="updateResume()">
+                <textarea id="res-courses" class="resume-field" rows="3" placeholder="Relevant Coursework" oninput="updateResume()">Biotechnology I, Organic Chemistry, AP Biology, Bioinformatics</textarea>
+                <textarea id="res-skills" class="resume-field" rows="3" placeholder="Technical Skills & Certifications" oninput="updateResume()">Micropipetting, Gel Electrophoresis, PCR Amplification, Python, Excel</textarea>
+                <button class="btn-action" onclick="printResumeOnly()" style="padding: 12px 20px; font-size: 12px;">Export / Print PDF 🖨️</button>
+            </div>
+            <div>
+                <h3 style="font-size: 16px; text-transform: uppercase; font-weight: 900; margin-bottom: 12px;">📄 Live Document Preview</h3>
+                <div class="resume-preview-container">
+                    <div id="printable-resume"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

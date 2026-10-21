@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Survey - BIOSTART</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a class="brand-box" href="index.html">
+            <img src="logo.png" alt="BIOSTART Logo" class="brand-logo-img">
+            <div class="brand-title">
+                <h1>BIOSTART</h1>
+                <p>Great Resources, Stat</p>
+            </div>
+        </a>
+        <a class="user-pill" href="profile.html">
+            👤 <span id="user-greeting">Guest Account</span>
+        </a>
+    </header>
+
+    <nav>
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="survey.html" class="nav-btn active">Take Survey</a>
+        <a href="highschools.html" class="nav-btn">Vocational High Schools</a>
+        <a href="colleges.html" class="nav-btn">Colleges</a>
+        <a href="jobs.html" class="nav-btn">Internships & Jobs</a>
+        <a href="opportunities.html" class="nav-btn">Opportunities</a>
+        <a href="resume.html" class="nav-btn">Create Resume</a>
+        <a href="profile.html" class="nav-btn">Account Profile</a>
+    </nav>
+
+    <div class="container">
+        <h2>Personalized Matching Survey</h2>
+        <div class="form-card" style="max-width: 700px;">
+            <p style="margin-bottom: 20px; font-weight: 700; font-size: 14px;">Complete this survey to calculate tailored recommendations across high school academies, colleges, biotech internships, and scholarship opportunities!</p>
+            <form id="survey-form" onsubmit="handleSurveySubmit(event)">
+                <div style="margin-bottom: 16px;">
+                    <label style="display:block; font-weight:900; text-transform:uppercase; font-size:12px; margin-bottom:6px;">What New Jersey county do you live in?</label>
+                    <select id="survey-county" class="resume-field" required>
+                        <option value="">Select County...</option>
+                        <option value="Bergen">Bergen County</option>
+                        <option value="Burlington">Burlington County</option>
+                        <option value="Camden">Camden County</option>
+                        <option value="Gloucester">Gloucester County</option>
+                        <option value="Hunterdon">Hunterdon County</option>
+                        <option value="Middlesex">Middlesex County</option>
+                        <option value="Monmouth">Monmouth County</option>
+                        <option value="Morris" selected>Morris County</option>
+                        <option value="Passaic">Passaic County</option>
+                        <option value="Somerset">Somerset County</option>
+                        <option value="Union">Union County</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <label style="display:block; font-weight:900; text-transform:uppercase; font-size:12px; margin-bottom:6px;">Your Town/City:</label>
+                    <input type="text" id="survey-town" class="resume-field" value="Denville" required>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display:block; font-weight:900; text-transform:uppercase; font-size:12px; margin-bottom:6px;">Current Student Level:</label>
+                    <select id="survey-level" class="resume-field" required>
+                        <option value="Middle School">Middle School (Grades 6-8)</option>
+                        <option value="High School" selected>High School (Grades 9-12)</option>
+                        <option value="College Undergrad">College Undergraduate</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-action" style="padding: 12px 24px; font-size: 13px;">Submit & Generate My Matches ►</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
