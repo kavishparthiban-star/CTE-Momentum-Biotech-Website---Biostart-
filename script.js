@@ -79,7 +79,9 @@ window.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('grid-col')) renderColleges();
     if (document.getElementById('grid-jobs')) renderJobs();
     if (document.getElementById('grid-opp')) renderOpportunities();
-    if (document.getElementById('printable-resume')) updateResume();
+    if (document.getElementById('printable-resume')) {
+        loadSampleResumeData();
+    }
     if (document.getElementById('saved-grid')) renderSaved();
     if (document.getElementById('prof-fname')) loadProfileFormData();
 });
@@ -238,38 +240,366 @@ function handleSurveySubmit(e) {
     window.location.href = 'highschools.html';
 }
 
-/* --- RESUME BUILDER --- */
-function updateResume() {
-    const name = document.getElementById('res-name')?.value || 'Alex Smith';
-    const contact = document.getElementById('res-contact')?.value || 'Denville, NJ | (973) 555-0199 | alex.smith@mcvts.org';
-    const school = document.getElementById('res-school')?.value || 'Morris County School of Technology - Expected Grad: June 2027';
-    const courses = document.getElementById('res-courses')?.value || 'Biotechnology I, Organic Chemistry, AP Biology, Bioinformatics';
-    const skills = document.getElementById('res-skills')?.value || 'Micropipetting, Gel Electrophoresis, PCR Amplification, Python, Excel';
+/* ==========================================================================
+   UPDATED MULTI-TEMPLATE & PROFESSIONAL RESUME BUILDER
+   ========================================================================== */
+let currentResumeTemplate = 'modern';
 
-    const resumeBox = document.getElementById('printable-resume');
-    if (resumeBox) {
-        resumeBox.innerHTML = `
-            <div class="dna-accent-header">
-                <div>
-                    <h1 style="font-size:22pt; margin:0; text-transform:uppercase; font-weight:bold; letter-spacing:1px;">${name}</h1>
-                    <p style="font-size:10pt; margin-top:3px; color:#333;">${contact}</p>
-                </div>
-                <div style="font-size:24pt;">🧬</div>
-            </div>
-            <div style="margin-bottom:16px;">
-                <h3 style="font-size:11pt; text-transform:uppercase; border-bottom:1px solid #000; padding-bottom:3px; margin-bottom:8px; font-weight:bold;">EDUCATION</h3>
-                <div style="font-size:10.5pt; font-weight:bold;">${school}</div>
-                <div style="font-size:10pt; margin-top:3px;"><em>Relevant Coursework:</em> ${courses}</div>
-            </div>
-            <div>
-                <h3 style="font-size:11pt; text-transform:uppercase; border-bottom:1px solid #000; padding-bottom:3px; margin-bottom:8px; font-weight:bold;">TECHNICAL SKILLS & CERTIFICATIONS</h3>
-                <div style="font-size:10pt;">${skills}</div>
-            </div>`;
-    }
+function selectTemplate(templateKey) {
+    currentResumeTemplate = templateKey;
+    document.querySelectorAll('.template-card').forEach(card => card.classList.remove('selected'));
+    const selectedCard = document.getElementById(`tpl-card-${templateKey}`);
+    if (selectedCard) selectedCard.classList.add('selected');
+    
+    const labelMap = {
+        'modern': 'Modern Biotech',
+        'academic': 'Academic & Research',
+        'corporate': 'Industry Corporate',
+        'compact': 'Compact Lab Specialist'
+    };
+    const labelEl = document.getElementById('active-template-label');
+    if (labelEl) labelEl.innerText = labelMap[templateKey] || 'Modern Biotech';
+
+    updateResume();
+}
+
+function loadSampleResumeData() {
+    if (document.getElementById('res-name')) document.getElementById('res-name').value = "Alex M. Smith";
+    if (document.getElementById('res-title')) document.getElementById('res-title').value = "Biotechnology Student & Research Assistant";
+    if (document.getElementById('res-email')) document.getElementById('res-email').value = "alex.smith@mcvts.org";
+    if (document.getElementById('res-phone')) document.getElementById('res-phone').value = "(973) 555-0199";
+    if (document.getElementById('res-location')) document.getElementById('res-location').value = "Denville, NJ 07834";
+    if (document.getElementById('res-linkedin')) document.getElementById('res-linkedin').value = "linkedin.com/in/alexsmith-biotech";
+    if (document.getElementById('res-summary')) document.getElementById('res-summary').value = "Motivated Biotechnology Academy student with 2+ years of hands-on laboratory experience in molecular biology, PCR analysis, and bioinformatics. Passionate about pursuing undergraduate research in bioengineering and pharmaceutical sciences.";
+    if (document.getElementById('res-school')) document.getElementById('res-school').value = "Morris County School of Technology";
+    if (document.getElementById('res-grad')) document.getElementById('res-grad').value = "Expected Grad: June 2027";
+    if (document.getElementById('res-degree')) document.getElementById('res-degree').value = "Academy for Biotechnology Track";
+    if (document.getElementById('res-gpa')) document.getElementById('res-gpa').value = "GPA: 3.92 / 4.0 | High Honor Roll";
+    if (document.getElementById('res-courses')) document.getElementById('res-courses').value = "Biotechnology I & II, Organic Chemistry, Molecular Genetics, AP Biology, Cell Culture, Bioinformatics";
+    if (document.getElementById('res-labskills')) document.getElementById('res-labskills').value = "Micropipetting, PCR Amplification, Gel Electrophoresis, Aseptic Cell Culture, DNA Extraction, Spectrophotometry";
+    if (document.getElementById('res-softskills')) document.getElementById('res-softskills').value = "Python, R, BLAST Database, PyMOL, Microsoft Excel (Data Analysis & Charting)";
+    if (document.getElementById('res-certs')) document.getElementById('res-certs').value = "Biotechnician Assistant Credential (BTEC), OSHA 10-Hour General Industry, CPR/AED Certified";
+    if (document.getElementById('res-job-title')) document.getElementById('res-job-title').value = "Student Research Assistant";
+    if (document.getElementById('res-job-org')) document.getElementById('res-job-org').value = "Rutgers Waksman Student Scholars Program";
+    if (document.getElementById('res-job-dates')) document.getElementById('res-job-dates').value = "Sep 2025 – Present";
+    if (document.getElementById('res-job-loc')) document.getElementById('res-job-loc').value = "Piscataway, NJ";
+    if (document.getElementById('res-job-desc')) document.getElementById('res-job-desc').value = "• Conducted DNA isolation and restriction enzyme digestion on bacterial plasmid samples.\n• Utilized BLAST bioinformatics tools to analyze cDNA sequencing results and submitted confirmed sequences to NCBI database.\n• Maintained meticulous digital laboratory notebooks adhering to GLP (Good Laboratory Practice) guidelines.";
+    if (document.getElementById('res-proj-title')) document.getElementById('res-proj-title').value = "HOSA Biotechnology Competition & Science Olympiad";
+    if (document.getElementById('res-proj-role')) document.getElementById('res-proj-role').value = "Team Lead | Oct 2024 – Present";
+    if (document.getElementById('res-proj-desc')) document.getElementById('res-proj-desc').value = "• Led a 4-student research team designing a microplastic bioremediation protocol using recombinant bacterial strains.\n• Authored research poster and presented at NJ State HOSA Leadership Conference, earning 2nd Place overall.";
+    if (document.getElementById('res-honors')) document.getElementById('res-honors').value = "• 2nd Place - NJ State HOSA Biotechnology Competition (2025)\n• National Honor Society Inductee (2024)\n• Morris County Scholar Athlete Award (2024)";
+
+    updateResume();
+}
+
+function clearResumeForm() {
+    const ids = ['res-name', 'res-title', 'res-email', 'res-phone', 'res-location', 'res-linkedin', 'res-summary', 'res-school', 'res-grad', 'res-degree', 'res-gpa', 'res-courses', 'res-labskills', 'res-softskills', 'res-certs', 'res-job-title', 'res-job-org', 'res-job-dates', 'res-job-loc', 'res-job-desc', 'res-proj-title', 'res-proj-role', 'res-proj-desc', 'res-honors'];
+    ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+    });
+    updateResume();
+}
+
+function formatBulletList(text) {
+    if (!text || !text.trim()) return '';
+    const lines = text.split('\n').filter(l => l.trim().length > 0);
+    const items = lines.map(line => {
+        let clean = line.replace(/^[•\-\*\s]+/, '').trim();
+        return `<li>${clean}</li>`;
+    }).join('');
+    return `<ul class="resume-bullet-list">${items}</ul>`;
+}
+
+function copyResumeText() {
+    const text = document.getElementById('printable-resume')?.innerText || '';
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Resume plain text copied to clipboard!");
+    }).catch(err => {
+        alert("Failed to copy text: " + err);
+    });
 }
 
 function printResumeOnly() {
     window.print();
+}
+
+function updateResume() {
+    const resumeBox = document.getElementById('printable-resume');
+    if (!resumeBox) return;
+
+    // Retrieve values
+    const name = document.getElementById('res-name')?.value.trim() || 'Alex M. Smith';
+    const title = document.getElementById('res-title')?.value.trim() || '';
+    const email = document.getElementById('res-email')?.value.trim() || 'alex.smith@mcvts.org';
+    const phone = document.getElementById('res-phone')?.value.trim() || '(973) 555-0199';
+    const location = document.getElementById('res-location')?.value.trim() || 'Denville, NJ';
+    const linkedin = document.getElementById('res-linkedin')?.value.trim() || '';
+
+    const summary = document.getElementById('res-summary')?.value.trim() || '';
+    const school = document.getElementById('res-school')?.value.trim() || '';
+    const grad = document.getElementById('res-grad')?.value.trim() || '';
+    const degree = document.getElementById('res-degree')?.value.trim() || '';
+    const gpa = document.getElementById('res-gpa')?.value.trim() || '';
+    const courses = document.getElementById('res-courses')?.value.trim() || '';
+
+    const labskills = document.getElementById('res-labskills')?.value.trim() || '';
+    const softskills = document.getElementById('res-softskills')?.value.trim() || '';
+    const certs = document.getElementById('res-certs')?.value.trim() || '';
+
+    const jobTitle = document.getElementById('res-job-title')?.value.trim() || '';
+    const jobOrg = document.getElementById('res-job-org')?.value.trim() || '';
+    const jobDates = document.getElementById('res-job-dates')?.value.trim() || '';
+    const jobLoc = document.getElementById('res-job-loc')?.value.trim() || '';
+    const jobDesc = document.getElementById('res-job-desc')?.value.trim() || '';
+
+    const projTitle = document.getElementById('res-proj-title')?.value.trim() || '';
+    const projRole = document.getElementById('res-proj-role')?.value.trim() || '';
+    const projDesc = document.getElementById('res-proj-desc')?.value.trim() || '';
+    const honors = document.getElementById('res-honors')?.value.trim() || '';
+
+    const contactParts = [email, phone, location, linkedin].filter(Boolean);
+
+    // 1. MODERN BIOTECH TEMPLATE
+    if (currentResumeTemplate === 'modern') {
+        resumeBox.innerHTML = `
+            <div class="tpl-modern">
+                <div class="tpl-modern-header">
+                    <div>
+                        <h1 class="tpl-name">${name}</h1>
+                        ${title ? `<div class="tpl-modern-title">${title}</div>` : ''}
+                    </div>
+                    <div class="tpl-dna-icon">🧬</div>
+                </div>
+                <div class="tpl-modern-contact">
+                    ${contactParts.join(' &nbsp;•&nbsp; ')}
+                </div>
+
+                ${summary ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-modern-head">Professional Summary</h3>
+                    <p class="tpl-p">${summary}</p>
+                </div>` : ''}
+
+                ${(school || degree) ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-modern-head">Education</h3>
+                    <div class="tpl-flex"><strong>${school}</strong><span>${grad}</span></div>
+                    <div><em>${degree}</em> ${gpa ? ` | ${gpa}` : ''}</div>
+                    ${courses ? `<div style="font-size:9.5pt; margin-top:4px;"><strong>Coursework:</strong> ${courses}</div>` : ''}
+                </div>` : ''}
+
+                ${(labskills || softskills || certs) ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-modern-head">Technical & Laboratory Skills</h3>
+                    ${labskills ? `<div style="margin-bottom:6px;"><strong>Wet Lab:</strong> ${labskills.split(',').map(s=>`<span class="skill-pill">${s.trim()}</span>`).join('')}</div>` : ''}
+                    ${softskills ? `<div style="margin-bottom:4px; font-size:9.5pt;"><strong>Software & Bioinformatics:</strong> ${softskills}</div>` : ''}
+                    ${certs ? `<div style="font-size:9.5pt;"><strong>Certifications:</strong> ${certs}</div>` : ''}
+                </div>` : ''}
+
+                ${(jobTitle || jobOrg) ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-modern-head">Research & Experience</h3>
+                    <div class="tpl-flex"><strong>${jobTitle}${jobOrg ? ` — ${jobOrg}` : ''}</strong><span>${jobDates}</span></div>
+                    ${jobLoc ? `<div style="font-size:9pt; color:#666;">${jobLoc}</div>` : ''}
+                    ${formatBulletList(jobDesc)}
+                </div>` : ''}
+
+                ${(projTitle || projRole) ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-modern-head">Projects & Leadership</h3>
+                    <div class="tpl-flex"><strong>${projTitle}</strong><span>${projRole}</span></div>
+                    ${formatBulletList(projDesc)}
+                </div>` : ''}
+
+                ${honors ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-modern-head">Honors & Achievements</h3>
+                    ${formatBulletList(honors)}
+                </div>` : ''}
+            </div>`;
+    }
+    // 2. ACADEMIC & RESEARCH TEMPLATE
+    else if (currentResumeTemplate === 'academic') {
+        resumeBox.innerHTML = `
+            <div class="tpl-academic">
+                <div style="text-align:center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 14px;">
+                    <h1 class="tpl-academic-name">${name.toUpperCase()}</h1>
+                    ${title ? `<div style="font-style:italic; font-size:11pt; margin-bottom:4px;">${title}</div>` : ''}
+                    <div style="font-size:9.5pt;">${contactParts.join(' | ')}</div>
+                </div>
+
+                ${summary ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-acad-head">RESEARCH STATEMENT</h3>
+                    <p class="tpl-p">${summary}</p>
+                </div>` : ''}
+
+                ${(school || degree) ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-acad-head">EDUCATION</h3>
+                    <div class="tpl-flex"><strong>${school}</strong><span>${grad}</span></div>
+                    <div><em>${degree}</em> ${gpa ? `— ${gpa}` : ''}</div>
+                    ${courses ? `<div style="font-size:9.5pt; margin-top:3px;"><em>Relevant Coursework:</em> ${courses}</div>` : ''}
+                </div>` : ''}
+
+                ${(labskills || softskills || certs) ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-acad-head">LABORATORY METHODOLOGY & SKILLS</h3>
+                    ${labskills ? `<div><strong>Laboratory Techniques:</strong> ${labskills}</div>` : ''}
+                    ${softskills ? `<div><strong>Computational & Data Analysis:</strong> ${softskills}</div>` : ''}
+                    ${certs ? `<div><strong>Certifications:</strong> ${certs}</div>` : ''}
+                </div>` : ''}
+
+                ${(jobTitle || jobOrg) ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-acad-head">RESEARCH & LABORATORY EXPERIENCE</h3>
+                    <div class="tpl-flex"><strong>${jobTitle}</strong><span>${jobDates}</span></div>
+                    <div><em>${jobOrg}${jobLoc ? `, ${jobLoc}` : ''}</em></div>
+                    ${formatBulletList(jobDesc)}
+                </div>` : ''}
+
+                ${(projTitle || projRole) ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-acad-head">ACADEMIC PROJECTS & LEADERSHIP</h3>
+                    <div class="tpl-flex"><strong>${projTitle}</strong><span>${projRole}</span></div>
+                    ${formatBulletList(projDesc)}
+                </div>` : ''}
+
+                ${honors ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-acad-head">HONORS & ACADEMIC AWARDS</h3>
+                    ${formatBulletList(honors)}
+                </div>` : ''}
+            </div>`;
+    }
+    // 3. INDUSTRY CORPORATE TEMPLATE
+    else if (currentResumeTemplate === 'corporate') {
+        resumeBox.innerHTML = `
+            <div class="tpl-corporate">
+                <div style="border-left: 5px solid var(--biostart-black); padding-left: 14px; margin-bottom: 16px;">
+                    <h1 class="tpl-corp-name">${name}</h1>
+                    ${title ? `<div style="font-size:12pt; font-weight:bold; color:var(--biostart-red);">${title}</div>` : ''}
+                    <div style="font-size:9.5pt; color:#444; margin-top:4px;">${contactParts.join('  •  ')}</div>
+                </div>
+
+                ${summary ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-corp-head">EXECUTIVE SUMMARY</h3>
+                    <p class="tpl-p">${summary}</p>
+                </div>` : ''}
+
+                ${(school || degree) ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-corp-head">EDUCATION</h3>
+                    <div class="tpl-flex"><strong>${school}</strong><span>${grad}</span></div>
+                    <div>${degree}${gpa ? ` (${gpa})` : ''}</div>
+                    ${courses ? `<div style="font-size:9.5pt; margin-top:2px;">Coursework: ${courses}</div>` : ''}
+                </div>` : ''}
+
+                ${(labskills || softskills || certs) ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-corp-head">CORE COMPETENCIES & CERTIFICATIONS</h3>
+                    ${labskills ? `<div>• <strong>Lab Techniques:</strong> ${labskills}</div>` : ''}
+                    ${softskills ? `<div>• <strong>Software & Tools:</strong> ${softskills}</div>` : ''}
+                    ${certs ? `<div>• <strong>Certifications:</strong> ${certs}</div>` : ''}
+                </div>` : ''}
+
+                ${(jobTitle || jobOrg) ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-corp-head">PROFESSIONAL EXPERIENCE</h3>
+                    <div class="tpl-flex"><strong>${jobTitle} | ${jobOrg}</strong><span>${jobDates}</span></div>
+                    ${formatBulletList(jobDesc)}
+                </div>` : ''}
+
+                ${(projTitle || projRole) ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-corp-head">PROJECTS & ACTIVITIES</h3>
+                    <div class="tpl-flex"><strong>${projTitle}</strong><span>${projRole}</span></div>
+                    ${formatBulletList(projDesc)}
+                </div>` : ''}
+
+                ${honors ? `
+                <div class="tpl-sec">
+                    <h3 class="tpl-corp-head">HONORS & RECOGNITIONS</h3>
+                    ${formatBulletList(honors)}
+                </div>` : ''}
+            </div>`;
+    }
+    // 4. COMPACT LAB SPECIALIST TEMPLATE (2-COLUMN)
+    else if (currentResumeTemplate === 'compact') {
+        resumeBox.innerHTML = `
+            <div class="tpl-compact">
+                <div style="border-bottom: 2px solid #000; padding-bottom: 8px; margin-bottom: 14px;">
+                    <h1 class="tpl-name" style="margin:0;">${name}</h1>
+                    ${title ? `<div style="font-size:11pt; font-weight:bold; color:var(--biostart-red);">${title}</div>` : ''}
+                </div>
+                <div class="tpl-compact-grid">
+                    <div class="tpl-compact-left">
+                        <div class="tpl-compact-box">
+                            <h4 class="tpl-compact-head">CONTACT</h4>
+                            <div style="font-size:9pt; line-height:1.5;">
+                                ${email ? `<div>📧 ${email}</div>` : ''}
+                                ${phone ? `<div>📞 ${phone}</div>` : ''}
+                                ${location ? `<div>📍 ${location}</div>` : ''}
+                                ${linkedin ? `<div>🔗 ${linkedin}</div>` : ''}
+                            </div>
+                        </div>
+
+                        ${(labskills || softskills || certs) ? `
+                        <div class="tpl-compact-box">
+                            <h4 class="tpl-compact-head">TECHNICAL SKILLS</h4>
+                            ${labskills ? `<div style="font-weight:bold; margin-bottom:2px;">Lab Techniques:</div><div style="margin-bottom:8px;">${labskills}</div>` : ''}
+                            ${softskills ? `<div style="font-weight:bold; margin-bottom:2px;">Software:</div><div style="margin-bottom:8px;">${softskills}</div>` : ''}
+                            ${certs ? `<div style="font-weight:bold; margin-bottom:2px;">Certifications:</div><div>${certs}</div>` : ''}
+                        </div>` : ''}
+
+                        ${courses ? `
+                        <div class="tpl-compact-box">
+                            <h4 class="tpl-compact-head">COURSEWORK</h4>
+                            <div style="font-size:9pt;">${courses}</div>
+                        </div>` : ''}
+
+                        ${honors ? `
+                        <div class="tpl-compact-box">
+                            <h4 class="tpl-compact-head">HONORS</h4>
+                            <div style="font-size:9pt;">${formatBulletList(honors)}</div>
+                        </div>` : ''}
+                    </div>
+
+                    <div class="tpl-compact-right">
+                        ${summary ? `
+                        <div class="tpl-sec">
+                            <h3 class="tpl-modern-head">PROFILE</h3>
+                            <p class="tpl-p">${summary}</p>
+                        </div>` : ''}
+
+                        ${(school || degree) ? `
+                        <div class="tpl-sec">
+                            <h3 class="tpl-modern-head">EDUCATION</h3>
+                            <div class="tpl-flex"><strong>${school}</strong><span>${grad}</span></div>
+                            <div><em>${degree}</em> ${gpa ? `(${gpa})` : ''}</div>
+                        </div>` : ''}
+
+                        ${(jobTitle || jobOrg) ? `
+                        <div class="tpl-sec">
+                            <h3 class="tpl-modern-head">LAB & WORK EXPERIENCE</h3>
+                            <div class="tpl-flex"><strong>${jobTitle}</strong><span>${jobDates}</span></div>
+                            <div><em>${jobOrg}</em></div>
+                            ${formatBulletList(jobDesc)}
+                        </div>` : ''}
+
+                        ${(projTitle || projRole) ? `
+                        <div class="tpl-sec">
+                            <h3 class="tpl-modern-head">PROJECTS & LEADERSHIP</h3>
+                            <div class="tpl-flex"><strong>${projTitle}</strong><span>${projRole}</span></div>
+                            ${formatBulletList(projDesc)}
+                        </div>` : ''}
+                    </div>
+                </div>
+            </div>`;
+    }
 }
 
 /* --- ACCOUNT PROFILE & SAVED LISTINGS --- */
