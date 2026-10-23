@@ -56,6 +56,14 @@ body {
     text-align: center;
     padding: 24px;
     overflow-y: auto;
+     background-image: 
+        radial-gradient(rgba(217, 56, 41, 0.12) 1.5px, transparent 1.5px), 
+        radial-gradient(rgba(13, 13, 13, 0.05) 1.5px, transparent 1.5px);
+    background-position: 0 0, 16px 16px;
+    background-size: 32px 32px;
+    background-attachment: fixed;
+    color: var(--biostart-black);
+    line-height: 1.5;
 }
 
 .splash-logo-img {
