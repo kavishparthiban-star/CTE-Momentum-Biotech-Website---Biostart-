@@ -48,7 +48,6 @@ body {
     height: 560px;
     object-fit: contain;
     margin-bottom: 16px;
-    filter: drop-shadow(0 0 12px rgba(217, 56, 41, 0.6));
 }
 
 .splash-title {
