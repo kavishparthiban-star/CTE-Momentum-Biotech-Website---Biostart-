@@ -1,6 +1,6 @@
 /* style.css */
 /* ==========================================================================
-   BIOSTART CANVA DESIGN SYSTEM (RED #D93829, BLACK #0D0D0D, CREAM #FAF8F5)
+   BIOSTART CANVA DESIGN SYSTEM (RED #D93829, BLACK #0D0D0D, SOFT PINK/CREAM)
    ========================================================================== */
 :root {
     --biostart-red: #D93829;
@@ -23,9 +23,23 @@
 body {
     font-family: var(--biostart-font-main);
     background-color: var(--biostart-bg);
+    /* SUBTLE GEOMETRIC DOT GRID PATTERN FOR SIDE MARGINS */
+    background-image: 
+        radial-gradient(rgba(217, 56, 41, 0.12) 1.5px, transparent 1.5px), 
+        radial-gradient(rgba(13, 13, 13, 0.05) 1.5px, transparent 1.5px);
+    background-position: 0 0, 16px 16px;
+    background-size: 32px 32px;
+    background-attachment: fixed;
     color: var(--biostart-black);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    position: relative;
+}
+
+@media (max-width: 1320px) {
+    body::before, body::after {
+        display: none;
+    }
 }
 
 /* --- SPLASH OVERLAY PAGE --- */
@@ -112,6 +126,8 @@ header {
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
+    position: relative;
+    z-index: 10;
 }
 
 .brand-box {
@@ -173,6 +189,8 @@ nav {
     margin: 20px auto 0;
     max-width: 1232px;
     box-shadow: 0 4px 0 var(--biostart-black);
+    position: relative;
+    z-index: 10;
 }
 
 nav a.nav-btn {
@@ -203,11 +221,14 @@ nav a.nav-btn:hover, nav a.nav-btn.active {
     margin: 28px auto;
     padding: 0 24px;
     min-height: 75vh;
+    position: relative;
+    z-index: 1;
 }
 
-/* --- CANVA HERO BANNER --- */
+/* --- CANVA HERO BANNER (PURE CSS LAYERED PATTERN) --- */
 .hero-card {
-    background: white;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 248, 245, 0.98) 100%);
     border: 3px solid var(--biostart-black);
     border-radius: 12px;
     padding: 42px 32px;
@@ -215,6 +236,7 @@ nav a.nav-btn:hover, nav a.nav-btn.active {
     box-shadow: 0 8px 0 var(--biostart-black);
     margin-bottom: 32px;
     position: relative;
+    overflow: hidden;
 }
 
 .hero-title {
@@ -273,7 +295,7 @@ nav a.nav-btn:hover, nav a.nav-btn.active {
 }
 
 .choice-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.98);
     border: 3px solid var(--biostart-black);
     border-radius: 10px;
     padding: 28px;
@@ -344,7 +366,7 @@ h2 {
 }
 
 .card {
-    background: white;
+    background: rgba(255, 255, 255, 0.98);
     border: 2px solid var(--biostart-black);
     border-radius: 8px;
     padding: 22px;
@@ -439,7 +461,7 @@ h2 {
 }
 
 .hs-sidebar {
-    background: white;
+    background: rgba(255, 255, 255, 0.98);
     border: 2px solid var(--biostart-black);
     padding: 20px;
     border-radius: 8px;
@@ -481,7 +503,7 @@ h2 {
 }
 
 .form-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.98);
     border: 3px solid var(--biostart-black);
     padding: 24px;
     border-radius: 8px;
@@ -499,9 +521,9 @@ h2 {
     background: white;
 }
 
-/* RESUME DISPLAY PREVIEW BOX IN APP */
+/* RESUME DISPLAY PREVIEW BOX WITH PURE CSS CLEAN BACKGROUND */
 .resume-preview-container {
-    background: white;
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
     border: 2px solid var(--biostart-black);
     padding: 36px;
     border-radius: 0 0 8px 8px;
@@ -512,7 +534,7 @@ h2 {
 
 /* --- RESUME BUILDER & TEMPLATES CANVA STYLES --- */
 .template-selector-section {
-    background: white;
+    background: rgba(255, 255, 255, 0.98);
     border: 3px solid var(--biostart-black);
     padding: 20px;
     border-radius: 8px;
@@ -623,7 +645,7 @@ h2 {
 
 /* RESUME DOCUMENT TEMPLATE OUTPUT STYLES */
 #printable-resume {
-    background: #ffffff;
+    background: transparent;
     color: #111111;
     font-size: 10pt;
     line-height: 1.4;
@@ -688,7 +710,7 @@ h2 {
 
 /* 4. Compact Lab Specialist (2-Column) */
 .tpl-compact-grid { display: grid; grid-template-columns: 32% 65%; gap: 3%; }
-.tpl-compact-left { background: #f8f9fa; padding: 12px; border-right: 2px solid #ddd; }
+.tpl-compact-left { background: rgba(248, 249, 250, 0.9); padding: 12px; border-right: 2px solid #ddd; }
 .tpl-compact-head { font-size: 9.5pt; font-weight: bold; text-transform: uppercase; border-bottom: 1.5px solid var(--biostart-red); padding-bottom: 2px; margin-bottom: 6px; }
 .tpl-compact-box { margin-bottom: 14px; }
 
@@ -783,12 +805,17 @@ h2 {
 @media print {
     html, body {
         background: #ffffff !important;
+        background-image: none !important;
         color: #000000 !important;
         margin: 0 !important;
         padding: 0 !important;
         width: 100% !important;
         height: auto !important;
         overflow: visible !important;
+    }
+
+    body::before, body::after {
+        display: none !important;
     }
 
     header, nav, #splash-overlay, .floating-widget, .modal-overlay,
@@ -806,6 +833,7 @@ h2 {
         border: none !important;
         box-shadow: none !important;
         background: #ffffff !important;
+        background-image: none !important;
     }
 
     #printable-resume {
