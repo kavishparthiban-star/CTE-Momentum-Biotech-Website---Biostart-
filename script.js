@@ -2,52 +2,67 @@
    BIOSTART GLOBAL STATE & COMPREHENSIVE DATASET
    ========================================================================== */
 
+const VALID_NJ_TOWNS = [
+    "denville", "morristown", "parsippany", "hackensack", "edison", "newark", "jersey city",
+    "paterson", "elizabeth", "toms river", "trenton", "clifton", "camden", "passaic",
+    "union", "bayonne", "east orange", "vineland", "new brunswick", "hoboken", "west new york",
+    "perth amboy", "plainfield", "sayreville", "bridgewater", "cherry hill", "wayne", "freehold",
+    "randolph", "dover", "rockaway", "boonton", "madison", "chatham", "mendham", "montville",
+    "glassboro", "piscataway", "princeton", "atlantic city", "montclair", "westfield", "fort lee",
+    "fair lawn", "ridgewood", "paramus", "mahwah", "englewood", "deptford", "hamilton", "woodbridge",
+    "middletown", "brick", "old bridge", "gloucester", "somerville", "flemington", "hackettstown",
+    "belvidere", "secaucus", "nutley", "bloomfield", "kearny", "linden", "rahway", "cranford",
+    "summit", "livingston", "millburn", "west orange", "verona", "caldwell", "roseland", "wharton",
+    "roxbury", "jefferson", "kinnelon", "lincoln park", "long valley", "chester", "peapack", "gladstone"
+];
+
 const HIGH_SCHOOLS = [
-    { id: 'hs1', name: 'Bergen County Academies', county: 'Bergen', url: 'https://www.bergen.org/site/Defaulta575.html?PageID=4583', notes: 'Top specialized high school in Hackensack; middle schoolers apply during 8th grade.' },
-    { id: 'hs2', name: 'Burlington County Institute of Technology', county: 'Burlington', url: 'https://www.bcit.cc/o/bcit/page/biomedical-science', notes: 'Biomedical Science academy track.' },
-    { id: 'hs3', name: 'Camden County Technical Schools', county: 'Camden', url: 'https://www.ccts.org/apps/pages/index.jsp?uREC_ID=260569&type=d&termREC_ID=&pREC_ID=1157907', notes: 'Career technical biological sciences.' },
-    { id: 'hs4', name: 'Gloucester County Institute of Technology', county: 'Gloucester', url: 'https://www.gcit.org/admissions/career-programs/academy-of-biological-sciences', notes: 'Academy of Biological Sciences.' },
-    { id: 'hs5', name: 'Hunterdon County Vocational School District', county: 'Hunterdon', url: 'https://bsa.hcvsd.org/apps/pages/index.jsp?uREC_ID=412789&type=d', notes: 'Biomedical Sciences Academy program.' },
-    { id: 'hs6', name: 'Middlesex County Magnet Schools', county: 'Middlesex', url: 'https://www.mcmsnj.net/innovation-magnet-school/program-3-clone-clone', notes: 'Innovation Magnet School STEM program.' },
-    { id: 'hs7', name: 'Biotechnology High School', county: 'Monmouth', url: 'https://www.bths.mcvsd.org/', notes: 'Full-time specialized biotechnology high school in Freehold.' },
-    { id: 'hs8', name: 'Somerset County Vocational and Technical School', county: 'Somerset', url: 'https://www.scvths.org/programs/career-technical-programs/program-overviews-printable', notes: 'Career technical biological science programs.' },
-    { id: 'hs9', name: 'MCST Biotech Academy', county: 'Morris', url: 'https://www.mcvts.org/mcvsd-programs/full-time-academies/biotechnology', notes: 'Academy for Biotechnology at Morris County School of Technology in Denville.' },
-    { id: 'hs10', name: 'Passaic County Technical Institute', county: 'Passaic', url: 'https://pcti.pctvs.org/o/pcti/page/new-for-23-24-biotechnology-early-college-option', notes: 'Biotechnology early college option.' },
-    { id: 'hs11', name: 'Union County Magnet High School', county: 'Union', url: 'https://mhs.ucvts.org/', notes: 'Magnet high school for science, math, and technology.' }
+    { id: 'hs1', name: 'Bergen County Academies', county: 'Bergen', town: 'Hackensack', ageMin: 13, season: 'Fall', url: 'https://www.bergen.org/site/Defaulta575.html?PageID=4583', notes: 'Top specialized high school in Hackensack; middle schoolers apply during 8th grade.' },
+    { id: 'hs2', name: 'Burlington County Institute of Technology', county: 'Burlington', town: 'Westampton', ageMin: 13, season: 'Fall', url: 'https://www.bcit.cc/o/bcit/page/biomedical-science', notes: 'Biomedical Science academy track.' },
+    { id: 'hs3', name: 'Camden County Technical Schools', county: 'Camden', town: 'Sicklerville', ageMin: 13, season: 'Fall', url: 'https://www.ccts.org/apps/pages/index.jsp?uREC_ID=260569&type=d&termREC_ID=&pREC_ID=1157907', notes: 'Career technical biological sciences.' },
+    { id: 'hs4', name: 'Gloucester County Institute of Technology', county: 'Gloucester', town: 'Sewell', ageMin: 13, season: 'Fall', url: 'https://www.gcit.org/admissions/career-programs/academy-of-biological-sciences', notes: 'Academy of Biological Sciences.' },
+    { id: 'hs5', name: 'Hunterdon County Vocational School District', county: 'Hunterdon', town: 'Flemington', ageMin: 13, season: 'Fall', url: 'https://bsa.hcvsd.org/apps/pages/index.jsp?uREC_ID=412789&type=d', notes: 'Biomedical Sciences Academy program.' },
+    { id: 'hs6', name: 'Middlesex County Magnet Schools', county: 'Middlesex', town: 'Edison', ageMin: 13, season: 'Fall', url: 'https://www.mcmsnj.net/innovation-magnet-school/program-3-clone-clone', notes: 'Innovation Magnet School STEM program in Edison.' },
+    { id: 'hs7', name: 'Biotechnology High School', county: 'Monmouth', town: 'Freehold', ageMin: 13, season: 'Fall', url: 'https://www.bths.mcvsd.org/', notes: 'Full-time specialized biotechnology high school in Freehold.' },
+    { id: 'hs8', name: 'Somerset County Vocational and Technical School', county: 'Somerset', town: 'Bridgewater', ageMin: 13, season: 'Fall', url: 'https://www.scvths.org/programs/career-technical-programs/program-overviews-printable', notes: 'Career technical biological science programs in Bridgewater.' },
+    { id: 'hs9', name: 'MCST Biotech Academy', county: 'Morris', town: 'Denville', ageMin: 13, season: 'Fall', url: 'https://www.mcvts.org/mcvsd-programs/full-time-academies/biotechnology', notes: 'Academy for Biotechnology at Morris County School of Technology in Denville.' },
+    { id: 'hs10', name: 'Passaic County Technical Institute', county: 'Passaic', town: 'Wayne', ageMin: 13, season: 'Fall', url: 'https://pcti.pctvs.org/o/pcti/page/new-for-23-24-biotechnology-early-college-option', notes: 'Biotechnology early college option in Wayne.' },
+    { id: 'hs11', name: 'Union County Magnet High School', county: 'Union', town: 'Scotch Plains', ageMin: 13, season: 'Fall', url: 'https://mhs.ucvts.org/', notes: 'Magnet high school for science, math, and technology.' }
 ];
 
 const COLLEGES = [
-    { id: 'col1', name: 'Rutgers Biotechnology Program', location: 'New Brunswick, NJ', acceptance: '~50%+', cost: '$16,000/yr', notes: 'Large campus (46k+ students) with guaranteed 4-year housing and biotech track.', url: 'https://biotech.rutgers.edu/' },
-    { id: 'col2', name: 'Middlesex College', location: 'Edison, NJ', acceptance: 'Open Enrollment', cost: '$4,500/yr', notes: 'Biotechnology A.S. degree; commuter campus.', url: 'https://middlesexcollege.edu/' },
-    { id: 'col3', name: 'New Jersey Institute of Technology (NJIT)', location: 'Newark, NJ', acceptance: 'Selective', cost: '$18,000/yr', notes: 'Urban STEM institute with bioengineering and bioinformatics majors.', url: 'https://www.njit.edu/' },
-    { id: 'col4', name: 'County College of Morris (CCM)', location: 'Randolph, NJ', acceptance: 'Open Enrollment', cost: '$5,000/yr', notes: 'Biology Pre-Professional Biotechnology A.S. Degree track.', url: 'https://www.ccm.edu/programs/biology/' },
-    { id: 'col5', name: 'Kean University', location: 'Union, NJ', acceptance: 'Safety (50%+)', cost: '$12,500/yr', notes: '5-year B.S./M.S. STEM Biotechnology and Molecular Biology programs.', url: 'https://www.kean.edu/' },
-    { id: 'col6', name: 'Rowan University', location: 'Glassboro, NJ', acceptance: 'Selective', cost: '$14,000/yr', notes: 'Offers Translational Biomedical Sciences, Molecular Cellular Biology, & BME.', url: 'https://admissions.rowan.edu/' },
-    { id: 'col7', name: 'William Paterson University', location: 'Wayne, NJ', acceptance: 'Safety (50%+)', cost: '$13,800/yr', notes: 'BS in Biotechnology with modern laboratory research facilities.', url: 'https://www.wpunj.edu/' },
-    { id: 'col8', name: 'Saint Peter\'s University', location: 'Jersey City, NJ', acceptance: 'Safety (50%+)', cost: '$38,000/yr', notes: 'Applied Biotechnology & Biochemistry options.', url: 'https://www.saintpeters.edu/' },
-    { id: 'col9', name: 'Princeton University', location: 'Princeton, NJ', acceptance: '~4.0%', cost: '~$80,000 before aid', notes: 'World-renowned Molecular Biology research program.', url: 'https://molbio.princeton.edu/' },
-    { id: 'col10', name: 'Massachusetts Institute of Technology (MIT)', location: 'Cambridge, MA', acceptance: '~4.6%', cost: '$92,760 before aid', notes: 'Premier Biological Engineering degree program.', url: 'https://www.mit.edu/' },
-    { id: 'col11', name: 'Stanford University', location: 'Silicon Valley, CA', acceptance: '~3.6%', cost: '$97,545 before aid', notes: 'Top bioengineering research university.', url: 'https://www.stanford.edu/' },
-    { id: 'col12', name: 'Johns Hopkins University', location: 'Baltimore, MD', acceptance: '~7-8%', cost: '~$95,000 before aid', notes: 'Premier medical and biomedical research university.', url: 'https://www.jhu.edu/' }
+    { id: 'col1', name: 'Rutgers Biotechnology Program', location: 'New Brunswick, NJ', town: 'New Brunswick', isNJ: true, ageMin: 16, season: 'All Seasons', acceptance: '~50%+', cost: '$16,000/yr', notes: 'Large campus (46k+ students) with guaranteed 4-year housing and biotech track.', url: 'https://biotech.rutgers.edu/' },
+    { id: 'col2', name: 'Middlesex College', location: 'Edison, NJ', town: 'Edison', isNJ: true, ageMin: 15, season: 'All Seasons', acceptance: 'Open Enrollment', cost: '$4,500/yr', notes: 'Biotechnology A.S. degree; commuter campus.', url: 'https://middlesexcollege.edu/' },
+    { id: 'col3', name: 'New Jersey Institute of Technology (NJIT)', location: 'Newark, NJ', town: 'Newark', isNJ: true, ageMin: 16, season: 'Fall', acceptance: 'Selective', cost: '$18,000/yr', notes: 'Urban STEM institute with bioengineering and bioinformatics majors.', url: 'https://www.njit.edu/' },
+    { id: 'col4', name: 'County College of Morris (CCM)', location: 'Randolph, NJ', town: 'Randolph', isNJ: true, ageMin: 15, season: 'All Seasons', acceptance: 'Open Enrollment', cost: '$5,000/yr', notes: 'Biology Pre-Professional Biotechnology A.S. Degree track in Randolph/Denville area.', url: 'https://www.ccm.edu/programs/biology/' },
+    { id: 'col5', name: 'Kean University', location: 'Union, NJ', town: 'Union', isNJ: true, ageMin: 16, season: 'Spring', acceptance: 'Safety (50%+)', cost: '$12,500/yr', notes: '5-year B.S./M.S. STEM Biotechnology and Molecular Biology programs.', url: 'https://www.kean.edu/' },
+    { id: 'col6', name: 'Rowan University', location: 'Glassboro, NJ', town: 'Glassboro', isNJ: true, ageMin: 16, season: 'All Seasons', acceptance: 'Selective', cost: '$14,000/yr', notes: 'Offers Translational Biomedical Sciences, Molecular Cellular Biology, & BME.', url: 'https://admissions.rowan.edu/' },
+    { id: 'col7', name: 'William Paterson University', location: 'Wayne, NJ', town: 'Wayne', isNJ: true, ageMin: 16, season: 'Fall', acceptance: 'Safety (50%+)', cost: '$13,800/yr', notes: 'BS in Biotechnology with modern laboratory research facilities.', url: 'https://www.wpunj.edu/' },
+    { id: 'col8', name: 'Saint Peter\'s University', location: 'Jersey City, NJ', town: 'Jersey City', isNJ: true, ageMin: 16, season: 'Spring', acceptance: 'Safety (50%+)', cost: '$38,000/yr', notes: 'Applied Biotechnology & Biochemistry options.', url: 'https://www.saintpeters.edu/' },
+    { id: 'col9', name: 'Princeton University', location: 'Princeton, NJ', town: 'Princeton', isNJ: true, ageMin: 17, season: 'Fall', acceptance: '~4.0%', cost: '~$80,000 before aid', notes: 'World-renowned Molecular Biology research program.', url: 'https://molbio.princeton.edu/' },
+    { id: 'col10', name: 'Massachusetts Institute of Technology (MIT)', location: 'Cambridge, MA', town: 'Cambridge', isNJ: false, ageMin: 17, season: 'Fall', acceptance: '~4.6%', cost: '$92,760 before aid', notes: 'Premier Biological Engineering degree program in Cambridge, MA.', url: 'https://www.mit.edu/' },
+    { id: 'col11', name: 'Stanford University', location: 'Silicon Valley, CA', town: 'Stanford', isNJ: false, ageMin: 17, season: 'Fall', acceptance: '~3.6%', cost: '$97,545 before aid', notes: 'Top bioengineering research university in Silicon Valley, CA.', url: 'https://www.stanford.edu/' },
+    { id: 'col12', name: 'Johns Hopkins University', location: 'Baltimore, MD', town: 'Baltimore', isNJ: false, ageMin: 17, season: 'Fall', acceptance: '~7-8%', cost: '~$95,000 before aid', notes: 'Premier medical and biomedical research university in Baltimore, MD.', url: 'https://www.jhu.edu/' }
 ];
 
 const JOBS = [
-    { id: 'job1', name: 'Bayer Student Internship Program', cat: 'internship', url: 'https://www.bayer.com/en/us/career/studentsandgraduates', email: 'accommodations_US@bayer.com', notes: 'Pharmaceutical & agricultural biotech roles for students 18+.' },
-    { id: 'job2', name: 'U.S. Food & Drug Administration (FDA) Pathways', cat: 'job', url: 'https://www.fda.gov/about-fda/jobs-fda/pathways-students-and-recent-graduates-fda', email: 'ORARecruitment@fda.hhs.gov', notes: 'Paid student internships ($) and federal career pathways.' },
-    { id: 'job3', name: 'Atlantic Health System Administrative Fellowship', cat: 'internship', url: 'https://www.atlantichealth.org/professionals/internship-programs', email: 'adminfellow@atlantichealth.org', notes: 'Healthcare administration internships across NJ hospitals.' },
-    { id: 'job4', name: 'Raincross Pharmacy Technician & Intern', cat: 'job', url: 'https://raincrosspharmacy.com/', email: 'raincrosspharmacy@gmail.com', notes: 'Part-time pharmacy assistant position for high school/college students.' },
-    { id: 'job5', name: 'Fidia Pharma Scientific Intern', cat: 'internship', url: 'https://fidiapharma.us/', email: 'jobs@fidiapharma.us', notes: 'Biomedical device and pharmaceutical intern program.' },
-    { id: 'job6', name: 'Wharton Pharmacy Assistant', cat: 'job', url: 'https://www.whartonpharmacy.com/', email: 'whartonpharmacyllc@gmail.com', notes: 'Age 16+ position in retail/clinical pharmacy operations.' },
-    { id: 'job7', name: 'ZebraSci Biotech Lab Technician', cat: 'job', url: 'https://zebrasci.com/', email: 'sales@zebrasci.com', notes: 'Combination drug-device testing and quality assurance role.' }
+    { id: 'job1', name: 'Bayer Student Internship Program', cat: 'internship', town: 'Whippany', isNJ: true, ageMin: 18, season: 'Summer', url: 'https://www.bayer.com/en/us/career/studentsandgraduates', email: 'accommodations_US@bayer.com', notes: 'Pharmaceutical & agricultural biotech roles in Whippany / Morristown, NJ.' },
+    { id: 'job2', name: 'U.S. Food & Drug Administration (FDA) Pathways', cat: 'job', town: 'Parsippany', isNJ: true, ageMin: 16, season: 'Summer', url: 'https://www.fda.gov/about-fda/jobs-fda/pathways-students-and-recent-graduates-fda', email: 'ORARecruitment@fda.hhs.gov', notes: 'Paid student internships ($) and federal career pathways in Parsippany, NJ.' },
+    { id: 'job3', name: 'Atlantic Health System Administrative Fellowship', cat: 'internship', town: 'Morristown', isNJ: true, ageMin: 16, season: 'All Seasons', url: 'https://www.atlantichealth.org/professionals/internship-programs', email: 'adminfellow@atlantichealth.org', notes: 'Healthcare administration internships across NJ hospitals including Morristown Medical Center.' },
+    { id: 'job4', name: 'Raincross Pharmacy Technician & Intern', cat: 'job', town: 'Denville', isNJ: true, ageMin: 16, season: 'All Seasons', url: 'https://raincrosspharmacy.com/', email: 'raincrosspharmacy@gmail.com', notes: 'Part-time pharmacy assistant position in Denville, NJ for high school/college students.' },
+    { id: 'job5', name: 'Fidia Pharma Scientific Intern', cat: 'internship', town: 'Parsippany', isNJ: true, ageMin: 18, season: 'Summer', url: 'https://fidiapharma.us/', email: 'jobs@fidiapharma.us', notes: 'Biomedical device and pharmaceutical intern program in Parsippany, NJ.' },
+    { id: 'job6', name: 'Wharton Pharmacy Assistant', cat: 'job', town: 'Wharton', isNJ: true, ageMin: 16, season: 'All Seasons', url: 'https://www.whartonpharmacy.com/', email: 'whartonpharmacyllc@gmail.com', notes: 'Age 16+ position in retail/clinical pharmacy operations near Wharton/Denville, NJ.' },
+    { id: 'job7', name: 'Genentech Biotechnology Summer Intern', cat: 'internship', town: 'South San Francisco', isNJ: false, ageMin: 18, season: 'Summer', url: 'https://www.gene.com/careers/university-and-early-career', email: 'universityrelations@gene.com', notes: 'Out-of-state molecular biology & pharmaceutical research internship in California.' },
+    { id: 'job8', name: 'Pfizer Undergraduate Lab Specialist', cat: 'internship', town: 'Cambridge', isNJ: false, ageMin: 18, season: 'Summer', url: 'https://www.pfizer.com/about/careers', email: 'earlycareers@pfizer.com', notes: 'Out-of-state biomedical research intern opportunity in Cambridge, MA.' }
 ];
 
 const OPPORTUNITIES = [
-    { id: 'opp1', name: 'Regeneron International Science & Engineering Fair (ISEF)', cat: 'competition', url: 'https://www.societyforscience.org/jic/', notes: 'International STEM competition for middle and high school researchers.' },
-    { id: 'opp2', name: 'BioGENEius Challenges', cat: 'competition', url: 'https://biotechinstitute.org/biogeneius/', notes: 'High school research in global healthcare, sustainability, and environment.' },
-    { id: 'opp3', name: 'Davidson Fellows Scholarship', cat: 'scholarship', url: 'https://www.davidsongifted.org/gifted-programs/fellows-scholarship/', notes: 'Scholarship awards up to $50,000 for extraordinary scientific achievements.' },
-    { id: 'opp4', name: 'Rutgers Aresty High School Research Program', cat: 'program', url: 'https://aresty.rutgers.edu/resources/research-opportunities-high-school-students', notes: 'Summer laboratory research opportunities at Rutgers New Brunswick.' },
-    { id: 'opp5', name: 'HOSA Future Health Professionals', cat: 'competition', url: 'https://hosa.org/competition/', notes: 'State and national healthcare & biotech competitive events.' },
-    { id: 'opp6', name: 'TSA Biotechnology Design Competition', cat: 'competition', url: 'https://tsaweb.org/students#competitions', notes: 'Technology Student Association national biotechnology challenges.' }
+    { id: 'opp1', name: 'Regeneron International Science & Engineering Fair (ISEF)', cat: 'competition', town: 'Statewide', ageMin: 12, season: 'Spring', url: 'https://www.societyforscience.org/jic/', notes: 'International STEM competition for middle and high school researchers.' },
+    { id: 'opp2', name: 'BioGENEius Challenges', cat: 'competition', town: 'Statewide', ageMin: 14, season: 'Spring', url: 'https://biotechinstitute.org/biogeneius/', notes: 'High school research in global healthcare, sustainability, and environment.' },
+    { id: 'opp3', name: 'Davidson Fellows Scholarship', cat: 'scholarship', town: 'Statewide', ageMin: 13, season: 'Summer', url: 'https://www.davidsongifted.org/gifted-programs/fellows-scholarship/', notes: 'Scholarship awards up to $50,000 for extraordinary scientific achievements.' },
+    { id: 'opp4', name: 'Rutgers Aresty High School Research Program', cat: 'program', town: 'New Brunswick', ageMin: 15, season: 'Summer', url: 'https://aresty.rutgers.edu/resources/research-opportunities-high-school-students', notes: 'Summer laboratory research opportunities at Rutgers New Brunswick.' },
+    { id: 'opp5', name: 'HOSA Future Health Professionals', cat: 'competition', town: 'Statewide', ageMin: 14, season: 'Spring', url: 'https://hosa.org/competition/', notes: 'State and national healthcare & biotech competitive events.' },
+    { id: 'opp6', name: 'TSA Biotechnology Design Competition', cat: 'competition', town: 'Statewide', ageMin: 13, season: 'Spring', url: 'https://tsaweb.org/students#competitions', notes: 'Technology Student Association national biotechnology challenges.' }
 ];
 
 // Persistent State loaded from LocalStorage
@@ -57,9 +72,13 @@ let userProfile = JSON.parse(localStorage.getItem('biostart_userProfile')) || {
     county: "Morris",
     town: "Denville",
     level: "High School",
+    age: 16,
+    season: "Summer",
+    locationPref: "In State (NJ)",
     avatarIdx: 0,
     savedIds: [],
-    progress: {}
+    progress: {},
+    surveyCompleted: false
 };
 
 let selectedCountyFilter = "ALL";
@@ -89,7 +108,7 @@ window.addEventListener('DOMContentLoaded', () => {
 function updateUserHeaderDisplay() {
     const greetingEl = document.getElementById('user-greeting');
     if (greetingEl) {
-        greetingEl.innerText = userProfile.name ? `${userProfile.name} (${userProfile.county} County)` : 'Guest Account';
+        greetingEl.innerText = userProfile.name ? `${userProfile.name} (${userProfile.town || userProfile.county})` : 'Guest Account';
     }
 }
 
@@ -123,10 +142,21 @@ function renderHighSchools() {
     const container = document.getElementById('grid-hs');
     if (!container) return;
     container.innerHTML = '';
+
     let list = HIGH_SCHOOLS.filter(hs => selectedCountyFilter === 'ALL' || hs.county === selectedCountyFilter);
+
+    if (userProfile.surveyCompleted) {
+        list = list.filter(hs => (userProfile.age >= hs.ageMin));
+        list.sort((a, b) => {
+            const userTown = (userProfile.town || '').toLowerCase();
+            const aMatch = a.town.toLowerCase() === userTown || a.notes.toLowerCase().includes(userTown);
+            const bMatch = b.town.toLowerCase() === userTown || b.notes.toLowerCase().includes(userTown);
+            return (bMatch ? 1 : 0) - (aMatch ? 1 : 0);
+        });
+    }
     
     if (list.length === 0) {
-        container.innerHTML = `<p style="grid-column: 1/-1; padding:20px; font-weight:bold;">No high schools found for ${selectedCountyFilter} County.</p>`;
+        container.innerHTML = `<p style="grid-column: 1/-1; padding:20px; font-weight:bold;">No high schools matching your location/age criteria.</p>`;
         return;
     }
 
@@ -148,10 +178,10 @@ function renderHighSchools() {
 /* --- COLLEGE RENDER --- */
 function selectCollegeTab(mode) {
     activeCollegeMode = mode;
-    const forYouBtn = document.getElementById('col-card-foryou');
-    const allBtn = document.getElementById('col-card-all');
-    if (forYouBtn) forYouBtn.classList.toggle('selected', mode === 'foryou');
-    if (allBtn) allBtn.classList.toggle('selected', mode === 'all');
+    ['foryou', 'instate', 'outstate', 'all'].forEach(m => {
+        const btn = document.getElementById(`col-card-${m}`);
+        if (btn) btn.classList.toggle('selected', mode === m);
+    });
     renderColleges();
 }
 
@@ -159,13 +189,48 @@ function renderColleges() {
     const container = document.getElementById('grid-col');
     if (!container) return;
     container.innerHTML = '';
-    let list = activeCollegeMode === 'foryou' ? COLLEGES.filter(c => c.name.includes('Rutgers') || c.name.includes('Morris') || c.name.includes('NJIT') || c.name.includes('Kean')) : COLLEGES;
+
+    if (activeCollegeMode === 'foryou' && !userProfile.surveyCompleted) {
+        container.innerHTML = `
+            <div style="grid-column: 1/-1; background: white; border: 3px solid var(--biostart-black); padding: 32px; border-radius: 8px; text-align: center; box-shadow: 0 4px 0 var(--biostart-black);">
+                <h3 style="font-size: 20px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">Survey Required</h3>
+                <p style="font-size: 14px; font-weight: 700; color: #444; margin-bottom: 20px;">Please take our survey to unlock personalized college recommendations matching your town, age, location preference (in-state vs. out-of-state), and season.</p>
+                <a href="survey.html" class="btn-action" style="display: inline-block; padding: 12px 24px; font-size: 12px; text-decoration: none;">Take Survey ►</a>
+            </div>`;
+        return;
+    }
+
+    let list = COLLEGES;
+
+    if (activeCollegeMode === 'instate') {
+        list = COLLEGES.filter(c => c.isNJ);
+    } else if (activeCollegeMode === 'outstate') {
+        list = COLLEGES.filter(c => !c.isNJ);
+    } else if (activeCollegeMode === 'foryou') {
+        list = COLLEGES.filter(c => {
+            const ageMatch = userProfile.age >= c.ageMin;
+            const seasonMatch = (userProfile.season === 'All Seasons' || c.season === 'All Seasons' || c.season === userProfile.season);
+            let locMatch = true;
+            if (userProfile.locationPref === 'In State (NJ)') locMatch = c.isNJ;
+            else if (userProfile.locationPref === 'Out of State') locMatch = !c.isNJ;
+            return ageMatch && seasonMatch && locMatch;
+        });
+
+        const userTown = (userProfile.town || '').toLowerCase();
+        list.sort((a, b) => {
+            const aMatch = a.town.toLowerCase() === userTown || a.notes.toLowerCase().includes(userTown);
+            const bMatch = b.town.toLowerCase() === userTown || b.notes.toLowerCase().includes(userTown);
+            return (bMatch ? 1 : 0) - (aMatch ? 1 : 0);
+        });
+
+        if (list.length === 0) list = COLLEGES.slice(0, 4);
+    }
 
     list.forEach(col => {
         const isLiked = userProfile.savedIds.includes(col.id);
         container.innerHTML += `
             <div class="card">
-                <span class="card-tag">${col.location}</span>
+                <span class="card-tag">${col.isNJ ? 'IN-STATE (NJ)' : 'OUT-OF-STATE'} | ${col.location}</span>
                 <div class="card-title">${col.name}</div>
                 <div class="card-body"><strong>Cost:</strong> ${col.cost}<br><strong>Acceptance:</strong> ${col.acceptance}<br>${col.notes}</div>
                 <div class="card-actions">
@@ -179,10 +244,10 @@ function renderColleges() {
 /* --- JOBS RENDER --- */
 function selectJobTab(mode) {
     activeJobMode = mode;
-    const forYouBtn = document.getElementById('job-card-foryou');
-    const allBtn = document.getElementById('job-card-all');
-    if (forYouBtn) forYouBtn.classList.toggle('selected', mode === 'foryou');
-    if (allBtn) allBtn.classList.toggle('selected', mode === 'all');
+    ['foryou', 'instate', 'outstate', 'all'].forEach(m => {
+        const btn = document.getElementById(`job-card-${m}`);
+        if (btn) btn.classList.toggle('selected', mode === m);
+    });
     renderJobs();
 }
 
@@ -190,13 +255,48 @@ function renderJobs() {
     const container = document.getElementById('grid-jobs');
     if (!container) return;
     container.innerHTML = '';
-    let list = activeJobMode === 'foryou' ? JOBS.slice(0, 4) : JOBS;
+
+    if (activeJobMode === 'foryou' && !userProfile.surveyCompleted) {
+        container.innerHTML = `
+            <div style="grid-column: 1/-1; background: white; border: 3px solid var(--biostart-black); padding: 32px; border-radius: 8px; text-align: center; box-shadow: 0 4px 0 var(--biostart-black);">
+                <h3 style="font-size: 20px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">Survey Required</h3>
+                <p style="font-size: 14px; font-weight: 700; color: #444; margin-bottom: 20px;">Please take our survey to unlock personalized internship and job recommendations on your For You page.</p>
+                <a href="survey.html" class="btn-action" style="display: inline-block; padding: 12px 24px; font-size: 12px; text-decoration: none;">Take Survey ►</a>
+            </div>`;
+        return;
+    }
+
+    let list = JOBS;
+
+    if (activeJobMode === 'instate') {
+        list = JOBS.filter(j => j.isNJ);
+    } else if (activeJobMode === 'outstate') {
+        list = JOBS.filter(j => !j.isNJ);
+    } else if (activeJobMode === 'foryou') {
+        list = JOBS.filter(j => {
+            const ageMatch = userProfile.age >= j.ageMin;
+            const seasonMatch = (userProfile.season === 'All Seasons' || j.season === 'All Seasons' || j.season === userProfile.season);
+            let locMatch = true;
+            if (userProfile.locationPref === 'In State (NJ)') locMatch = j.isNJ;
+            else if (userProfile.locationPref === 'Out of State') locMatch = !j.isNJ;
+            return ageMatch && seasonMatch && locMatch;
+        });
+
+        const userTown = (userProfile.town || '').toLowerCase();
+        list.sort((a, b) => {
+            const aMatch = jMatchTown(a, userTown);
+            const bMatch = jMatchTown(b, userTown);
+            return (bMatch ? 1 : 0) - (aMatch ? 1 : 0);
+        });
+
+        if (list.length === 0) list = JOBS.filter(j => userProfile.age >= j.ageMin);
+    }
 
     list.forEach(j => {
         const isLiked = userProfile.savedIds.includes(j.id);
         container.innerHTML += `
             <div class="card">
-                <span class="card-tag">${j.cat.toUpperCase()}</span>
+                <span class="card-tag">${j.isNJ ? 'IN-STATE (NJ)' : 'OUT-OF-STATE'} | ${j.cat.toUpperCase()}</span>
                 <div class="card-title">${j.name}</div>
                 <div class="card-body"><strong>Contact Email:</strong> ${j.email}<br>${j.notes}</div>
                 <div class="card-actions">
@@ -207,12 +307,23 @@ function renderJobs() {
     });
 }
 
+function jMatchTown(item, townStr) {
+    if (!townStr) return false;
+    return (item.town && item.town.toLowerCase() === townStr) || (item.notes && item.notes.toLowerCase().includes(townStr));
+}
+
 /* --- OPPORTUNITIES RENDER --- */
 function renderOpportunities() {
     const container = document.getElementById('grid-opp');
     if (!container) return;
     container.innerHTML = '';
-    OPPORTUNITIES.forEach(o => {
+
+    let list = OPPORTUNITIES;
+    if (userProfile.surveyCompleted) {
+        list = OPPORTUNITIES.filter(o => userProfile.age >= o.ageMin);
+    }
+
+    list.forEach(o => {
         const isLiked = userProfile.savedIds.includes(o.id);
         container.innerHTML += `
             <div class="card">
@@ -227,16 +338,54 @@ function renderOpportunities() {
     });
 }
 
-/* --- SURVEY HANDLER --- */
+/* --- SURVEY HANDLER & VALIDATION --- */
+function isValidNJTown(townInput) {
+    if (!townInput || typeof townInput !== 'string') return false;
+    const clean = townInput.trim().toLowerCase();
+    if (clean.length < 3) return false;
+    
+    const matchesList = VALID_NJ_TOWNS.some(t => clean.includes(t) || t.includes(clean));
+    const isValidText = /^[a-zA-Z\s.-]+$/.test(clean);
+
+    return matchesList || (isValidText && clean.length >= 3);
+}
+
 function handleSurveySubmit(e) {
     e.preventDefault();
-    userProfile.county = document.getElementById('survey-county').value;
-    userProfile.town = document.getElementById('survey-town').value;
-    userProfile.level = document.getElementById('survey-level').value;
+    
+    const countyVal = document.getElementById('survey-county').value;
+    const townVal = document.getElementById('survey-town').value.trim();
+    const ageVal = parseInt(document.getElementById('survey-age').value);
+    const locPrefVal = document.getElementById('survey-location-pref').value;
+    const seasonVal = document.getElementById('survey-season').value;
+    const levelVal = document.getElementById('survey-level').value;
+
+    // Strict Age Input Validation
+    if (isNaN(ageVal) || ageVal < 10 || ageVal > 99) {
+        alert("⚠️ Please enter a valid age between 10 and 99 years old before submitting.");
+        document.getElementById('survey-age').focus();
+        return false;
+    }
+
+    // Strict NJ Town Input Validation
+    if (!isValidNJTown(townVal)) {
+        alert("⚠️ Invalid town/city input! Please enter a recognized New Jersey municipality (e.g. Denville, Morristown, Edison, Newark, Hackensack).");
+        document.getElementById('survey-town').focus();
+        return false;
+    }
+
+    userProfile.county = countyVal;
+    userProfile.town = townVal;
+    userProfile.age = ageVal;
+    userProfile.locationPref = locPrefVal;
+    userProfile.season = seasonVal;
+    userProfile.level = levelVal;
+    userProfile.surveyCompleted = true;
+    
     saveState();
     updateUserHeaderDisplay();
 
-    alert("Survey Saved! Your personalized recommendations have been updated.");
+    alert(`🎉 Survey Saved! Your recommendations have been updated for age ${ageVal}, location preference (${locPrefVal}), town (${townVal}), and season (${seasonVal}).`);
     window.location.href = 'highschools.html';
 }
 
