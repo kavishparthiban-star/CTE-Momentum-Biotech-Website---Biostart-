@@ -7,9 +7,9 @@
     --biostart-red-hover: #b82a1d;
     --biostart-black: #0d0d0d;
     --biostart-white: #ffffff;
-    --biostart-bg: #FAF8F5;
-    --biostart-card-bg: #ffffff;
-    --biostart-gray-light: #f3f4f6;
+    --biostart-bg: hsl(351, 100%, 96%);
+    --biostart-card-bg: hsl(351, 100%, 96%);
+    --biostart-gray-light: rgb(255, 255, 255);
     --biostart-border: #0d0d0d;
     --biostart-font-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 }
