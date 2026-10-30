@@ -89,6 +89,21 @@ let selectedCountyFilter = "ALL";
 let activeCollegeMode = "foryou";
 let activeJobMode = "foryou";
 
+// Sample Example Data mapping for the 11 Personal & Education fields
+const SAMPLE_PERSONAL_DATA = {
+    'res-name': "Alex M. Smith",
+    'res-title': "Biotechnology Student & Research Assistant",
+    'res-email': "alex.smith@mcvts.org",
+    'res-phone': "(973) 555-0199",
+    'res-location': "Denville, NJ 07834",
+    'res-linkedin': "linkedin.com/in/alexsmith-biotech",
+    'res-school': "Morris County School of Technology",
+    'res-grad': "Expected Grad: June 2027",
+    'res-degree': "Academy for Biotechnology Track",
+    'res-gpa': "GPA: 3.92 / 4.0 | High Honor Roll",
+    'res-courses': "Biotechnology I & II, Organic Chemistry, Molecular Genetics, AP Biology, Bioinformatics"
+};
+
 function saveState() {
     localStorage.setItem('biostart_userProfile', JSON.stringify(userProfile));
 }
@@ -461,30 +476,43 @@ function getVal(id) {
     return document.getElementById(id)?.value.trim() || '';
 }
 
+// TOGGLE FUNCTION TO FILL OR CLEAR THE 11 PERSONAL & EDUCATION FIELDS
+function toggleSamplePersonalInfo(show) {
+    Object.keys(SAMPLE_PERSONAL_DATA).forEach(id => {
+        setVal(id, show ? SAMPLE_PERSONAL_DATA[id] : "");
+    });
+    updateResume();
+}
+
 function loadSampleResumeData() {
-    setVal('res-name', "Alex M. Smith");
-    setVal('res-title', "Biotechnology Student & Research Assistant");
-    setVal('res-email', "alex.smith@mcvts.org");
-    setVal('res-phone', "(973) 555-0199");
-    setVal('res-location', "Denville, NJ 07834");
-    setVal('res-linkedin', "linkedin.com/in/alexsmith-biotech");
+    // Check toggle box if present
+    const toggleEl = document.getElementById('sample-toggle');
+    if (toggleEl) toggleEl.checked = true;
+
+    // 1. Personal & Contact Details (populated via toggle)
+    toggleSamplePersonalInfo(true);
+
+    // 2. Professional Summary
     setVal('res-summary', "Motivated Biotechnology Academy student with 2+ years of hands-on laboratory experience in molecular biology, PCR analysis, and bioinformatics. Passionate about pursuing undergraduate research in bioengineering and pharmaceutical sciences.");
-    setVal('res-school', "Morris County School of Technology");
-    setVal('res-grad', "Expected Grad: June 2027");
-    setVal('res-degree', "Academy for Biotechnology Track");
-    setVal('res-gpa', "GPA: 3.92 / 4.0 | High Honor Roll");
-    setVal('res-courses', "Biotechnology I & II, Organic Chemistry, Molecular Genetics, AP Biology, Cell Culture, Bioinformatics");
+
+    // 4. Technical & Lab Skills
     setVal('res-labskills', "Micropipetting, PCR Amplification, Gel Electrophoresis, Aseptic Cell Culture, DNA Extraction, Spectrophotometry");
     setVal('res-softskills', "Python, R, BLAST Database, PyMOL, Microsoft Excel (Data Analysis & Charting)");
     setVal('res-certs', "Biotechnician Assistant Credential (BTEC), OSHA 10-Hour General Industry, CPR/AED Certified");
+
+    // 5. Research & Work Experience
     setVal('res-job-title', "Student Research Assistant");
     setVal('res-job-org', "Rutgers Waksman Student Scholars Program");
     setVal('res-job-dates', "Sep 2025 – Present");
     setVal('res-job-loc', "Piscataway, NJ");
     setVal('res-job-desc', "• Conducted DNA isolation and restriction enzyme digestion on bacterial plasmid samples.\n• Utilized BLAST bioinformatics tools to analyze cDNA sequencing results and submitted confirmed sequences to NCBI database.\n• Maintained meticulous digital laboratory notebooks adhering to GLP (Good Laboratory Practice) guidelines.");
+
+    // 6. Projects & Extracurricular Leadership
     setVal('res-proj-title', "HOSA Biotechnology Competition & Science Olympiad");
     setVal('res-proj-role', "Team Lead | Oct 2024 – Present");
     setVal('res-proj-desc', "• Led a 4-student research team designing a microplastic bioremediation protocol using recombinant bacterial strains.\n• Authored research poster and presented at NJ State HOSA Leadership Conference, earning 2nd Place overall.");
+
+    // 7. Honors & Awards
     setVal('res-honors', "• 2nd Place - NJ State HOSA Biotechnology Competition (2025)\n• National Honor Society Inductee (2024)\n• Morris County Scholar Athlete Award (2024)");
 
     updateResume();
@@ -496,6 +524,8 @@ function clearResumeForm() {
         const el = document.getElementById(id);
         if (el) el.value = '';
     });
+    const toggleEl = document.getElementById('sample-toggle');
+    if (toggleEl) toggleEl.checked = false;
     updateResume();
 }
 
@@ -527,11 +557,11 @@ function updateResume() {
     const resumeBox = document.getElementById('printable-resume');
     if (!resumeBox) return;
 
-    const name = getVal('res-name') || 'Alex M. Smith';
+    const name = getVal('res-name') || '[Your Name]';
     const title = getVal('res-title');
-    const email = getVal('res-email') || 'alex.smith@mcvts.org';
-    const phone = getVal('res-phone') || '(973) 555-0199';
-    const location = getVal('res-location') || 'Denville, NJ';
+    const email = getVal('res-email');
+    const phone = getVal('res-phone');
+    const location = getVal('res-location');
     const linkedin = getVal('res-linkedin');
 
     const summary = getVal('res-summary');
@@ -569,9 +599,7 @@ function updateResume() {
                     </div>
                     <div class="tpl-dna-icon">🧬</div>
                 </div>
-                <div class="tpl-modern-contact">
-                    ${contactParts.join(' &nbsp;•&nbsp; ')}
-                </div>
+                ${contactParts.length > 0 ? `<div class="tpl-modern-contact">${contactParts.join(' &nbsp;•&nbsp; ')}</div>` : ''}
 
                 ${summary ? `
                 <div class="tpl-sec">
@@ -624,7 +652,7 @@ function updateResume() {
                 <div style="text-align:center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 14px;">
                     <h1 class="tpl-academic-name">${name.toUpperCase()}</h1>
                     ${title ? `<div style="font-style:italic; font-size:11pt; margin-bottom:4px;">${title}</div>` : ''}
-                    <div style="font-size:9.5pt;">${contactParts.join(' | ')}</div>
+                    ${contactParts.length > 0 ? `<div style="font-size:9.5pt;">${contactParts.join(' | ')}</div>` : ''}
                 </div>
 
                 ${summary ? `
@@ -678,7 +706,7 @@ function updateResume() {
                 <div style="border-left: 5px solid var(--biostart-black); padding-left: 14px; margin-bottom: 16px;">
                     <h1 class="tpl-corp-name">${name}</h1>
                     ${title ? `<div style="font-size:12pt; font-weight:bold; color:var(--biostart-red);">${title}</div>` : ''}
-                    <div style="font-size:9.5pt; color:#444; margin-top:4px;">${contactParts.join('  •  ')}</div>
+                    ${contactParts.length > 0 ? `<div style="font-size:9.5pt; color:#444; margin-top:4px;">${contactParts.join('  •  ')}</div>` : ''}
                 </div>
 
                 ${summary ? `
@@ -734,6 +762,7 @@ function updateResume() {
                 </div>
                 <div class="tpl-compact-grid">
                     <div class="tpl-compact-left">
+                        ${contactParts.length > 0 ? `
                         <div class="tpl-compact-box">
                             <h4 class="tpl-compact-head">CONTACT</h4>
                             <div style="font-size:9pt; line-height:1.5;">
@@ -742,7 +771,7 @@ function updateResume() {
                                 ${location ? `<div>📍 ${location}</div>` : ''}
                                 ${linkedin ? `<div>🔗 ${linkedin}</div>` : ''}
                             </div>
-                        </div>
+                        </div>` : ''}
 
                         ${(labskills || softskills || certs) ? `
                         <div class="tpl-compact-box">
