@@ -1,9 +1,9 @@
 /* ==========================================================================
-   BIOSTART script.js (merged version)
+   BIOSTART script.js
    BIOSTART GLOBAL STATE & COMPREHENSIVE DATASET
    ========================================================================== */
 
-const VALID_NJ_TOWNS = [
+   const VALID_NJ_TOWNS = [
     "denville", "morristown", "parsippany", "hackensack", "edison", "newark", "jersey city",
     "paterson", "elizabeth", "toms river", "trenton", "clifton", "camden", "passaic",
     "union", "bayonne", "east orange", "vineland", "new brunswick", "hoboken", "west new york",
@@ -93,7 +93,6 @@ function saveState() {
     localStorage.setItem('biostart_userProfile', JSON.stringify(userProfile));
 }
 
-// Each render function exits quietly if its grid is not on the current page
 function renderAllGrids() {
     renderHighSchools();
     renderColleges();
@@ -102,15 +101,27 @@ function renderAllGrids() {
     renderSaved();
 }
 
-// Shared helpers (replace code that was repeated in several render functions)
+// Shared helpers
 function jMatchTown(item, townStr) {
     if (!townStr) return false;
-    return (item.town && item.town.toLowerCase() === townStr) || (item.notes && item.notes.toLowerCase().includes(townStr));
+    const clean = townStr.toLowerCase();
+    return (item.town && item.town.toLowerCase().includes(clean)) ||
+           (item.location && item.location.toLowerCase().includes(clean)) ||
+           (item.notes && item.notes.toLowerCase().includes(clean));
 }
 
-function sortByTown(list) {
+function sortByTownAndCounty(list) {
     const userTown = (userProfile.town || '').toLowerCase();
-    list.sort((a, b) => (jMatchTown(b, userTown) ? 1 : 0) - (jMatchTown(a, userTown) ? 1 : 0));
+    const userCounty = (userProfile.county || '').toLowerCase();
+    
+    list.sort((a, b) => {
+        const aTownMatch = jMatchTown(a, userTown) ? 2 : 0;
+        const bTownMatch = jMatchTown(b, userTown) ? 2 : 0;
+        const aCountyMatch = (a.county && a.county.toLowerCase() === userCounty) ? 1 : 0;
+        const bCountyMatch = (b.county && b.county.toLowerCase() === userCounty) ? 1 : 0;
+
+        return (bTownMatch + bCountyMatch) - (aTownMatch + aCountyMatch);
+    });
 }
 
 function surveyRequiredCard(message) {
@@ -125,13 +136,25 @@ function surveyRequiredCard(message) {
 // Global Initialization
 window.addEventListener('DOMContentLoaded', () => {
     updateUserHeaderDisplay();
-    
+    loadSurveyForm();
     renderAllGrids();
     if (document.getElementById('printable-resume')) {
         loadSampleResumeData();
     }
     if (document.getElementById('prof-fname') || document.getElementById('profile-edit-form')) loadProfileDisplay();
 });
+
+function loadSurveyForm() {
+    const surveyForm = document.getElementById('survey-form');
+    if (!surveyForm) return;
+
+    if (userProfile.county) setVal('survey-county', userProfile.county);
+    if (userProfile.town) setVal('survey-town', userProfile.town);
+    if (userProfile.age) setVal('survey-age', userProfile.age);
+    if (userProfile.locationPref) setVal('survey-location-pref', userProfile.locationPref);
+    if (userProfile.season) setVal('survey-season', userProfile.season);
+    if (userProfile.level) setVal('survey-level', userProfile.level);
+}
 
 function updateUserHeaderDisplay() {
     const greetingEl = document.getElementById('user-greeting');
@@ -166,11 +189,15 @@ function renderHighSchools() {
     if (!container) return;
     container.innerHTML = '';
 
-    let list = HIGH_SCHOOLS.filter(hs => selectedCountyFilter === 'ALL' || hs.county === selectedCountyFilter);
+    let list = HIGH_SCHOOLS;
+
+    if (selectedCountyFilter !== 'ALL') {
+        list = list.filter(hs => hs.county === selectedCountyFilter);
+    }
 
     if (userProfile.surveyCompleted) {
         list = list.filter(hs => (userProfile.age >= hs.ageMin));
-        sortByTown(list);
+        sortByTownAndCounty(list);
     }
     
     if (list.length === 0) {
@@ -180,9 +207,10 @@ function renderHighSchools() {
 
     list.forEach(hs => {
         const isLiked = userProfile.savedIds.includes(hs.id);
+        const isCountyMatch = userProfile.surveyCompleted && userProfile.county && hs.county.toLowerCase() === userProfile.county.toLowerCase();
         container.innerHTML += `
             <div class="card">
-                <span class="card-tag">${hs.county} County</span>
+                <span class="card-tag">${hs.county} County${isCountyMatch ? ' ★ YOUR COUNTY' : ''}</span>
                 <div class="card-title">${hs.name}</div>
                 <div class="card-body">${hs.notes}</div>
                 <div class="card-actions">
@@ -229,16 +257,25 @@ function renderColleges() {
             return ageMatch && seasonMatch && locMatch;
         });
 
-        sortByTown(list);
+        if (list.length === 0) {
+            list = COLLEGES.filter(c => {
+                let locMatch = true;
+                if (userProfile.locationPref === 'In State (NJ)') locMatch = c.isNJ;
+                else if (userProfile.locationPref === 'Out of State') locMatch = !c.isNJ;
+                return locMatch;
+            });
+            if (list.length === 0) list = COLLEGES.slice(0, 4);
+        }
 
-        if (list.length === 0) list = COLLEGES.slice(0, 4);
+        sortByTownAndCounty(list);
     }
 
     list.forEach(col => {
         const isLiked = userProfile.savedIds.includes(col.id);
+        const isTownMatch = userProfile.surveyCompleted && jMatchTown(col, userProfile.town);
         container.innerHTML += `
             <div class="card">
-                <span class="card-tag">${col.isNJ ? 'IN-STATE (NJ)' : 'OUT-OF-STATE'} | ${col.location}</span>
+                <span class="card-tag">${col.isNJ ? 'IN-STATE (NJ)' : 'OUT-OF-STATE'}${isTownMatch ? ' ★ NEAR YOU' : ''} | ${col.location}</span>
                 <div class="card-title">${col.name}</div>
                 <div class="card-body"><strong>Cost:</strong> ${col.cost}<br><strong>Acceptance:</strong> ${col.acceptance}<br>${col.notes}</div>
                 <div class="card-actions">
@@ -285,16 +322,25 @@ function renderJobs() {
             return ageMatch && seasonMatch && locMatch;
         });
 
-        sortByTown(list);
+        if (list.length === 0) {
+            list = JOBS.filter(j => {
+                let locMatch = true;
+                if (userProfile.locationPref === 'In State (NJ)') locMatch = j.isNJ;
+                else if (userProfile.locationPref === 'Out of State') locMatch = !j.isNJ;
+                return locMatch;
+            });
+            if (list.length === 0) list = JOBS.filter(j => userProfile.age >= j.ageMin);
+        }
 
-        if (list.length === 0) list = JOBS.filter(j => userProfile.age >= j.ageMin);
+        sortByTownAndCounty(list);
     }
 
     list.forEach(j => {
         const isLiked = userProfile.savedIds.includes(j.id);
+        const isTownMatch = userProfile.surveyCompleted && jMatchTown(j, userProfile.town);
         container.innerHTML += `
             <div class="card">
-                <span class="card-tag">${j.isNJ ? 'IN-STATE (NJ)' : 'OUT-OF-STATE'} | ${j.cat.toUpperCase()}</span>
+                <span class="card-tag">${j.isNJ ? 'IN-STATE (NJ)' : 'OUT-OF-STATE'}${isTownMatch ? ' ★ NEAR YOU' : ''} | ${j.cat.toUpperCase()}</span>
                 <div class="card-title">${j.name}</div>
                 <div class="card-body"><strong>Contact Email:</strong> ${j.email}<br>${j.notes}</div>
                 <div class="card-actions">
@@ -314,6 +360,7 @@ function renderOpportunities() {
     let list = OPPORTUNITIES;
     if (userProfile.surveyCompleted) {
         list = OPPORTUNITIES.filter(o => userProfile.age >= o.ageMin);
+        sortByTownAndCounty(list);
     }
 
     list.forEach(o => {
@@ -353,20 +400,19 @@ function handleSurveySubmit(e) {
     const seasonVal = document.getElementById('survey-season').value;
     const levelVal = document.getElementById('survey-level').value;
 
-    // Strict Age Input Validation
     if (isNaN(ageVal) || ageVal < 10 || ageVal > 99) {
         alert("⚠️ Please enter a valid age between 10 and 99 years old before submitting.");
         document.getElementById('survey-age').focus();
         return false;
     }
 
-    // Strict NJ Town Input Validation
     if (!isValidNJTown(townVal)) {
         alert("⚠️ Invalid town/city input! Please enter a recognized New Jersey municipality (e.g. Denville, Morristown, Edison, Newark, Hackensack).");
         document.getElementById('survey-town').focus();
         return false;
     }
 
+    // Update global state with newly submitted survey answers
     userProfile.county = countyVal;
     userProfile.town = townVal;
     userProfile.age = ageVal;
@@ -377,8 +423,9 @@ function handleSurveySubmit(e) {
     
     saveState();
     updateUserHeaderDisplay();
+    renderAllGrids();
 
-    alert(`🎉 Survey Saved! Your recommendations have been updated for age ${ageVal}, location preference (${locPrefVal}), town (${townVal}), and season (${seasonVal}).`);
+    alert(`🎉 Survey Updated! Your recommendations have been recalculated for age ${ageVal}, location preference (${locPrefVal}), town (${townVal}), and season (${seasonVal}).`);
     window.location.href = 'highschools.html';
 }
 
@@ -480,7 +527,6 @@ function updateResume() {
     const resumeBox = document.getElementById('printable-resume');
     if (!resumeBox) return;
 
-    // Retrieve values
     const name = getVal('res-name') || 'Alex M. Smith';
     const title = getVal('res-title');
     const email = getVal('res-email') || 'alex.smith@mcvts.org';
@@ -753,7 +799,7 @@ function updateResume() {
     }
 }
 
-/* --- ACCOUNT PROFILE MANAGEMENT & INTERACTIVITY --- */
+/* --- ACCOUNT PROFILE MANAGEMENT --- */
 function cycleAvatar(direction) {
     userProfile.avatarIdx = (userProfile.avatarIdx + direction + AVATARS.length) % AVATARS.length;
     const display = document.getElementById('avatar-display');
@@ -772,7 +818,8 @@ function saveAccountProfile(e) {
     saveState();
     updateUserHeaderDisplay();
     loadProfileDisplay();
-    alert("Profile saved successfully!");
+    renderAllGrids();
+    alert("Profile saved successfully! Your 'For You' pages have been updated.");
 }
 
 function loadProfileDisplay() {
@@ -784,7 +831,6 @@ function loadProfileDisplay() {
     const saveBtn = document.getElementById('save-profile-btn');
     const editBtn = document.getElementById('edit-profile-btn');
 
-    // Fill form input values
     setVal('prof-fname', userProfile.name || '');
     setVal('prof-email', userProfile.email || '');
     setVal('prof-county', userProfile.county || '');
@@ -802,7 +848,7 @@ function loadProfileDisplay() {
         if (levelDisp) levelDisp.innerText = `Academic Level: ${userProfile.level || 'Unspecified'}`;
         if (avatarDisp) avatarDisp.innerText = AVATARS[userProfile.avatarIdx || 0];
 
-        if (editBtn) toggleFormFields(true); // only lock fields if the page offers an Edit button
+        if (editBtn) toggleFormFields(true);
 
         if (saveBtn) saveBtn.style.display = 'none';
         if (editBtn) editBtn.style.display = 'block';
@@ -834,7 +880,7 @@ function toggleFormFields(disabled) {
     navBtns.forEach(btn => btn.disabled = disabled);
 }
 
-/* --- SAVED ITEMS & PROGRESS TRACKING --- */
+/* --- SAVED ITEMS & APPLICATION TRACKER --- */
 function updateSavedStatus(id, value) {
     userProfile.progress[id] = value;
     saveState();
