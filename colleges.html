@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colleges & Universities - BIOSTART</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="favicon-192.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
     <header>
         <a class="brand-box" href="index.html">
-            <img src="Draft for CTE Website.png" alt="BIOSTART Logo" class="brand-logo-img">
+            <img src="biostart_logo_removed.bg.png" alt="BIOSTART logo" class="brand-logo-img">
             <div class="brand-title">
                 <h1>BIOSTA<span style="color: #D93829;">R</span>T</h1>
                 <p>Great Resources, Stat</p>
@@ -23,9 +26,9 @@
     <nav>
         <a href="index.html" class="nav-btn">Home</a>
         <a href="survey.html" class="nav-btn">Take Survey</a>
-        <a href="highschools.html" class="nav-btn">Vocational High Schools</a>
-        <a href="colleges.html" class="nav-btn active">Colleges</a>
         <a href="jobs.html" class="nav-btn">Internships & Jobs</a>
+        <a href="colleges.html" class="nav-btn active">Colleges</a>
+        <a href="highschools.html" class="nav-btn">Vocational High Schools</a>
         <a href="opportunities.html" class="nav-btn">Opportunities</a>
         <a href="resume.html" class="nav-btn">Create Resume</a>
         <a href="profile.html" class="nav-btn">Account Profile</a>
@@ -33,11 +36,17 @@
 
     <div class="container">
         <h2>Colleges & Universities</h2>
+
+        <!-- SELECTION CRITERIA & DATABASE BANNER -->
+        <div style="background: white; border: 2px solid var(--biostart-black); padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 0 var(--biostart-black); font-size: 13px;">
+            <strong>ℹ️ Selection Criteria & Research Databases:</strong> Degree tracks are selected based on CTE articulation options, lab research facilities, and degree levels (A.S., B.S., M.S., Ph.D.). To explore nationwide undergraduate research labs beyond regional programs, visit the <a href="https://www.nsf.gov/crssprgm/reu/reu_search.jsp" target="_blank" style="color:var(--biostart-red); font-weight:bold;">NSF REU Directory</a> and <a href="https://www.pathwaystoscience.org/" target="_blank" style="color:var(--biostart-red); font-weight:bold;">Pathways to Science Database</a>.
+        </div>
+
         <div class="canva-choice-grid">
             <div class="choice-card selected" id="col-card-foryou" onclick="selectCollegeTab('foryou')">
                 <div class="choice-card-icon">🎓</div>
                 <div class="choice-card-title">FOR YOU: COLLEGES</div>
-                <div class="choice-card-desc">Personalized college recommendations based on your answers in the survey, including your preferences and work ethics.</div>
+                <div class="choice-card-desc">Personalized college recommendations based on your survey responses, including location preference and academic background.</div>
             </div>
             <div class="choice-card" id="col-card-all" onclick="selectCollegeTab('all')">
                 <div class="choice-card-icon">🏛️</div>
