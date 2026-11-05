@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIOSTART - Biotechnology Career & College Prep</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="favicon-192.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
 
@@ -14,13 +17,21 @@
         <p class="splash-desc">
             Welcome to New Jersey's primary biotechnology career and education prep portal. Discover specialized public CTE high schools, undergraduate college degrees, industry internships, paid jobs, and science competitions tailored to your goals.
         </p>
-        <button class="splash-btn" onclick="document.getElementById('splash-overlay').style.display='none'">GET STARTED ►</button>
+        <button class="splash-btn" onclick="try { sessionStorage.setItem('biostartSplashSeen', '1'); } catch (e) {} document.getElementById('splash-overlay').style.display='none'">GET STARTED ►</button>
     </div>
+    <script>
+        // Show the splash only once per browser session; Home and the logo skip straight to the main page.
+        try {
+            if (sessionStorage.getItem('biostartSplashSeen')) {
+                document.getElementById('splash-overlay').style.display = 'none';
+            }
+        } catch (e) {}
+    </script>
 
     <!-- BRAND HEADER -->
     <header>
         <a class="brand-box" href="index.html">
-            <img src="Draft for CTE Website.png" alt="BIOSTART Microscope Logo" class="brand-logo-img">
+            <img src="biostart_logo_removed.bg.png" alt="BIOSTART logo" class="brand-logo-img">
             <div class="brand-title">
                 <h1>BIOSTA<span style="color: #D93829;">R</span>T</h1>
                 <p>Great Resources, Stat</p>
@@ -35,9 +46,9 @@
     <nav>
         <a href="index.html" class="nav-btn active">Home</a>
         <a href="survey.html" class="nav-btn">Take Survey</a>
-        <a href="highschools.html" class="nav-btn">Vocational High Schools</a>
-        <a href="colleges.html" class="nav-btn">Colleges</a>
         <a href="jobs.html" class="nav-btn">Internships & Jobs</a>
+        <a href="colleges.html" class="nav-btn">Colleges</a>
+        <a href="highschools.html" class="nav-btn">Vocational High Schools</a>
         <a href="opportunities.html" class="nav-btn">Opportunities</a>
         <a href="resume.html" class="nav-btn">Create Resume</a>
         <a href="profile.html" class="nav-btn">Account Profile</a>
@@ -56,33 +67,7 @@
         </div>
     </div>
 
-    <!-- FLOATING AI CHATBOT WIDGET -->
-    <div class="floating-widget chatbot-widget">
-        <div class="widget-header" onclick="toggleWidget('chat-body')">
-            <span>💬 AI Biotech Advisor</span>
-            <span>▲</span>
-        </div>
-        <div id="chat-body" class="widget-body">
-            <div class="chat-msg chat-bot">Hello! I am your BIOSTART advisor. Ask me about CTE high school admissions, college majors, or internships!</div>
-            <div id="chat-messages"></div>
-            <div style="display:flex; gap:6px; margin-top:10px;">
-                <input type="text" id="chat-input" style="width:100%; padding:8px; font-size:12px; border:1px solid #444; background:#222; color:white; border-radius:4px;" placeholder="Ask a question..." onkeydown="if(event.key==='Enter') sendChatMessage()">
-                <button class="btn-action" onclick="sendChatMessage()">Send</button>
-            </div>
-        </div>
-    </div>
 
-    <!-- FLOATING SPOTIFY PLAYER WIDGET -->
-    <div class="floating-widget spotify-widget">
-        <div class="widget-header" onclick="toggleWidget('spotify-body')">
-            <span>🎵 Study Focus Player</span>
-            <span>▲</span>
-        </div>
-        <div id="spotify-body" class="widget-body">
-            <p style="font-size:11px; color:#aaa; margin-bottom:10px;">Focus beats for studying & resume building:</p>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8NTLI29BXZa?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
