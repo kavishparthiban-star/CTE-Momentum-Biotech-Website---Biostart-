@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Resume - BIOSTART</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="favicon-192.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
     <header>
         <a class="brand-box" href="index.html">
-            <img src="Draft for CTE Website.png" alt="BIOSTART Logo" class="brand-logo-img">
+            <img src="biostart_logo_removed.bg.png" alt="BIOSTART logo" class="brand-logo-img">
             <div class="brand-title">
                 <h1>BIOSTA<span style="color: #D93829;">R</span>T</h1>
                 <p>Great Resources, Stat</p>
@@ -23,9 +26,9 @@
     <nav>
         <a href="index.html" class="nav-btn">Home</a>
         <a href="survey.html" class="nav-btn">Take Survey</a>
-        <a href="highschools.html" class="nav-btn">Vocational High Schools</a>
-        <a href="colleges.html" class="nav-btn">Colleges</a>
         <a href="jobs.html" class="nav-btn">Internships & Jobs</a>
+        <a href="colleges.html" class="nav-btn">Colleges</a>
+        <a href="highschools.html" class="nav-btn">Vocational High Schools</a>
         <a href="opportunities.html" class="nav-btn">Opportunities</a>
         <a href="resume.html" class="nav-btn active">Create Resume</a>
         <a href="profile.html" class="nav-btn">Account Profile</a>
@@ -141,7 +144,7 @@
                     <div class="form-row-2">
                         <div>
                             <label class="form-label">School / Institution Name *</label>
-                            <input type="text" id="res-school" class="resume-field" placeholder="e.g. High School Name" oninput="updateResume()">
+                            <input type="text" id="res-school" class="resume-field" placeholder="e.g. High School / College Name" oninput="updateResume()">
                         </div>
                         <div>
                             <label class="form-label">Graduation Date / Expected</label>
@@ -159,7 +162,7 @@
                         </div>
                     </div>
                     <label class="form-label">Relevant Coursework</label>
-                    <textarea id="res-courses" class="resume-field" rows="2" placeholder="e.g. Biotechnology I & II, Organic Chemistry, Molecular Genetics, AP Biology, Bioinformatics" oninput="updateResume()"></textarea>
+                    <textarea id="res-courses" class="resume-field" rows="2" placeholder="e.g. Biotechnology I & II, Organic Chemistry, Molecular Genetics, AP Biology, Introductory Statistics" oninput="updateResume()"></textarea>
                 </div>
 
                 <!-- SECTION 4: TECHNICAL & LAB SKILLS -->
@@ -169,10 +172,10 @@
                     <input type="text" id="res-labskills" class="resume-field" placeholder="e.g. Micropipetting, PCR Amplification, Gel Electrophoresis, Aseptic Cell Culture, DNA Extraction, Spectrophotometry" oninput="updateResume()">
                     
                     <label class="form-label">Software, Bioinformatics & Data Tools</label>
-                    <input type="text" id="res-softskills" class="resume-field" placeholder="e.g. Python, R, BLAST Database, PyMOL, Microsoft Excel (Data Analysis)" oninput="updateResume()">
+                    <input type="text" id="res-softskills" class="resume-field" placeholder="e.g. R Programming, Python, BLAST Database, PyMOL, Intro Statistics, Microsoft Excel (Data Analysis)" oninput="updateResume()">
 
                     <label class="form-label">Certifications & Safety Credentials</label>
-                    <input type="text" id="res-certs" class="resume-field" placeholder="e.g. Biotechnician Assistant Credential (BTEC), OSHA 10-Hour General Industry, CPR/AED" oninput="updateResume()">
+                    <input type="text" id="res-certs" class="resume-field" placeholder="e.g. Biotility Biotechnology Aptitude & Competency Exam (BACE), CITI Responsible Conduct of Research (RCR), OSHA 10-Hour" oninput="updateResume()">
                 </div>
 
                 <!-- SECTION 5: RESEARCH & WORK EXPERIENCE -->
@@ -224,6 +227,23 @@
                     <h4 class="form-section-title">7. Honors, Awards & Grants</h4>
                     <label class="form-label">Honors & Achievements (1 per line)</label>
                     <textarea id="res-honors" class="resume-field" rows="2" placeholder="• 2nd Place - State Biotechnology Competition (2025)&#10;• National Honor Society Inductee (2024)&#10;• Honor Roll Recognition (2023 - 2025)" oninput="updateResume()"></textarea>
+                </div>
+
+                <!-- SECTION 8: SCIENTIFIC PRESENTATIONS, POSTERS & PUBLICATIONS -->
+                <div class="form-section-group">
+                    <h4 class="form-section-title">8. Scientific Presentations, Posters & Publications</h4>
+                    <div class="form-row-2">
+                        <div>
+                            <label class="form-label">Presentation / Poster / Publication Title</label>
+                            <input type="text" id="res-pub-title" class="resume-field" placeholder="e.g. Analysis of Plasmid Vectors in E. coli" oninput="updateResume()">
+                        </div>
+                        <div>
+                            <label class="form-label">Conference, Journal, or Symposium & Date</label>
+                            <input type="text" id="res-pub-venue" class="resume-field" placeholder="e.g. NJ Academy of Science Annual Meeting | April 2025" oninput="updateResume()">
+                        </div>
+                    </div>
+                    <label class="form-label">Summary / Co-Authors / Abstract Citation</label>
+                    <textarea id="res-pub-desc" class="resume-field" rows="2" placeholder="• Poster presentation evaluating stress response gene expression in urban plant species.&#10;• Co-authored abstract published in Proceedings of the NJ Science Student Symposium." oninput="updateResume()"></textarea>
                 </div>
 
                 <!-- ACTION BUTTONS -->
