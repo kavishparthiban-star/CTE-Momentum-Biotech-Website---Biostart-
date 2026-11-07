@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opportunities - BIOSTART</title>
+    <title>Account Profile - BIOSTART</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" href="favicon-192.png">
@@ -18,7 +18,7 @@
                 <p>Great Resources, Stat</p>
             </div>
         </a>
-        <a class="user-pill" href="profile.html">
+        <a class="user-pill active" href="profile.html" aria-current="page">
             👤 <span id="user-greeting">Guest Account</span>
         </a>
     </header>
@@ -29,119 +29,119 @@
         <a href="jobs.html" class="nav-btn">Internships & Jobs</a>
         <a href="colleges.html" class="nav-btn">Colleges</a>
         <a href="highschools.html" class="nav-btn">Vocational High Schools</a>
-        <a href="opportunities.html" class="nav-btn active">Opportunities</a>
+        <a href="opportunities.html" class="nav-btn">Opportunities</a>
         <a href="resume.html" class="nav-btn">Create</a>
         <a href="plan.html" class="nav-btn">My Plan</a>
     </nav>
 
     <div class="container">
-        <h2>Scholarships, Competitions & Summer Programs</h2>
-
-        <!-- ESTABLISHED RESEARCH DATABASES & CERTIFICATIONS HIGHLIGHT BOX -->
-        <div class="template-selector-section" style="margin-bottom: 24px; background: #ffffff;">
-            <h3 style="font-size: 16px; text-transform: uppercase; font-weight: 900; margin-bottom: 8px; color: var(--biostart-black);">
-                🌐 National Research Databases & Industry Certifications
-            </h3>
-            <p style="font-size: 13px; color: #444; margin-bottom: 16px;">
-                Explore established national research clearinghouses and industry-backed credentials recommended by research mentors to strengthen your qualifications:
-            </p>
-            <div class="template-options-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-                <div class="template-card" style="cursor:default;">
-                    <div class="template-icon">🔍</div>
-                    <div class="template-title">NSF REU Directory</div>
-                    <div class="template-desc">The National Science Foundation directory of funded Research Experiences for Undergraduates across the US.</div>
-                    <a href="https://www.nsf.gov/crssprgm/reu/reu_search.jsp" target="_blank" class="btn-action-sm" style="margin-top:10px; display:inline-block; text-decoration:none;">Explore NSF REUs 🔗</a>
-                </div>
-                <div class="template-card" style="cursor:default;">
-                    <div class="template-icon">🧬</div>
-                    <div class="template-title">Pathways to Science</div>
-                    <div class="template-desc">Comprehensive database of fully-funded STEM summer research programs, internships, and scholarships.</div>
-                    <a href="https://www.pathwaystoscience.org/" target="_blank" class="btn-action-sm" style="margin-top:10px; display:inline-block; text-decoration:none;">Browse Pathways 🔗</a>
-                </div>
-                <div class="template-card" style="cursor:default;">
-                    <div class="template-icon">📜</div>
-                    <div class="template-title">Biotility BACE Credential</div>
-                    <div class="template-desc">Biotechnology Aptitude & Competency Exam — an industry-backed credential for entry-level lab roles.</div>
-                    <a href="https://biotility.research.ufl.edu/bace/" target="_blank" class="btn-action-sm" style="margin-top:10px; display:inline-block; text-decoration:none;">Learn About BACE 🔗</a>
-                </div>
-                <div class="template-card" style="cursor:default;">
-                    <div class="template-icon">🛡️</div>
-                    <div class="template-title">CITI RCR Training</div>
-                    <div class="template-desc">Responsible Conduct of Research course — essential lab integrity training required by university research labs.</div>
-                    <a href="https://about.citiprogram.org/" target="_blank" class="btn-action-sm" style="margin-top:10px; display:inline-block; text-decoration:none;">CITI Program Info 🔗</a>
-                </div>
+        <h2>Account Profile & Preferences</h2>
+        <div class="profile-grid">
+            
+            <div class="form-card">
+                <h3 style="font-size: 18px; text-transform: uppercase; font-weight: 900; margin-bottom: 16px; border-bottom: 2px solid var(--biostart-black); padding-bottom: 6px;">👤 Create / Edit Account Profile</h3>
+                <form id="profile-edit-form" onsubmit="saveAccountProfile(event)">
+                    <div style="margin-bottom: 14px;">
+                        <label style="display:block; font-weight:900; text-transform:uppercase; font-size:11px; margin-bottom:4px;">Select Profile Picture Avatar:</label>
+                        <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+                            <button type="button" class="btn-action" onclick="cycleAvatar(-1)">&lt;</button>
+                            <div id="avatar-display" style="width:64px; height:64px; border-radius:50%; border:3px solid var(--biostart-red); background:#eee; display:flex; justify-content:center; align-items:center; font-size:32px;">🔬</div>
+                            <button type="button" class="btn-action" onclick="cycleAvatar(1)">&gt;</button>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <label style="display:block; font-weight:900; text-transform:uppercase; font-size:11px; margin-bottom:4px;">First Name *</label>
+                        <input type="text" id="prof-fname" class="resume-field" placeholder="Enter your first name..." required>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <label style="display:block; font-weight:900; text-transform:uppercase; font-size:11px; margin-bottom:4px;">Email Address *</label>
+                        <input type="email" id="prof-email" class="resume-field" placeholder="Enter your email address..." required>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <label style="display:block; font-weight:900; text-transform:uppercase; font-size:11px; margin-bottom:4px;">Password *</label>
+                        <input type="password" id="prof-pass" class="resume-field" placeholder="Enter your password..." required>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <label style="display:block; font-weight:900; text-transform:uppercase; font-size:11px; margin-bottom:4px;">New Jersey County *</label>
+                        <select id="prof-county" class="resume-field" required>
+                            <option value="" disabled selected>Select New Jersey County...</option>
+                            <option value="Atlantic">Atlantic County</option>
+                        <option value="Bergen">Bergen County</option>
+                        <option value="Burlington">Burlington County</option>
+                        <option value="Camden">Camden County</option>
+                        <option value="Cape May">Cape May County</option>
+                        <option value="Cumberland">Cumberland County</option>
+                        <option value="Essex">Essex County</option>
+                        <option value="Gloucester">Gloucester County</option>
+                        <option value="Hudson">Hudson County</option>
+                        <option value="Hunterdon">Hunterdon County</option>
+                        <option value="Mercer">Mercer County</option>
+                        <option value="Middlesex">Middlesex County</option>
+                        <option value="Monmouth">Monmouth County</option>
+                        <option value="Morris">Morris County</option>
+                        <option value="Ocean">Ocean County</option>
+                        <option value="Passaic">Passaic County</option>
+                        <option value="Salem">Salem County</option>
+                        <option value="Somerset">Somerset County</option>
+                        <option value="Sussex">Sussex County</option>
+                        <option value="Union">Union County</option>
+                        <option value="Warren">Warren County</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <label style="display:block; font-weight:900; text-transform:uppercase; font-size:11px; margin-bottom:4px;">Town / City *</label>
+                        <input type="text" id="prof-town" class="resume-field" placeholder="Enter your town or city..." required>
+                    </div>
+                    <div style="margin-bottom: 16px;">
+                        <label style="display:block; font-weight:900; text-transform:uppercase; font-size:11px; margin-bottom:4px;">Academic Level *</label>
+                        <select id="prof-level" class="resume-field" required>
+                            <option value="" disabled selected>Select Academic Level...</option>
+                            <option value="Middle School">Middle School (Grades 6-8)</option>
+                            <option value="High School">High School (Grades 9-12)</option>
+                            <option value="College Undergrad">College Undergraduate</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <label style="display:block; font-weight:900; text-transform:uppercase; font-size:11px; margin-bottom:4px;">Age *</label>
+                        <input type="number" id="prof-age" class="resume-field" min="10" max="99" placeholder="Enter age between 10 and 99" required>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <label style="display:block; font-weight:900; text-transform:uppercase; font-size:11px; margin-bottom:4px;">Location Preference for Colleges &amp; Jobs *</label>
+                        <select id="prof-locpref" class="resume-field" required>
+                            <option value="In State (NJ)">In-State (New Jersey Only)</option>
+                            <option value="Out of State">Out-of-State Only</option>
+                            <option value="Both">Both (In-State &amp; Out-of-State)</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 16px;">
+                        <label style="display:block; font-weight:900; text-transform:uppercase; font-size:11px; margin-bottom:4px;">Target Season / Availability (internships &amp; jobs) *</label>
+                        <select id="prof-season" class="resume-field" required>
+                            <option value="All Seasons">All Seasons / Year-Round</option>
+                            <option value="Summer">Summer</option>
+                            <option value="Fall">Fall</option>
+                            <option value="Spring">Spring</option>
+                            <option value="Winter">Winter</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-action" style="padding: 12px 20px; font-size: 12px; width: 100%;">Save Account Profile 💾</button>
+                </form>
             </div>
-        </div>
 
-        <!-- COURSES & LEARNING GUIDE -->
-        <div class="template-selector-section" style="margin-bottom: 24px; background: #ffffff;">
-            <h3 style="font-size: 16px; text-transform: uppercase; font-weight: 900; margin-bottom: 8px; color: var(--biostart-black);">
-                📚 Courses &amp; Learning Guide
-            </h3>
-            <p style="font-size: 13px; color: #444; margin-bottom: 12px;">
-                New: free biotech courses, virtual labs, coding practice and career resources are listed below. Tap <b>Courses</b> in the filter bar to see just those, and open a guide here if you are not sure where to start.
-            </p>
-
-            <details class="opp-acc" open>
-                <summary>How free, “audit” and certificate courses work</summary>
-                <div class="opp-acc-body">
-                    <ul>
-                        <li><b>Free:</b> Khan Academy, MIT OpenCourseWare (no sign-up needed), HHMI BioInteractive, iBiology, LabXchange and Rosalind are free to use.</li>
-                        <li><b>Free to audit:</b> on Coursera you can usually watch lectures and read the materials for free. Graded assignments and the certificate cost money. If you do not see an audit button, look for a free trial or apply for financial aid on the course page.</li>
-                        <li><b>Certificates are optional.</b> What matters most is being able to explain what you learned and show something you made with it, like a project, a poster or a short write-up.</li>
-                        <li><b>Credentials are different from courses.</b> BACE, CITI training and the OSHA 10-hour card each have their own sign-up rules. For OSHA, only authorized providers can issue the real card.</li>
-                        <li><b>Age rules:</b> Coursera requires learners to be 13 or older, and under 18 a parent or guardian must be involved. Each card shows a suggested minimum age, and a site’s own rules always come first.</li>
-                    </ul>
+            <div>
+                <div style="background: white; border: 3px solid var(--biostart-black); padding: 24px; border-radius: 8px; margin-bottom: 24px; box-shadow: 0 4px 0 var(--biostart-black);">
+                    <h3 id="profile-name-display" style="font-size: 20px; text-transform: uppercase; font-weight: 900; margin-bottom: 4px;">Profile Unsaved</h3>
+                    <p id="profile-email-display" style="font-size: 12px; color: var(--biostart-red); font-weight: 800; margin-bottom: 8px;">Please complete the form to create your profile</p>
+                    <p id="profile-prefs-display" style="font-size: 13px; color: #444; font-weight: 700; margin-bottom: 4px;"></p>
+                    <p id="profile-location-display" style="font-size: 13px; color: #444; font-weight: 700;">Location: Unspecified</p>
                 </div>
-            </details>
 
-            <details class="opp-acc">
-                <summary>Suggested learning paths by level</summary>
-                <div class="opp-acc-body">
-                    <p>These are starting points, not a required order. Pick one or two at a time, since finishing a course beats starting five.</p>
-                    <div class="opp-path"><b>Middle school (ages 10–13)</b>Khan Academy Biology, then Khan Academy Statistics &amp; Probability, then iBiology talks to hear how scientists work.</div>
-                    <div class="opp-path"><b>High school (ages 14–18)</b>HHMI BioInteractive and LabXchange virtual labs to practice lab techniques, then Statistics &amp; Probability, then Python for Everybody and Rosalind for bioinformatics. When you are ready, try MIT’s Fundamentals of Biology, and look at the BACE credential and the OSHA 10-hour card.</div>
-                    <div class="opp-path"><b>College (18+)</b>Duke’s Introduction to Genetics and Evolution, UC San Diego’s Drug Discovery, then Python and Rosalind. Pair them with the NSF REU Directory and Pathways to Science for research, and CITI training for lab ethics.</div>
-                    <p>Curious what a lab technician’s job looks like? The <b>BLS Career Guide</b> card has the education, work settings and outlook, and <b>BioNJ</b> lists New Jersey biotech employers.</p>
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
+                    <h3 style="font-size: 18px; text-transform: uppercase; font-weight: 900; margin:0;">My Saved Opportunities (<span id="saved-count">0</span>)</h3>
+                    <a href="plan.html#plan" class="btn-action" style="padding: 8px 14px; font-size: 11px; text-decoration: none;">🖨️ Print My Plan</a>
                 </div>
-            </details>
+                <div id="saved-grid" class="grid" style="grid-template-columns: 1fr;"></div>
+            </div>
 
-            <details class="opp-acc">
-                <summary>Show your learning on your resume and LinkedIn</summary>
-                <div class="opp-acc-body">
-                    <ul>
-                        <li>Add finished courses to your resume as coursework or training, with the school or platform and the skills you practiced. Build it in the <a href="resume.html#resume">Resume Builder</a>.</li>
-                        <li>If you earned a real certificate or credential, list it on LinkedIn under Licenses &amp; Certifications. Otherwise mention the course in your Education or Projects description. The <a href="plan.html#linkedin">LinkedIn guide</a> walks through it.</li>
-                        <li>Turn what you learned into something to show: a science fair poster from the <a href="resume.html#poster">Poster Lab</a>, a short coding project, or a one-page summary of a virtual lab.</li>
-                        <li>Save the cards you plan to do with the heart button. They show up in <a href="profile.html">My Saved Opportunities</a> and on your <a href="plan.html#plan">printable plan</a>, where you can track your status.</li>
-                    </ul>
-                </div>
-            </details>
-
-            <details class="opp-acc">
-                <summary>Staying safe online</summary>
-                <div class="opp-acc-body">
-                    <ul>
-                        <li>Use the links on this page, which go straight to each official site.</li>
-                        <li>If you are under 18, set up accounts with a parent or guardian, and never share your address, phone number or school schedule in a course forum.</li>
-                        <li>Never pay a stranger for a “guaranteed” certificate or internship. If something advertised as free asks for card details, stop and ask a parent or teacher.</li>
-                    </ul>
-                </div>
-            </details>
-        </div>
-
-        <div class="filter-header-bar">
-            <span>FILTER BY CATEGORY</span>
-            <span>STEM OPPORTUNITIES &amp; COURSES</span>
-        </div>
-        <div id="opp-filters" class="opp-filters" role="group" aria-label="Filter opportunities by category"></div>
-        <div id="grid-opp" class="grid"></div>
-    </div>
-
-    <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal-card">
-            <span class="modal-close" onclick="closeModalDirect()">&times;</span>
-            <div id="modal-content"></div>
         </div>
     </div>
 
