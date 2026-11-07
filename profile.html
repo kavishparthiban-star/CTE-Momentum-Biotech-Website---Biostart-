@@ -18,7 +18,7 @@
                 <p>Great Resources, Stat</p>
             </div>
         </a>
-        <a class="user-pill" href="profile.html">
+        <a class="user-pill active" href="profile.html" aria-current="page">
             👤 <span id="user-greeting">Guest Account</span>
         </a>
     </header>
@@ -30,8 +30,8 @@
         <a href="colleges.html" class="nav-btn">Colleges</a>
         <a href="highschools.html" class="nav-btn">Vocational High Schools</a>
         <a href="opportunities.html" class="nav-btn">Opportunities</a>
-        <a href="resume.html" class="nav-btn">Create Resume</a>
-        <a href="profile.html" class="nav-btn active">Account Profile</a>
+        <a href="resume.html" class="nav-btn">Create</a>
+        <a href="plan.html" class="nav-btn">My Plan</a>
     </nav>
 
     <div class="container">
@@ -135,7 +135,10 @@
                     <p id="profile-location-display" style="font-size: 13px; color: #444; font-weight: 700;">Location: Unspecified</p>
                 </div>
 
-                <h3 style="font-size: 18px; text-transform: uppercase; font-weight: 900; margin-bottom: 12px;">My Saved Opportunities (<span id="saved-count">0</span>)</h3>
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
+                    <h3 style="font-size: 18px; text-transform: uppercase; font-weight: 900; margin:0;">My Saved Opportunities (<span id="saved-count">0</span>)</h3>
+                    <a href="plan.html#plan" class="btn-action" style="padding: 8px 14px; font-size: 11px; text-decoration: none;">🖨️ Print My Plan</a>
+                </div>
                 <div id="saved-grid" class="grid" style="grid-template-columns: 1fr;"></div>
             </div>
 
