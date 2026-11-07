@@ -58,7 +58,25 @@ const OPPORTUNITIES = [
     { id: 'opp3', name: 'Davidson Fellows Scholarship', cat: 'scholarship', town: 'Statewide', ageMin: 13, season: 'Summer', url: 'https://www.davidsongifted.org/gifted-programs/fellows-scholarship/', notes: 'Scholarship awards up to $50,000 for extraordinary scientific achievements.' },
     { id: 'opp4', name: 'Rutgers Aresty High School Research Program', cat: 'program', town: 'New Brunswick', ageMin: 15, season: 'Summer', url: 'https://aresty.rutgers.edu/resources/research-opportunities-high-school-students', notes: 'Summer laboratory research opportunities at Rutgers New Brunswick.' },
     { id: 'opp5', name: 'HOSA Future Health Professionals', cat: 'competition', town: 'Statewide', ageMin: 14, season: 'Spring', url: 'https://hosa.org/competition/', notes: 'State and national healthcare & biotech competitive events.' },
-    { id: 'opp6', name: 'TSA Biotechnology Design Competition', cat: 'competition', town: 'Statewide', ageMin: 13, season: 'Spring', url: 'https://tsaweb.org/students#competitions', notes: 'Technology Student Association national biotechnology challenges.' }
+    { id: 'opp6', name: 'TSA Biotechnology Design Competition', cat: 'competition', town: 'Statewide', ageMin: 13, season: 'Spring', url: 'https://tsaweb.org/students#competitions', notes: 'Technology Student Association national biotechnology challenges.' },
+
+    /* ---- Courses and learning resources (links verified; fees and audit options can change, so check each page) ---- */
+    { id: 'opp_khan_bio', name: 'Khan Academy: Biology', cat: 'course', town: 'Online', ageMin: 10, season: 'All Seasons', cost: 'Free', format: 'Videos + practice', url: 'https://www.khanacademy.org/science/biology', notes: 'Free video lessons and practice exercises that build from cells and DNA up to genetics. A good first stop for middle schoolers and a quick refresher for older students.' },
+    { id: 'opp_khan_stats', name: 'Khan Academy: Statistics & Probability', cat: 'course', town: 'Online', ageMin: 12, season: 'All Seasons', cost: 'Free', format: 'Videos + practice', url: 'https://www.khanacademy.org/math/statistics-probability', notes: 'Lab results mean little without statistics. This free course covers averages, graphs, probability and significance tests, the math behind reading data and designing fair experiments.' },
+    { id: 'opp_hhmi', name: 'HHMI BioInteractive', cat: 'course', town: 'Online', ageMin: 13, season: 'All Seasons', cost: 'Free', format: 'Virtual labs + videos', url: 'https://www.biointeractive.org/', notes: 'Free videos, data activities and virtual labs from the Howard Hughes Medical Institute, made for high school and college biology. Topics include genetics, microbiology, DNA sequencing and immunology.' },
+    { id: 'opp_labx', name: 'LabXchange (Harvard & Amgen Foundation)', cat: 'course', town: 'Online', ageMin: 14, season: 'All Seasons', cost: 'Free', format: 'Virtual labs', url: 'https://www.labxchange.org/', notes: 'Free virtual lab simulations where you can practice techniques such as bacterial culture and gel electrophoresis, plus videos and learning pathways. Great prep if your school has limited lab time.' },
+    { id: 'opp_ocw_bio', name: 'MIT OpenCourseWare: Fundamentals of Biology (7.01SC)', cat: 'course', town: 'Online', ageMin: 15, season: 'All Seasons', cost: 'Free, no sign-up', format: 'Self-paced', url: 'https://ocw.mit.edu/courses/7-01sc-fundamentals-of-biology-fall-2011/', notes: 'A full college intro biology course built for independent study, with lecture videos from MIT faculty, problem sets and exams with solutions on biochemistry, genetics, molecular biology and recombinant DNA. New to biology? MIT also offers a free prep course, “Getting Up to Speed in Biology.”' },
+    { id: 'opp_duke_genetics', name: 'Introduction to Genetics and Evolution (Duke, on Coursera)', cat: 'course', town: 'Online', ageMin: 15, season: 'All Seasons', cost: 'Free to audit; certificate costs extra', format: 'Self-paced, 11 modules', url: 'https://www.coursera.org/learn/genetics-evolution', notes: 'A college-level course that assumes no prior biology, moving from basic inheritance to population genetics and molecular evolution. If you do not see the audit option, look for the free trial or apply for financial aid. Coursera requires learners to be 13+, and under 18 a parent or guardian must be involved.' },
+    { id: 'opp_ucsd_drug', name: 'Drug Discovery (UC San Diego, on Coursera)', cat: 'course', town: 'Online', ageMin: 16, season: 'All Seasons', cost: 'Free to audit; certificate costs extra', format: 'Self-paced, about 9 hours', url: 'https://www.coursera.org/learn/drug-discovery', notes: 'A short beginner course on how new medicines are found, from choosing a target to testing candidates. UC San Diego’s follow-on courses on Drug Development and Drug Commercialization cover the rest of the path to market. Coursera requires learners under 18 to have a parent or guardian involved.' },
+    { id: 'opp_py4e', name: 'Python for Everybody (University of Michigan)', cat: 'course', town: 'Online', ageMin: 13, season: 'All Seasons', cost: 'Free', format: 'Self-paced', url: 'https://www.py4e.com/', notes: 'A beginner-friendly Python course with free lectures, a textbook and assignments from Dr. Charles Severance. Python is widely used to analyze biological data, so this is a strong first step toward bioinformatics.' },
+    { id: 'opp_rosalind', name: 'Rosalind: Learn Bioinformatics by Solving Problems', cat: 'course', town: 'Online', ageMin: 14, season: 'All Seasons', cost: 'Free', format: 'Coding practice', url: 'https://rosalind.info/', notes: 'Puzzle-style problems that teach bioinformatics and programming together. You can use any programming language, and answers are checked automatically. Try it after a Python basics course.' },
+
+    /* ---- Credential, career information and a New Jersey program ---- */
+    { id: 'opp_osha10', name: 'OSHA 10-Hour Safety Training (General Industry)', cat: 'certification', town: 'Online', ageMin: 14, season: 'All Seasons', cost: 'Fee varies by provider', format: 'Online or in person', url: 'https://www.osha.gov/training/outreach', notes: 'Entry-level workplace safety training that earns an official U.S. Department of Labor card. It is voluntary under federal rules, but some employers require it. OSHA sets no minimum age, and only OSHA-authorized trainers and online providers can issue the real card, so check authorization before you pay.' },
+    { id: 'opp_ibiology', name: 'iBiology: Free Talks from Leading Scientists', cat: 'resource', town: 'Online', ageMin: 10, season: 'All Seasons', cost: 'Free', format: 'Video library', url: 'https://www.ibiology.org/', notes: 'Free videos where top scientists explain their discoveries, how lab techniques like microscopy work, and how they built their careers, including the series “How I Became a Scientist.”' },
+    { id: 'opp_bls', name: 'BLS Career Guide: Biological Technicians', cat: 'resource', town: 'Nationwide', ageMin: 12, season: 'All Seasons', cost: 'Free', format: 'Career guide', url: 'https://www.bls.gov/ooh/life-physical-and-social-science/biological-technicians.htm', notes: 'The U.S. Bureau of Labor Statistics page on what lab technicians do, where they work, current pay and job outlook. It notes that most need a bachelor’s degree in biology or a related field and that students should gain lab experience while still in school.' },
+    { id: 'opp_bionj', name: 'BioNJ: New Jersey’s Life Sciences Network', cat: 'resource', town: 'Statewide', ageMin: 14, season: 'All Seasons', cost: 'Free', format: 'Industry association', url: 'https://www.bionj.org/', notes: 'The trade association for New Jersey’s life sciences industry. Its career portal lists NJ biotech and pharma jobs, and its member companies are good ones to research and follow.' },
+    { id: 'opp_njas_brfp', name: 'NJAS Biotechnology Research Fellowship (Caldwell University)', cat: 'program', town: 'Caldwell', county: 'Essex', ageMin: 14, season: 'Summer', format: 'Two weeks, on campus', url: 'https://njas.org/Biotechnology-Research-Fellowship-Program', notes: 'A two-week hands-on summer research program at Caldwell University for New Jersey high school students, with tracks in cancer biology and in neuroscience and developmental biology, an industry site visit and a poster showcase. NJAS lists cohorts for summer 2025 and summer 2026, so check the page for the next dates and how to apply.' }
 ];
 
 const AVATARS = ['🔬', '🧬', '🧪', '🧫', '💻', '🎓', '💼'];
@@ -155,6 +173,8 @@ window.addEventListener('DOMContentLoaded', () => {
     updateUserHeaderDisplay();
     loadSurveyForm();
     renderAllGrids();
+    revealItemFromHash();
+    if (document.getElementById('plan-root')) renderPlanPage();
     if (document.getElementById('printable-resume')) initResumeBuilder();
     if (document.getElementById('prof-fname') || document.getElementById('profile-edit-form')) loadProfileDisplay();
 });
@@ -210,7 +230,7 @@ const PAGE_BANNERS = {
     'grid-col':  { cls: 'colleges',      sub: 'Biotech degree tracks, research-ready campuses, and where to look beyond New Jersey.' },
     'grid-hs':   { cls: 'highschools',   sub: 'Hands-on biotech lab training, years before college.' },
     'grid-jobs': { cls: 'jobs',          sub: 'Internships and paid lab roles matched to your age and season.' },
-    'grid-opp':  { cls: 'opportunities', sub: 'Scholarships, competitions, and summer research programs worth applying to.' }
+    'grid-opp':  { cls: 'opportunities', sub: 'Scholarships, competitions, summer programs, and free biotech courses worth your time.' }
 };
 
 // Flat illustration in the same palette as the logo: salmon blob, red, black
@@ -376,7 +396,7 @@ function renderHighSchools() {
         const isLiked = userProfile.savedIds.includes(hs.id);
         const isCountyMatch = userProfile.surveyCompleted && userProfile.county && hs.county.toLowerCase() === userProfile.county.toLowerCase();
         container.innerHTML += `
-            <div class="card">
+            <div class="card" id="item-${hs.id}">
                 <div class="card-head">${logoHTML(hs)}<span class="card-tag">${hs.county} County${isCountyMatch ? ' ★ YOUR COUNTY' : ''}</span></div>
                 <div class="card-title">${hs.name}</div>
                 <div class="card-body">${hs.notes}</div>
@@ -455,7 +475,7 @@ function renderColleges() {
         const isLiked = userProfile.savedIds.includes(col.id);
         const isTownMatch = userProfile.surveyCompleted && jMatchTown(col, userProfile.town);
         html += `
-            <div class="card">
+            <div class="card" id="item-${col.id}">
                 <div class="card-head">${logoHTML(col)}<span class="card-tag">${col.isNJ ? 'IN-STATE (NJ)' : 'OUT-OF-STATE'}${isTownMatch ? ' ★ NEAR YOU' : ''}${ageTag(col)} | ${col.location}</span></div>
                 <div class="card-title">${col.name}</div>
                 <div class="card-body"><strong>Cost:</strong> ${col.cost}<br><strong>Acceptance:</strong> ${col.acceptance}<br><strong>Typical applicant age:</strong> ${col.ageMin}+<br>${col.notes}</div>
@@ -508,7 +528,7 @@ function renderJobs() {
         const isLiked = userProfile.savedIds.includes(j.id);
         const isTownMatch = userProfile.surveyCompleted && jMatchTown(j, userProfile.town);
         html += `
-            <div class="card">
+            <div class="card" id="item-${j.id}">
                 <div class="card-head">${logoHTML(j)}<span class="card-tag">${j.isNJ ? 'IN-STATE (NJ)' : 'OUT-OF-STATE'}${isTownMatch ? ' ★ NEAR YOU' : ''}${ageTag(j)} | ${j.cat.toUpperCase()}</span></div>
                 <div class="card-title">${j.name}</div>
                 <div class="card-body"><strong>Minimum age:</strong> ${j.ageMin}+<br><strong>Contact Email:</strong> ${j.email}<br>${j.notes}</div>
@@ -522,30 +542,65 @@ function renderJobs() {
 }
 
 /* --- OPPORTUNITIES RENDER --- */
+let oppFilter = 'all';
+const OPP_FILTERS = [
+    ['all', 'All'], ['course', 'Courses'], ['competition', 'Competitions'], ['scholarship', 'Scholarships'],
+    ['program', 'Programs'], ['certification', 'Certifications'], ['resource', 'Databases & Resources']
+];
+
+function oppInFilter(o, f) {
+    if (f === 'all') return true;
+    if (f === 'resource') return o.cat === 'database' || o.cat === 'resource';
+    return o.cat === f;
+}
+
+function setOppFilter(f) {
+    oppFilter = OPP_FILTERS.some(x => x[0] === f) ? f : 'all';
+    renderOpportunities();
+}
+
 function renderOpportunities() {
     const container = document.getElementById('grid-opp');
     if (!container) return;
-    container.innerHTML = '';
 
     let list = OPPORTUNITIES;
     if (userProfile.surveyCompleted) {
         list = OPPORTUNITIES.filter(o => userProfile.age >= o.ageMin);
         sortByTownAndCounty(list);
     }
+    const shown = list.filter(o => oppInFilter(o, oppFilter));
 
-    list.forEach(o => {
+    const bar = document.getElementById('opp-filters');
+    if (bar) {
+        bar.innerHTML = OPP_FILTERS.map(([key, label]) => {
+            const n = list.filter(o => oppInFilter(o, key)).length;
+            const on = key === oppFilter;
+            return `<button type="button" class="opp-filter${on ? ' active' : ''}" aria-pressed="${on}" onclick="setOppFilter('${key}')">${label} <span>${n}</span></button>`;
+        }).join('');
+    }
+
+    if (!shown.length) {
+        container.innerHTML = `<div class="opp-empty">Nothing in this category matches your age yet. <a href="#" onclick="setOppFilter('all'); return false;">Show everything</a>.</div>`;
+        return;
+    }
+
+    container.innerHTML = shown.map(o => {
         const isLiked = userProfile.savedIds.includes(o.id);
-        container.innerHTML += `
-            <div class="card">
+        const chips = [o.cost, o.format, o.ageMin ? 'Ages ' + o.ageMin + '+' : ''].filter(Boolean)
+            .map((c, i) => `<span class="opp-chip${c === o.cost ? ' cost' : ''}">${c}</span>`).join('');
+        const cta = o.cat === 'course' ? 'Open Course' : o.cat === 'resource' ? 'Open Resource' : 'View Details';
+        return `
+            <div class="card" id="item-${o.id}">
                 <div class="card-head">${logoHTML(o)}<span class="card-tag">${o.cat.toUpperCase()}</span></div>
                 <div class="card-title">${o.name}</div>
                 <div class="card-body">${o.notes}</div>
+                <div class="opp-chips">${chips}</div>
                 <div class="card-actions">
-                    <a href="${o.url}" target="_blank" class="btn-action">View Details</a>
+                    <a href="${o.url}" target="_blank" rel="noopener" class="btn-action">${cta}</a>
                     <span class="like-heart ${isLiked ? 'liked' : ''}" onclick="toggleLike('${o.id}', event)">♥</span>
                 </div>
             </div>`;
-    });
+    }).join('');
 }
 
 /* --- SURVEY HANDLER & DYNAMIC ROUTING FIX --- */
@@ -1219,6 +1274,7 @@ function renderSaved() {
     const allItems = [...HIGH_SCHOOLS, ...COLLEGES, ...JOBS, ...OPPORTUNITIES];
     const savedItems = allItems.filter(item => userProfile.savedIds.includes(item.id));
 
+    pruneCompare(savedItems);
     const firstPaint = savedShownIds === null;
     const prevIds = savedShownIds || [];
     savedShownIds = savedItems.map(i => i.id);
@@ -1233,14 +1289,14 @@ function renderSaved() {
         return;
     }
 
-    let html = '';
+    let html = compareBarHTML(savedItems);
     savedItems.forEach((item, i) => {
         const isNew = firstPaint || !prevIds.includes(item.id);
         const cls = isNew ? (firstPaint ? 'saved-in' : 'saved-in saved-new') : '';
         const delay = firstPaint ? `animation-delay:${i * 80}ms;` : '';
         const currentStatus = userProfile.progress[item.id] || "Interested";
         html += `
-            <div class="card saved-card ${cls}" style="margin-bottom:12px; ${delay}">
+            <div class="card saved-card ${cls}" style="margin-bottom:12px; ${delay}" data-href="${savedItemHref(item.id)}" role="link" tabindex="0" title="Open details on the ${savedItemPageName(item.id)} page">
                 <div style="display:flex; justify-content:space-between; align-items:start;">
                     <div style="display:flex; gap:12px; align-items:flex-start;">
                         ${logoHTML(item, true)}
@@ -1252,6 +1308,8 @@ function renderSaved() {
                     <span class="like-heart liked" onclick="toggleLike('${item.id}', event)">♥</span>
                 </div>
                 <div style="margin-top:10px;">
+                    <div class="saved-open">View full details &rarr;</div>
+                    ${comparePickHTML(item, savedItems)}
                     <label style="font-size:10px; font-weight:800; text-transform:uppercase;">Application Tracker Status:</label><br>
                     <select class="resume-field" style="padding:6px; font-weight:bold; border:2px solid #000; width:100%; margin-top:4px;" onchange="updateSavedStatus('${item.id}', this.value)">
                         <option value="Interested" ${currentStatus === 'Interested' ? 'selected' : ''}>Interested</option>
@@ -1264,6 +1322,664 @@ function renderSaved() {
     });
     grid.innerHTML = html;
 }
+
+
+/* --- SAVED ITEM -> DETAILS ON ITS OWN PAGE --- */
+const SAVED_PAGES = { hs: ['highschools.html', 'Vocational High Schools'], col: ['colleges.html', 'Colleges'], job: ['jobs.html', 'Internships & Jobs'], opp: ['opportunities.html', 'Opportunities'] };
+function savedPageFor(id) { return SAVED_PAGES[(String(id).match(/^[a-z]+/) || [''])[0]] || SAVED_PAGES.opp; }
+function savedItemHref(id) { return `${savedPageFor(id)[0]}#item-${id}`; }
+function savedItemPageName(id) { return savedPageFor(id)[1]; }
+
+// Clicking anywhere on a saved card (except its heart, status dropdown or links) opens that item on its page
+document.addEventListener('click', e => {
+    const card = e.target.closest && e.target.closest('.saved-card[data-href]');
+    if (!card || e.target.closest('.like-heart, select, label, input, a, button')) return;
+    window.location.href = card.dataset.href;
+});
+document.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' || e.target.closest('select, input, a, button')) return;
+    const card = e.target.closest && e.target.closest('.saved-card[data-href]');
+    if (card) window.location.href = card.dataset.href;
+});
+
+// On arrival with #item-<id>: make sure the card is visible, scroll to it and highlight it
+function revealItemFromHash() {
+    const m = (location.hash || '').match(/^#item-([A-Za-z0-9_-]+)$/);
+    if (!m) return;
+    const find = () => document.getElementById('item-' + m[1]);
+    let el = find();
+    if (!el) {   // hidden by a tab or county filter: widen to everything and try again
+        if (document.getElementById('grid-col')) selectCollegeTab('all');
+        else if (document.getElementById('grid-jobs')) selectJobTab('all');
+        else if (document.getElementById('grid-hs')) filterCounty('ALL', document.querySelector('.county-list li'));
+        else if (document.getElementById('grid-opp')) setOppFilter('all');
+        el = find();
+    }
+    if (!el) return;
+    setTimeout(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.remove('card-spotlight'); void el.offsetWidth;
+        el.classList.add('card-spotlight');
+        setTimeout(() => el.classList.remove('card-spotlight'), 2800);
+    }, 250);
+}
+window.addEventListener('hashchange', revealItemFromHash);
+
+/* --- COMPARE SAVED SCHOOLS (2-3 colleges, or 2-3 high schools) --- */
+let compareIds = [];
+const COMPARE_MAX = 3;
+function compareType(id) { return String(id).startsWith('col') ? 'col' : (String(id).startsWith('hs') ? 'hs' : null); }
+function compareTypeLabel(t, plural) { return t === 'col' ? (plural ? 'colleges' : 'college') : (plural ? 'high schools' : 'high school'); }
+function savedCountOf(type, savedItems) { return savedItems.filter(i => compareType(i.id) === type).length; }
+
+function pruneCompare(savedItems) {
+    const ids = savedItems.map(i => i.id);
+    compareIds = compareIds.filter(id => ids.includes(id));
+    if (savedCountOf('col', savedItems) < 2) compareIds = compareIds.filter(id => compareType(id) !== 'col');
+    if (savedCountOf('hs', savedItems) < 2) compareIds = compareIds.filter(id => compareType(id) !== 'hs');
+}
+
+function compareCanPick(item, picked) {
+    if (picked) return true;
+    if (compareIds.length >= COMPARE_MAX) return false;
+    return !compareIds.length || compareType(compareIds[0]) === compareType(item.id);
+}
+
+function comparePickHTML(item, savedItems) {
+    const t = compareType(item.id);
+    if (!t || savedCountOf(t, savedItems) < 2) return '';
+    const picked = compareIds.includes(item.id);
+    return `<label class="compare-pick"><input type="checkbox" data-id="${item.id}" ${picked ? 'checked' : ''} ${compareCanPick(item, picked) ? '' : 'disabled'} onchange="toggleCompare('${item.id}', this.checked)"> ⚖️ Add to compare</label>`;
+}
+
+function compareBarHTML(savedItems) {
+    if (savedCountOf('col', savedItems) < 2 && savedCountOf('hs', savedItems) < 2) return '';
+    const n = compareIds.length;
+    const t = n ? compareType(compareIds[0]) : null;
+    let hint = 'Tick “Add to compare” on 2–3 saved colleges (or 2–3 saved high schools).';
+    if (n === 1) hint = `Pick at least one more ${compareTypeLabel(t)} (colleges and high schools are compared separately).`;
+    if (n >= 2) hint = `${n} ${compareTypeLabel(t, true)} selected${n < COMPARE_MAX ? ' – you can add one more' : ''}.`;
+    return `<div id="compare-bar" class="compare-bar"><div><strong>⚖️ Compare schools</strong><span>${hint}</span></div>` +
+           `<button type="button" class="btn-action" ${n < 2 ? 'disabled' : ''} onclick="openCompare()">Compare ${n >= 2 ? n + ' ' : ''}&#9658;</button></div>`;
+}
+
+function toggleCompare(id, on) {
+    const at = compareIds.indexOf(id);
+    if (on && at === -1) {
+        const item = findSavedItem(id);
+        if (item && compareCanPick(item, false)) compareIds.push(id);
+    } else if (!on && at !== -1) {
+        compareIds.splice(at, 1);
+    }
+    refreshCompareUI();
+}
+
+function refreshCompareUI() {
+    const all = [...HIGH_SCHOOLS, ...COLLEGES].filter(i => userProfile.savedIds.includes(i.id));
+    const bar = document.getElementById('compare-bar');
+    if (bar) bar.outerHTML = compareBarHTML(all);
+    document.querySelectorAll('.compare-pick input').forEach(box => {
+        const item = findSavedItem(box.dataset.id);
+        const picked = compareIds.includes(box.dataset.id);
+        box.checked = picked;
+        box.disabled = !(item && compareCanPick(item, picked));
+    });
+}
+
+function compareCell(v) { return v ? v : '<span class="compare-na">Not listed</span>'; }
+
+function openCompare() {
+    const items = compareIds.map(findSavedItem).filter(Boolean);
+    if (items.length < 2) return;
+    const isCol = compareType(items[0].id) === 'col';
+    const rows = isCol ? [
+        ['Location', c => c.location],
+        ['In-state / out-of-state', c => c.isNJ ? 'In-state (NJ)' : 'Out-of-state'],
+        ['Cost', c => c.cost],
+        ['Acceptance', c => c.acceptance],
+        ['Typical applicant age', c => c.ageMin ? c.ageMin + '+' : ''],
+        ['About', c => c.notes],
+    ] : [
+        ['County', h => h.county ? h.county + ' County' : ''],
+        ['Town', h => h.town],
+        ['Minimum age', h => h.ageMin ? h.ageMin + '+' : ''],
+        ['About', h => h.notes],
+    ];
+    const head = items.map(i => `<th scope="col"><div class="compare-school">${logoHTML(i, true)}<span>${i.name}</span></div></th>`).join('');
+    const body = rows.map(([label, fn]) => `<tr><th scope="row">${label}</th>${items.map(i => `<td>${compareCell(fn(i))}</td>`).join('')}</tr>`).join('');
+    const links = `<tr><th scope="row">Links</th>${items.map(i => `<td><a href="${i.url}" target="_blank" rel="noopener" class="btn-action-sm">Official site 🔗</a><br><a href="${savedItemHref(i.id)}" class="compare-link">Open in BIOSTART</a></td>`).join('')}</tr>`;
+    const note = isCol ? '<p class="compare-note">Costs and acceptance rates are shown as listed on each card. “Before aid” means the sticker price before scholarships and financial aid; check each school’s own net price calculator for your real cost.</p>' : '';
+
+    let ov = document.getElementById('compare-overlay');
+    if (!ov) {
+        ov = document.createElement('div');
+        ov.id = 'compare-overlay';
+        ov.className = 'modal-overlay';
+        ov.addEventListener('click', e => { if (e.target === ov) closeCompare(); });
+        document.body.appendChild(ov);
+    }
+    ov.innerHTML = `<div class="modal-card compare-card" role="dialog" aria-modal="true" aria-label="Compare schools">
+        <span class="modal-close" onclick="closeCompare()" aria-label="Close">&times;</span>
+        <h3 class="compare-title">Compare ${compareTypeLabel(compareType(items[0].id), true)}</h3>
+        <div class="compare-scroll"><table class="compare-table"><thead><tr><th></th>${head}</tr></thead><tbody>${body}${links}</tbody></table></div>
+        ${note}</div>`;
+    ov.style.display = 'flex';
+}
+function closeCompare() { const ov = document.getElementById('compare-overlay'); if (ov) ov.style.display = 'none'; }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCompare(); });
+
+
+/* ==========================================================================
+   PRINTABLE "MY PLAN" PAGE (plan.html)
+   One page for a parent or counselor: who the student is, where they are on
+   the timeline, what to do next, and everything they have saved with its
+   status. Built only from what is already stored in this browser.
+   ========================================================================== */
+const planEsc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+function planShortUrl(u) {
+    const t = String(u || '').replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+    return t.length > 58 ? t.slice(0, 55) + '…' : t;
+}
+
+function planFacts(kind, i) {
+    const bits = [];
+    if (kind === 'hs') {
+        bits.push([i.town, i.county ? i.county + ' County' : ''].filter(Boolean).join(', '));
+        if (i.ageMin) bits.push('Ages ' + i.ageMin + '+');
+    } else if (kind === 'col') {
+        bits.push(i.location);
+        bits.push(i.isNJ ? 'In-state' : 'Out-of-state');
+        if (i.cost) bits.push(i.cost);
+        if (i.acceptance) bits.push('Acceptance: ' + i.acceptance);
+    } else if (kind === 'job') {
+        bits.push(i.cat ? i.cat.charAt(0).toUpperCase() + i.cat.slice(1) : '');
+        bits.push(i.town);
+        if (i.season) bits.push(i.season);
+        if (i.ageMin) bits.push('Ages ' + i.ageMin + '+');
+    } else {
+        bits.push(i.cat ? i.cat.charAt(0).toUpperCase() + i.cat.slice(1) : '');
+        if (i.town && i.town !== 'Statewide') bits.push(i.town);
+        if (i.season) bits.push(i.season);
+        if (i.ageMin) bits.push('Ages ' + i.ageMin + '+');
+    }
+    return bits.filter(Boolean).join(' · ');
+}
+
+
+/* --- PERSONALITY TRAITS + LINKEDIN GUIDE (parts of the My Plan page) --- */
+const PLAN_TRAITS = [
+    { k: 'curiosity',     name: 'Curiosity and good questions', why: 'Research starts with asking why something happens and how you could test it.', build: 'After each lab or biotech news story, write one question you could test.' },
+    { k: 'detail',        name: 'Attention to detail',          why: 'Labs and manufacturers run on exact measurements, labels and records. One small slip can ruin a whole experiment.', build: 'Double-check every measurement and label, and keep a neat lab notebook.' },
+    { k: 'resilience',    name: 'Resilience and patience',      why: 'Experiments fail often. Scientists treat a failed run as information, then try again.', build: 'After a setback, write what went wrong, what you will change, and retry.' },
+    { k: 'integrity',     name: 'Honesty and integrity',        why: 'Data has to be recorded exactly as it happened, even when it is not what you hoped for.', build: 'Record real results, never adjust numbers, and credit your sources.' },
+    { k: 'teamwork',      name: 'Teamwork',                     why: 'Most biotech work is done in groups across research, quality, manufacturing and regulatory teams.', build: 'Take a clear role in a group project and finish your part on time.' },
+    { k: 'communication', name: 'Clear communication',          why: 'You have to explain methods and results to people who did not see the work.', build: 'Explain a lab result in two sentences to a friend, then write it down.' },
+    { k: 'adaptable',     name: 'Adaptability and fast learning', why: 'Tools and techniques change quickly, and people who learn fast stay useful.', build: 'Learn one new tool or technique each semester. Free tutorials count.' },
+    { k: 'organized',     name: 'Organization and time management', why: 'Experiments run on schedules: incubation times, deadlines, ordered supplies.', build: 'Use a planner for homework and lab due dates for one month.' },
+    { k: 'safety',        name: 'Safety mindset',               why: 'Labs involve chemicals, biological materials and equipment. Following procedures protects everyone.', build: 'Follow every safety rule, and ask before you guess.' },
+    { k: 'initiative',    name: 'Initiative',                   why: 'Mentors notice students who ask for the next task, volunteer for a project, or look for answers first.', build: 'Ask a teacher or mentor about one extra project and make a plan.' }
+];
+const PLAN_TRAIT_FOCUS = {
+    'Middle School': ['curiosity', 'resilience', 'organized'],
+    'High School': ['detail', 'teamwork', 'integrity'],
+    'College Undergrad': ['communication', 'adaptable', 'initiative']
+};
+const PLAN_LI_CHECKS = [
+    ['age', 'I am 16 or older (or I am preparing offline until I am)'],
+    ['photo', 'Clear profile photo and a banner'],
+    ['headline', 'Headline that says what I am learning and aiming for'],
+    ['about', 'About section written, with a strong first few lines'],
+    ['edu', 'School, program and graduation year added'],
+    ['exp', 'Experience, volunteering or projects added with result-focused bullets'],
+    ['skills', '10 or more real skills added, top 3 pinned'],
+    ['certs', 'Certifications added (BACE, CITI RCR once earned)'],
+    ['privacy', 'Privacy settings reviewed and two-step verification on'],
+    ['url', 'Custom profile link set'],
+    ['connect', '10 or more connections: teachers, classmates, mentors'],
+    ['follow', 'Following 10 companies, schools or organizations']
+];
+
+function planLoad(key, fallback) { try { const v = JSON.parse(localStorage.getItem(key)); return v && typeof v === 'object' ? v : fallback; } catch (e) { return fallback; } }
+function planStore(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) { /* storage unavailable */ } }
+
+function planTraitsHTML(u) {
+    const on = planLoad('biostart_traitsWorking', []);
+    const focus = PLAN_TRAIT_FOCUS[u.level] || PLAN_TRAIT_FOCUS['High School'];
+    const ordered = PLAN_TRAITS.slice().sort((a, b) => (focus.includes(b.k) ? 1 : 0) - (focus.includes(a.k) ? 1 : 0));
+    return `
+        <div class="plan-sec">
+            <div class="plan-h">Traits I am building</div>
+            <p class="plan-small">Technical skills can be taught. These habits are what lab mentors and managers tend to notice. Tick the ones you are working on; “focus now” marks the ones that matter most at your school level.</p>
+            <div class="plan-traits">${ordered.map(t => `
+                <label class="plan-trait${focus.includes(t.k) ? ' is-focus' : ''}">
+                    <input type="checkbox" data-trait="${t.k}" ${Array.isArray(on) && on.includes(t.k) ? 'checked' : ''}>
+                    <span><b>${planEsc(t.name)}</b>${focus.includes(t.k) ? ' <em class="plan-tag">focus now</em>' : ''}<br>
+                    <span class="plan-small">${planEsc(t.why)}</span><br>
+                    <span class="plan-small"><b>Try:</b> ${planEsc(t.build)}</span></span>
+                </label>`).join('')}
+            </div>
+        </div>`;
+}
+
+function planAgeNotice(u) {
+    const age = parseInt(u.age, 10) || 0;
+    if (age && age < 16) return `<div class="plan-callout warn"><b>Wait until 16 to join.</b> LinkedIn’s rules say members must be at least 16, so please do not create an account yet and do not enter a false birthday. Use the time to get ready: build your resume, collect skills and projects, and read this guide so your profile is quick to finish later.</div>`;
+    if (age && age < 18) return `<div class="plan-callout"><b>You can join, with a parent or guardian in the loop.</b> Set up your privacy settings together, and talk to them before you share personal details or meet anyone you connect with.</div>`;
+    return '';
+}
+
+function planLiCount() {
+    const done = planLoad('biostart_linkedinChecks', {});
+    return PLAN_LI_CHECKS.filter(([k]) => done[k]).length;
+}
+
+function planLinkedInMini(u) {
+    const done = planLoad('biostart_linkedinChecks', {});
+    return `
+        <div class="plan-sec">
+            <div class="plan-h">My LinkedIn</div>
+            <p class="plan-small">LinkedIn is the professional networking site where lab managers, recruiters and mentors look people up. Open it at <b>linkedin.com</b> and follow the step-by-step LinkedIn guide on the My Plan page. <b><span class="li-count">${planLiCount()}</span> of ${PLAN_LI_CHECKS.length}</b> checklist items done.</p>
+            ${planAgeNotice(u)}
+            <div class="plan-checks">${PLAN_LI_CHECKS.map(([k, label]) => `<label class="plan-check"><input type="checkbox" data-li="${k}" ${done[k] ? 'checked' : ''}> <span>${planEsc(label)}</span></label>`).join('')}</div>
+            <p class="plan-small plan-urlline">My profile link: linkedin.com/in/ <span class="plan-blank"></span></p>
+        </div>`;
+}
+
+const PLAN_LI_GUIDE = [
+    { t: 'Before you start: age, safety and setup', h: `
+        <ul>
+            <li><b>Age.</b> LinkedIn’s user agreement says members must be at least 16. If you are younger, do not sign up and do not use a false birthday. Use the steps below to prepare, and join when you turn 16.</li>
+            <li><b>Parent or guardian.</b> If you are under 18, tell a parent or guardian before you join and review your settings together.</li>
+            <li><b>Real name, one account.</b> LinkedIn expects your real name and a single account for you.</li>
+            <li><b>Use an email you will keep.</b> A personal email that will still work after graduation is better than a school email that will be shut off. Use a strong password you do not use anywhere else.</li>
+            <li><b>Turn on two-step verification</b> in Settings (look under the sign-in and security options; menu names change from time to time, so use the help search if you cannot find it).</li>
+            <li><b>Keep private things private.</b> Never put your home address, phone number, daily schedule or posts that show where you will be.</li>
+            <li><b>Everything is searchable.</b> Teachers, colleges and employers can look you up. If you would not show it to a lab manager, do not post it.</li>
+        </ul>` },
+    { t: 'Step 1: Create your account (about 10 minutes)', h: `
+        <ol>
+            <li>Go to <b>linkedin.com</b> and choose to join (the sign-up page is <b>linkedin.com/signup</b>).</li>
+            <li>Enter your email and password, then your first and last name.</li>
+            <li>For location, choose your general area (a nearby city or metro area) instead of anything that points to your street.</li>
+            <li>When it asks about your situation, choose student and add your school or program.</li>
+            <li>Confirm your email with the code LinkedIn sends you.</li>
+            <li>If it offers to import your contacts or address book, you can skip it. You will connect with people on purpose instead.</li>
+            <li>Write down your login in a safe place, not in a note on your phone’s lock screen.</li>
+        </ol>` },
+    { t: 'Step 2: Profile photo and banner', h: `
+        <p><b>Photo</b></p>
+        <ul>
+            <li>Use a square photo of at least 400 × 400 pixels (LinkedIn crops it to a circle, so keep your face in the middle).</li>
+            <li>Your face should fill most of the frame, in good light, with a plain background.</li>
+            <li>Smile and dress as you would for a school presentation. A lab coat is fine if the photo was taken in your school lab with permission and you are alone in it.</li>
+            <li>No filters, sunglasses, cropped group photos or school-dance pictures.</li>
+        </ul>
+        <p><b>Banner</b></p>
+        <ul>
+            <li>The banner is 1584 × 396 pixels (a wide 4:1 shape). A free tool like Canva has templates in that size.</li>
+            <li>Good ideas: a clean biotech picture (pipettes, DNA, a microscope) that you took or have the right to use, plus a short line such as “Future biotech lab technician”.</li>
+            <li>Your photo covers the lower-left corner, so keep text away from there.</li>
+            <li>Do not use pictures you copied from other websites. Use your own or ones the site says are free to use.</li>
+        </ul>` },
+    { t: 'Step 3: Headline (220 characters)', h: `
+        <p>Your headline shows next to your name everywhere on LinkedIn, so make it say more than “Student at ___”. Put the most important words first, because some views cut it short.</p>
+        <p><b>Formula:</b> who you are | what you are learning | what you are aiming for</p>
+        <div class="plan-example"><b>Examples (write your own, and only claim what is true):</b><br>
+            “High school biotechnology student | Learning PCR, gel electrophoresis and aseptic technique | Aiming for a career in biomanufacturing”<br>
+            “Biology major | Undergraduate cell culture research | Seeking a summer lab internship”<br>
+            “Biotechnology academy student | BACE credential in progress | Interested in quality control”</div>
+        <p><b>Skip:</b> “Looking for opportunities”, “Student at [school]”, jokes, and emojis in place of words.</p>` },
+    { t: 'Step 4: About section (2,600 characters)', h: `
+        <p>Write in the first person. Only the first few lines show before the “see more” link, so put the best part first.</p>
+        <ol>
+            <li><b>Hook:</b> who you are and what drew you to biotech.</li>
+            <li><b>Proof:</b> techniques you have learned, projects you have done, credentials you are working toward.</li>
+            <li><b>Goal:</b> what you are looking for, such as a summer lab internship, shadowing, or advice.</li>
+            <li><b>Invitation:</b> a friendly line inviting people in biotech to message you.</li>
+        </ol>
+        <div class="plan-example"><b>Sample (replace every detail with your own truth):</b><br>
+            “I am a junior in a biotechnology program, and my favorite moment in lab is when a result makes me rethink my question. This year I learned micropipetting, gel electrophoresis and aseptic technique, and I ran a science fair project on how temperature affects an enzyme. I am working toward my BACE credential and CITI RCR training. I am looking for a summer lab or manufacturing internship where I can keep learning. If you work in biotech, I would love to hear how you got started.”</div>
+        <p><b>Tip:</b> read it out loud. If a sentence sounds like something you would never say, rewrite it. Never exaggerate; mentors check.</p>` },
+    { t: 'Step 5: Education', h: `
+        <ul>
+            <li>Add your school and program (for example, your biotechnology academy or CTE track) and your expected graduation year.</li>
+            <li>Use <b>Activities and societies</b> for science club, HOSA, Science Olympiad, robotics and similar.</li>
+            <li>In the description, list relevant courses such as Biotechnology, Chemistry, Biology and Statistics.</li>
+            <li>Add your GPA only if you are proud of it. It is optional.</li>
+            <li>Match what you typed in the Resume Builder so your resume and profile agree. The timeline on this site also uses your graduation date.</li>
+        </ul>` },
+    { t: 'Step 6: Experience, volunteering and projects', h: `
+        <p>Early in your career, “experience” is broader than paid jobs. All of these count:</p>
+        <ul>
+            <li>Lab classes and school research projects</li>
+            <li>Science fairs and competitions</li>
+            <li>Volunteering, tutoring and community service</li>
+            <li>Club leadership roles</li>
+            <li>Part-time jobs, even outside science (they show reliability and teamwork)</li>
+            <li>Summer programs and internships</li>
+        </ul>
+        <p><b>Bullet formula:</b> action verb + what you did + the result or size.</p>
+        <div class="plan-example"><b>Examples of the style (use your own facts):</b><br>
+            • Prepared and labeled sterile solutions by following written lab procedures.<br>
+            • Ran gel electrophoresis on DNA samples and recorded results in a lab notebook.<br>
+            • Led a team of four on a science fair project and presented findings to judges.<br>
+            • Tutored classmates in biology every week before tests.</div>
+        <ul>
+            <li>Use the Projects section for science fair work, and link your poster if you have one (the Poster Lab on the Create page helps you make it).</li>
+            <li>For the organization name, use your school, club or program.</li>
+            <li>Never post confidential information from a lab, internship or employer.</li>
+        </ul>` },
+    { t: 'Step 7: Skills, certifications and recommendations', h: `
+        <p><b>Skills.</b> LinkedIn allows up to 50, but ten to fifteen honest ones beat fifty padded ones. Good starting points if they are true for you:</p>
+        <p class="plan-chips">Micropipetting · PCR · Gel Electrophoresis · Aseptic Technique · Laboratory Skills · Lab Safety · Data Analysis · Microsoft Excel · Scientific Writing · Teamwork · Communication · Critical Thinking</p>
+        <ul>
+            <li>Move your three strongest skills to the top so they show first.</li>
+            <li>Ask a teacher or classmate who has seen you do a skill to endorse it, and endorse others honestly in return.</li>
+        </ul>
+        <p><b>Licenses and certifications.</b> Add BACE (Biotility) and CITI Responsible Conduct of Research once you have earned them, with the organization name and date. The Opportunities page links to both.</p>
+        <p><b>Recommendations.</b> Ask a teacher or mentor who knows your work for a short written recommendation. Give them two weeks, remind them of a project you did, and say thank you afterward.</p>` },
+    { t: 'Step 8: Featured section, custom link and privacy', h: `
+        <ul>
+            <li><b>Featured:</b> pin your best proof, such as your resume as a PDF (from the Resume Builder), a science fair poster, or a project link.</li>
+            <li><b>Custom link:</b> choose “Edit public profile &amp; URL” and make your address short and name-based, like linkedin.com/in/firstname-lastname. Write it on your plan sheet.</li>
+            <li><b>Contact info:</b> add only a professional email. Leave out your phone number and home address.</li>
+            <li><b>Visibility:</b> in Settings, look at who can see your email, your connections list and your profile activity, and choose the narrowest options you are comfortable with.</li>
+            <li><b>Quiet edits:</b> while you are editing, turn off sharing profile updates with your network so every tweak does not become a notification.</li>
+        </ul>
+        <p class="plan-small">LinkedIn changes its menus now and then. If a name here does not match, search the Settings page or the help center for the topic.</p>` },
+    { t: 'Step 9: Build a smart network', h: `
+        <p><b>Who to connect with first</b></p>
+        <ul>
+            <li>Teachers, lab instructors and program coordinators</li>
+            <li>Classmates and club teammates</li>
+            <li>Mentors, family friends and neighbors who work in science</li>
+            <li>Speakers and staff you met at open houses, fairs or summer programs</li>
+            <li>Graduates of your school or program, once you have a reason to say hello</li>
+        </ul>
+        <p><b>Always add a short note</b> (the limit is about 300 characters). Templates you can adapt:</p>
+        <div class="plan-example"><b>To a teacher:</b> “Hello Ms. Rivera, I am a student in your Biotechnology class. I would like to stay connected as I build my professional profile. Thank you for all I have learned this year.”<br><br>
+            <b>To someone you met:</b> “Hello Dr. Chen, I enjoyed your talk at the career fair about biomanufacturing. I am a high school student interested in the field and would be glad to connect.”<br><br>
+            <b>To a graduate of your school:</b> “Hello Sam, I saw that we both went to [school]. I am interested in [field] and would appreciate connecting.”</div>
+        <p><b>Please avoid:</b> adding hundreds of strangers, asking for a job in your first message, or accepting requests from people you cannot verify. Aim for about five thoughtful requests a week.</p>` },
+    { t: 'Step 10: Follow, learn and stay informed', h: `
+        <ul>
+            <li>Follow the companies on the Internships &amp; Jobs page and the colleges on the Colleges page.</li>
+            <li>Follow New Jersey biotech organizations such as BioNJ, plus the research programs and professional groups that interest you.</li>
+            <li>Read posts and comment when you can add something real, in one or two sentences. A thoughtful comment is more memorable than a “Great post!”.</li>
+            <li>Ask your school or public librarian whether they offer free access to LinkedIn Learning courses.</li>
+        </ul>` },
+    { t: 'Step 11: Find internships and jobs', h: `
+        <ol>
+            <li>Open the Jobs tab and search words like “biotech intern”, “laboratory assistant”, “quality control intern” or “manufacturing technician”.</li>
+            <li>Use the filters for experience level (internship or entry level), date posted and location.</li>
+            <li>Save the search and turn on alerts so new postings come to you.</li>
+            <li>Read the posting for a <b>minimum age</b> or school-year requirement. Many internships are for age 18 and up, and the Internships &amp; Jobs page on this site lists minimum ages too.</li>
+            <li>Copy the keywords the posting uses (only ones that are true for you) into your resume and profile.</li>
+            <li>Apply through the employer’s own website when you can, and avoid mass-applying to everything.</li>
+            <li>Save the position on this site and update its status (Interested, Applying, Applied, Accepted) so your plan stays current.</li>
+        </ol>
+        <p class="plan-small">If you are 18 or older, the “Open to work” setting can be shown to recruiters only.</p>` },
+    { t: 'Step 12: Messaging and informational chats', h: `
+        <p>An informational chat is a short, friendly conversation to learn about someone’s career. It is not a job request.</p>
+        <div class="plan-example"><b>Message template:</b> “Hello Dr. Chen, I am a high school student interested in quality control in biotech. Would you be open to a 15-minute chat, by message or video, about how you got started? I would really appreciate your advice.”</div>
+        <p><b>Questions to ask</b></p>
+        <ul>
+            <li>What does a typical day look like?</li>
+            <li>What did you study, and what helped most?</li>
+            <li>Which skills matter most for someone starting out?</li>
+            <li>What would you do differently?</li>
+            <li>Who else would you suggest I talk to?</li>
+        </ul>
+        <p>Send a thank-you within 24 hours, and let them know later how their advice helped. If you are under 18, keep chats to messages or video and involve a parent or teacher. Do not meet a new contact alone.</p>` },
+    { t: 'Posting and staying active', h: `
+        <ul>
+            <li>One or two posts a month is plenty.</li>
+            <li><b>Good post ideas:</b> a science fair result, a new skill you learned, a thank-you to a teacher or program, what you learned on a lab tour, or a short article with your own takeaway.</li>
+            <li>Write in your own words and credit others.</li>
+            <li>Ask permission before posting photos of classmates, teachers or lab spaces.</li>
+            <li>Never post confidential or unsafe lab content.</li>
+            <li>Keep the tone professional. Skip complaints, arguments and anything you would not want a future boss to read.</li>
+            <li>Every few months, look at your own profile as a stranger would and tidy it up.</li>
+        </ul>` },
+    { t: 'Safety, scams and red flags', h: `
+        <div class="plan-callout warn"><b>Real employers and programs never charge you to get an internship or job.</b></div>
+        <ul>
+            <li>Never pay for a “job”, “training”, “starter kit” or “equipment”.</li>
+            <li>Never send a Social Security number, bank details, card numbers or a copy of an ID in a message or a quick “application”. Real hiring paperwork comes later, through official channels, with a parent’s help if you are under 18.</li>
+            <li><b>Warning signs of a fake recruiter:</b> a brand-new or empty profile, few connections, a free email address for a “company”, pressure to act fast, a request to move to a text or chat app, or an offer with no interview.</li>
+            <li>Check the posting on the company’s own careers page before you reply.</li>
+            <li>Do not click links you do not recognize, and do not install software someone sends you.</li>
+            <li>Use the report option on the profile or message, block the account, and tell a trusted adult.</li>
+            <li>If something feels off, stop. It is always fine to say no.</li>
+        </ul>` },
+    { t: 'Your 30-day plan', h: `
+        <ul>
+            <li><b>Week 1:</b> create the account (if you are 16 or older), add a photo, write your headline, review privacy, turn on two-step verification, and tell a parent or guardian.</li>
+            <li><b>Week 2:</b> write your About section, add education, add experience or projects, add ten skills, and set your custom link.</li>
+            <li><b>Week 3:</b> send ten connection requests with notes (teachers, classmates, mentors), follow ten organizations, and add certifications.</li>
+            <li><b>Week 4:</b> make one post, send one informational-chat message, save three internships or jobs on this site, and update your resume.</li>
+            <li><b>Every month after:</b> spend 15 minutes adding a new skill, project or certificate, make two new connections, and leave one thoughtful comment.</li>
+        </ul>` },
+    { t: 'Checklist', h: () => `
+        <p class="plan-small"><b><span class="li-count">${planLiCount()}</span> of ${PLAN_LI_CHECKS.length}</b> done. These boxes are the same ones on your plan sheet.</p>
+        <div class="plan-checks">${PLAN_LI_CHECKS.map(([k, label]) => `<label class="plan-check"><input type="checkbox" data-li="${k}" ${planLoad('biostart_linkedinChecks', {})[k] ? 'checked' : ''}> <span>${planEsc(label)}</span></label>`).join('')}</div>` }
+];
+
+function planGuideHTML(u) {
+    return `
+        <section class="plan-guide" id="linkedin-guide" aria-labelledby="li-guide-title">
+            <div class="plan-guide-head">
+                <div>
+                    <div class="plan-guide-title" id="li-guide-title">LinkedIn guide for biotech students</div>
+                    <p class="plan-small">A step-by-step walkthrough, from creating your account to finding your first internship. Open each step as you go.</p>
+                </div>
+                <div class="plan-toolbar-actions">
+                    <a class="btn-action" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">Open LinkedIn 🔗</a>
+                    <button type="button" class="btn-action tl-alt" onclick="planToggleAll(true)">Expand all</button>
+                    <button type="button" class="btn-action tl-alt" onclick="planToggleAll(false)">Collapse all</button>
+                    <button type="button" class="btn-action tl-alt" onclick="printLinkedInGuide()">🖨️ Print this guide</button>
+                </div>
+            </div>
+            ${planAgeNotice(u)}
+            ${PLAN_LI_GUIDE.map((sec, i) => `
+            <details class="plan-acc"${i === 0 ? ' open' : ''}>
+                <summary>${planEsc(sec.t)}</summary>
+                <div class="plan-acc-body">${typeof sec.h === 'function' ? sec.h() : sec.h}</div>
+            </details>`).join('')}
+        </section>`;
+}
+
+function planToggleAll(open) { document.querySelectorAll('.plan-acc').forEach(d => { d.open = open; }); }
+
+function printLinkedInGuide() {
+    planToggleAll(true);
+    document.body.dataset.print = 'guide';
+    const done = () => { delete document.body.dataset.print; window.removeEventListener('afterprint', done); };
+    window.addEventListener('afterprint', done);
+    window.print();
+}
+
+function bindPlanHandlers(root) {
+    if (root.dataset.bound) return;
+    root.dataset.bound = '1';
+    root.addEventListener('change', e => {
+        const t = e.target;
+        if (!t || !t.matches) return;
+        if (t.matches('input[data-trait]')) {
+            const cur = planLoad('biostart_traitsWorking', []);
+            const set = new Set(Array.isArray(cur) ? cur : []);
+            if (t.checked) set.add(t.dataset.trait); else set.delete(t.dataset.trait);
+            planStore('biostart_traitsWorking', Array.from(set));
+        } else if (t.matches('input[data-li]')) {
+            const done = planLoad('biostart_linkedinChecks', {});
+            if (t.checked) done[t.dataset.li] = true; else delete done[t.dataset.li];
+            planStore('biostart_linkedinChecks', done);
+            root.querySelectorAll('input[data-li="' + t.dataset.li + '"]').forEach(b => { b.checked = t.checked; });
+            const n = PLAN_LI_CHECKS.filter(([k]) => done[k]).length;
+            root.querySelectorAll('.li-count').forEach(el => { el.textContent = n; });
+        }
+    });
+}
+
+function renderPlanPage() {
+    const root = document.getElementById('plan-root');
+    if (!root) return;
+    const u = userProfile;
+    const snap = window.BiostartPlan ? window.BiostartPlan.snapshot() : null;
+    const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    const statusOf = id => (u.progress || {})[id] || 'Interested';
+    const ids = Array.isArray(u.savedIds) ? u.savedIds : [];
+
+    const GROUPS = [
+        ['hs', 'Vocational High Schools', HIGH_SCHOOLS],
+        ['col', 'Colleges', COLLEGES],
+        ['job', 'Internships & Jobs', JOBS],
+        ['opp', 'Opportunities, Courses & Programs', OPPORTUNITIES]
+    ].map(([kind, title, list]) => ({ kind, title, items: ids.map(id => list.find(x => x.id === id)).filter(Boolean) }));
+    const all = GROUPS.reduce((a, g) => a.concat(g.items), []);
+    const count = st => all.filter(i => statusOf(i.id) === st).length;
+
+    const who = u.name ? planEsc(u.name) : 'Student';
+    const place = [u.town, u.county ? u.county + ' County' : ''].filter(Boolean).map(planEsc).join(', ');
+    const facts = [
+        ['Where I live', place || 'Not set'],
+        ['School level', u.level || 'Not set'],
+        ['Age', u.age || 'Not set'],
+        ['Looking for', u.locationPref === 'Out of State' ? 'Out-of-state' : u.locationPref === 'Both' ? 'In-state and out-of-state' : 'In-state (NJ)'],
+        ['Best season', u.season || 'Not set']
+    ].map(([k, v]) => `<div class="plan-fact"><span>${k}</span><b>${planEsc(v)}</b></div>`).join('');
+
+    let where = '';
+    let next = '';
+    if (snap) {
+        const pct = snap.total ? Math.round(snap.done / snap.total * 100) : 0;
+        where = `
+            <div class="plan-sec">
+                <div class="plan-h">Where I am now</div>
+                <div class="plan-stage"><b>${planEsc(snap.label)}</b> <span>· ${planEsc(snap.stageName)} stage (${planEsc(snap.span)})</span></div>
+                <p class="plan-goal">${planEsc(snap.goal)}</p>
+                <div class="plan-meter" role="img" aria-label="${snap.done} of ${snap.total} steps done"><i style="width:${pct}%"></i></div>
+                <p class="plan-small"><b>${snap.done} of ${snap.total}</b> steps in this stage done. Resume: <b>${snap.resumeDone} of ${snap.resumeTotal}</b> sections filled.</p>
+                ${snap.guess ? '<p class="plan-small plan-warn">This stage is a best guess. Taking the survey or adding a graduation date to the resume makes it exact.</p>' : ''}
+            </div>`;
+        const rows = [].concat(snap.doing.map(t => ({ t, doing: true })), snap.todo.map(t => ({ t, doing: false }))).slice(0, 6);
+        const behind = snap.behind.slice(0, 3);
+        next = `
+            <div class="plan-sec">
+                <div class="plan-h">My next steps</div>
+                ${rows.length ? `<ul class="plan-list">${rows.map(r => `<li><span class="plan-box"></span><span><b>${planEsc(r.t.title)}</b>${r.doing ? ' <em class="plan-tag">started</em>' : ''}<br><span class="plan-small">${planEsc(r.t.when)}</span></span></li>`).join('')}</ul>` : '<p class="plan-small">Everything in this stage is done. Nice work.</p>'}
+                ${behind.length ? `<div class="plan-sub">Worth catching up on</div><ul class="plan-list tight">${behind.map(b => `<li><span class="plan-box"></span><span>${planEsc(b.title)} <span class="plan-small">(from ${planEsc(b.from.toLowerCase())})</span></span></li>`).join('')}</ul>` : ''}
+                ${snap.next ? `<div class="plan-sub">Coming up: ${planEsc(snap.next.name.toLowerCase())} (${planEsc(snap.next.span)})</div><p class="plan-small">${snap.next.titles.map(planEsc).join(' · ')}</p>` : ''}
+            </div>`;
+    }
+
+    let saved;
+    if (!all.length) {
+        saved = `<div class="plan-sec"><div class="plan-h">My saved list</div><p class="plan-small">Nothing saved yet. Tap the heart (♥) on a school, job or program and it will show up here with its status.</p></div>`;
+    } else {
+        const blocks = GROUPS.filter(g => g.items.length).map(g => `
+            <div class="plan-sub">${g.title} (${g.items.length})</div>
+            <table class="plan-table">
+                <thead><tr><th>Name</th><th>Details</th><th>Status</th><th>Deadline</th></tr></thead>
+                <tbody>${g.items.map(i => `<tr>
+                    <td><b>${planEsc(i.name)}</b><br><span class="plan-url">${planEsc(planShortUrl(i.url))}</span></td>
+                    <td>${planEsc(planFacts(g.kind, i))}</td>
+                    <td><span class="plan-status s-${statusOf(i.id).toLowerCase()}">${planEsc(statusOf(i.id))}</span></td>
+                    <td class="plan-deadline"></td>
+                </tr>`).join('')}</tbody>
+            </table>`).join('');
+        saved = `
+            <div class="plan-sec">
+                <div class="plan-h">My saved list</div>
+                <p class="plan-small"><b>${all.length}</b> saved · ${count('Interested')} interested · ${count('Applying')} applying · ${count('Applied')} applied · ${count('Accepted')} accepted</p>
+                ${blocks}
+            </div>`;
+    }
+
+    const banner = u.surveyCompleted ? '' : `<div class="plan-notice">You haven’t taken the survey yet, so this plan uses default answers. <a href="survey.html">Take the survey</a> to personalize it.</div>`;
+
+    root.innerHTML = `
+        <section class="plan-view" id="plan-hub">
+            <p style="color:#444; font-weight:600; max-width:760px;">Two ways to get organized. Follow a step-by-step guide to build a professional LinkedIn profile, or open your one-page plan to print or send to a parent or counselor.</p>
+            <div class="hub-grid">
+                <a class="hub-card" href="#linkedin">
+                    <div class="hub-art"><svg viewBox="0 0 170 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="86" cy="54" r="46" fill="#EEB0A5"/><g stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M44 36L86 24M86 24L132 40M44 36L58 80M132 40L120 82M58 80L120 82" fill="none" stroke-width="2.5" stroke-dasharray="1 6"/><rect x="48" y="30" width="76" height="52" rx="5" fill="#fff"/><circle cx="68" cy="52" r="9" fill="#D94F3B"/><path d="M56 76c2-9 8-13 12-13s10 4 12 13" fill="#D94F3B"/><path d="M88 46H116M88 56H112M88 66H106" fill="none" stroke-width="2.5"/><circle cx="44" cy="36" r="7" fill="#0d0d0d"/><circle cx="132" cy="40" r="7" fill="#fff"/><circle cx="120" cy="84" r="7" fill="#D94F3B"/></g></svg></div>
+                    <div class="hub-sub">Professional networking</div>
+                    <div class="hub-title">LinkedIn Guide</div>
+                    <div class="hub-desc">A step-by-step walkthrough for biotech students, from creating your account safely to writing your headline, building connections, and finding your first internship.</div>
+                    <div class="hub-chips"><span class="hub-chip">Step by step</span><span class="hub-chip">30-day plan</span><span class="hub-chip">Checklist</span></div>
+                    <div class="hub-go">Open the guide ►</div>
+                </a>
+                <a class="hub-card" href="#plan">
+                    <div class="hub-art"><svg viewBox="0 0 150 104" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="78" cy="54" r="46" fill="#EEB0A5"/><g stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="46" y="12" width="64" height="82" rx="5" fill="#fff"/><rect x="66" y="6" width="24" height="12" rx="3" fill="#0d0d0d"/><rect x="54" y="30" width="9" height="9" rx="2" fill="#D94F3B" stroke-width="2.5"/><rect x="54" y="48" width="9" height="9" rx="2" fill="#D94F3B" stroke-width="2.5"/><rect x="54" y="66" width="9" height="9" rx="2" fill="#fff" stroke-width="2.5"/><path d="M70 35H102M70 53H100M70 71H94" fill="none" stroke-width="2.5"/></g></svg></div>
+                    <div class="hub-sub">Parents &amp; counselors</div>
+                    <div class="hub-title">My One-Page Plan</div>
+                    <div class="hub-desc">A printable summary built from your own data: where you are on the timeline, your next steps, everything you’ve saved with its status, and your strengths.</div>
+                    <div class="hub-chips"><span class="hub-chip">Print or PDF</span><span class="hub-chip">Built for you</span><span class="hub-chip">Saved list</span></div>
+                    <div class="hub-go">Open my plan ►</div>
+                </a>
+            </div>
+        </section>
+        <section class="plan-view" id="plan-view-plan" hidden>
+            <a class="back-link" href="#">← Back to My Plan</a>
+        <div class="plan-toolbar">
+            <div>
+                <b>Your one-page plan</b>
+                <span>Print it, or choose “Save as PDF” in the print window to send it to a parent or counselor.</span>
+            </div>
+            <div class="plan-toolbar-actions">
+                <button type="button" class="btn-action" onclick="window.print()">🖨️ Print or save as PDF</button>
+                <a class="btn-action tl-alt" href="profile.html">Edit profile</a>
+                <a class="btn-action tl-alt" href="#linkedin">LinkedIn guide ►</a>
+            </div>
+        </div>
+        ${banner}
+        <article class="plan-sheet">
+            <div class="plan-head">
+                <img src="biostart_logo_removed.bg.png" alt="" class="plan-logo" onerror="this.style.display='none'">
+                <div>
+                    <div class="plan-title">My Biotech Plan</div>
+                    <div class="plan-for">Prepared for <b>${who}</b> · ${today}</div>
+                </div>
+            </div>
+            <div class="plan-facts">${facts}</div>
+            ${where}
+            ${next}
+            ${saved}
+            ${planTraitsHTML(u)}
+            ${planLinkedInMini(u)}
+            <div class="plan-sec plan-notes">
+                <div class="plan-h">Questions and notes for my parent or counselor</div>
+                <div class="plan-line"></div><div class="plan-line"></div><div class="plan-line"></div><div class="plan-line"></div>
+            </div>
+            <div class="plan-foot">Dates and requirements change, so confirm every deadline with each school or program. Made with BIOSTART: Great Resources, Stat.</div>
+        </article>
+        </section>
+        <section class="plan-view" id="plan-view-guide" hidden>
+            <a class="back-link" href="#">← Back to My Plan</a>
+            ${planGuideHTML(u)}
+        </section>`;
+    bindPlanHandlers(root);
+    planRoute(false);
+}
+
+// Hub / plan / LinkedIn guide, chosen by the #hash (same idea as the Create tab)
+function planRoute(scrollTop) {
+    const root = document.getElementById('plan-root');
+    if (!root) return;
+    let h = location.hash.replace('#', '');
+    if (h === 'linkedin-guide') h = 'linkedin';
+    const view = h === 'plan' ? 'plan' : h === 'linkedin' ? 'guide' : 'hub';
+    const ids = { hub: 'plan-hub', plan: 'plan-view-plan', guide: 'plan-view-guide' };
+    Object.keys(ids).forEach(k => { const el = document.getElementById(ids[k]); if (el) el.hidden = k !== view; });
+    const titles = { hub: 'My Plan', plan: 'My One-Page Plan', guide: 'LinkedIn Guide' };
+    const h2 = document.querySelector('.container > h2');
+    if (h2) h2.textContent = titles[view];
+    document.title = titles[view] + ' - BIOSTART';
+    if (scrollTop !== false) window.scrollTo(0, 0);
+}
+window.addEventListener('hashchange', () => planRoute(true));
 
 /* --- MODAL DIALOG --- */
 function openModal(title, text, url) {
@@ -1579,10 +2295,13 @@ const SEARCH_PAGES = [
     { name: 'Vocational High Schools', href: 'highschools.html', text: 'public CTE high schools academies county middle school biotechnology filter by county' },
     { name: 'Colleges & Universities', href: 'colleges.html', text: 'colleges universities degrees B.S. A.S. research labs undergraduate in-state out-of-state' },
     { name: 'Internships & Jobs', href: 'jobs.html', text: 'internships paid jobs workplace positions apply student' },
-    { name: 'Scholarships, Competitions & Summer Programs', href: 'opportunities.html', text: 'scholarships competitions summer programs STEM opportunities research databases certifications' },
+    { name: 'Scholarships, Competitions & Summer Programs', href: 'opportunities.html', text: 'scholarships competitions summer programs STEM opportunities research databases certifications courses online learning free biotech virtual labs python bioinformatics statistics osha' },
     { name: 'Create: Resume Builder', href: 'resume.html#resume', text: 'create resume builder templates modern corporate academic compact print pdf copy plain text sample skills education' },
     { name: 'Create: Poster Lab', href: 'resume.html#poster', text: 'create poster lab project assistance help science fair research poster infographic concept explainer career spotlight lab safety technique guide template graphics presentation display print pdf' },
-    { name: 'Account Profile', href: 'profile.html', text: 'account profile avatar saved opportunities application tracker preferences interested applying applied accepted' }
+    { name: 'Account Profile', href: 'profile.html', text: 'account profile avatar saved opportunities application tracker preferences interested applying applied accepted' },
+    { name: 'My Plan', href: 'plan.html', text: 'my plan hub choose linkedin guide one page plan printable' },
+    { name: 'My Plan: One-Page Plan (printable)', href: 'plan.html#plan', text: 'my plan printable one page summary parent counselor timeline saved items next steps print pdf share personality traits soft skills strengths' },
+    { name: 'My Plan: LinkedIn Guide', href: 'plan.html#linkedin', text: 'linkedin guide profile networking headline about section photo connections privacy safety 30 day plan internships step by step checklist' }
 ];
 
 let searchIndex = null;
@@ -2847,7 +3566,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <div class="tl-meter" role="img" aria-label="${done.length} of ${rows.length} steps done"><i style="width:${pct}%"></i></div>
             <p class="tl-meter-label">${done.length} of ${rows.length} steps done</p>
             <div class="tl-resumebox"><strong>Resume: ${ctx.secDone} of ${ctx.sections.length} sections filled.</strong>${missing.length ? `<br>Still empty: ${esc(missing.slice(0, 4).join(', '))}${missing.length > 4 ? ` and ${missing.length - 4} more` : ''}.` : '<br>Every section has something in it.'}</div>
-            <div class="tl-actions"><a class="btn-action" href="resume.html#resume">Edit resume</a><a class="btn-action tl-alt" href="profile.html">Update profile</a></div>
+            <div class="tl-actions"><a class="btn-action" href="resume.html#resume">Edit resume</a><a class="btn-action tl-alt" href="profile.html">Update profile</a><a class="btn-action tl-alt" href="plan.html#plan">Print my plan</a></div>
         </div>`;
 
         const banner = isCur ? '' : `<div class="tl-banner"><span>Previewing ${esc(stage.name.toLowerCase())}. Anything your resume already covers still counts.</span><button type="button" class="tl-linkbtn" data-act="back">Back to my stage</button></div>`;
@@ -2921,6 +3640,30 @@ window.addEventListener('DOMContentLoaded', () => {
         dirty = true;
         if (isOpen) renderPanel();
     }
+
+    /* ---------- read-only snapshot, used by the printable My Plan page ---------- */
+    window.BiostartPlan = {
+        snapshot() {
+            ctx = buildCtx();
+            checks = loadChecks();
+            cur = detect(ctx);
+            const stage = STAGES[cur.idx];
+            const rows = stage.tasks.map(t => ({ t, s: statusOf(t) }));
+            const pick = st => rows.filter(r => r.s === st).map(r => ({ title: r.t.title, when: r.t.when }));
+            const behind = [];
+            for (let i = 0; i < cur.idx; i++) STAGES[i].tasks.forEach(t => { if (t.core && statusOf(t) !== 'done') behind.push({ title: t.title, from: STAGES[i].name }); });
+            const next = STAGES[cur.idx + 1] || null;
+            return {
+                label: cur.label, stageName: stage.name, span: stage.span, goal: stage.goal,
+                basis: cur.basis, guess: cur.guess,
+                total: rows.length, done: rows.filter(r => r.s === 'done').length,
+                doing: pick('doing'), todo: pick('todo'), behind,
+                next: next ? { name: next.name, span: next.span, titles: next.tasks.slice(0, 3).map(t => t.title) } : null,
+                resumeDone: ctx.secDone, resumeTotal: ctx.sections.length,
+                resumeMissing: ctx.sections.filter(x => !x[1]).map(x => x[0])
+            };
+        }
+    };
 
     function build() {
         const header = document.querySelector('header');
@@ -3036,7 +3779,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     /* ---------- small illustrations (built from HTML so they match the site) ---------- */
     const V = {
-        welcome: `<div class="bt-vis bt-vis-welcome"><div class="bt-big">🔬</div><div class="bt-wl"><b>BIOSTART</b><span>Explore · Apply · Succeed</span></div></div>`,
+        welcome: `<div class="bt-vis bt-vis-welcome"><img class="bt-logo" src="biostart_logo_removed.bg.png" alt="BIOSTART logo" onerror="this.outerHTML='<div class=&quot;bt-big&quot;>🔬</div>'"><div class="bt-wl"><b>BIOSTART</b><span>Explore · Apply · Succeed</span></div></div>`,
         survey: `<div class="bt-vis"><div class="bt-form">
             <div><i>County</i><b>Morris</b></div><div><i>Town</i><b>Denville</b></div><div><i>Age</i><b>16</b></div>
             <div><i>Location</i><b>In-state</b></div><div><i>Season</i><b>Summer</b></div><div><i>Level</i><b>High school</b></div>
@@ -3054,7 +3797,9 @@ window.addEventListener('DOMContentLoaded', () => {
         jobs: `<div class="bt-vis">${card('IN-STATE (NJ) ★ NEAR YOU | INTERNSHIP', 'Bayer Student Internship Program', 'Minimum age: 18+ · Contact email listed on the card.', 'Apply Now')}</div>`,
         opps: `<div class="bt-vis bt-four"><span>🔍 NSF REU</span><span>🧬 Pathways</span><span>📜 BACE</span><span>🛡️ CITI</span><span>🏆 Contests</span><span>🎓 Scholarships</span></div>`,
         tracker: `<div class="bt-vis"><div class="bt-heart">♥</div><div class="bt-steps"><span>Interested</span><span>Applying</span><span class="on">Applied</span><span>Accepted 🎉</span></div><p class="bt-cap">Update the status on your account page</p></div>`,
+        badges: `<div class="bt-vis"><div class="bt-medals"><span><i>♥</i>First save</span><span><i>📑</i>Resume 50%</span><span><i>🧪</i>Lab ready</span><span class="off"><i>🔒</i>Accepted!</span></div><p class="bt-cap">Confetti for big moments, badges for steady progress</p></div>`,
         resume: `<div class="bt-vis bt-doc"><div class="bt-docl"><div class="h"></div><div class="l w80"></div><div class="l w60"></div><div class="s"></div><div class="l"></div><div class="l w70"></div><div class="s"></div><div class="l w50"></div></div><div class="bt-tpls"><span class="on">Modern</span><span>Academic</span><span>Corporate</span><span>Compact</span></div></div>`,
+        myplan: `<div class="bt-vis bt-two"><div class="bt-choice">💼<b>LINKEDIN GUIDE</b><span>Step by step</span></div><div class="bt-choice sel">📋<b>MY ONE-PAGE PLAN</b><span>Print or save as PDF</span></div></div>`,
         poster: `<div class="bt-vis"><div class="bt-poster"><div class="ph"><b></b><i></i></div><div class="pc"><div></div><div class="mid"><em></em><em class="r"></em></div><div></div></div></div><div class="bt-tpls"><span class="on">Research</span><span>Explainer</span><span>Career</span><span>Safety</span></div></div>`,
         kit: `<div class="bt-vis bt-four"><span>NSF REU</span><span>Pathways</span><span>BACE</span><span>CITI</span><span>Aresty</span><span>HOSA</span></div>`,
         plan: `<div class="bt-vis bt-plan"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>`,
@@ -3148,6 +3893,14 @@ window.addEventListener('DOMContentLoaded', () => {
                 <li>Un-save with the same heart any time.</li></ul>`,
           cta: [{ href: 'profile.html', label: 'See my saved items' }] },
 
+        { id: 'badges', kicker: 'Little wins', title: 'Badges and celebrations', vis: V.badges,
+          body: () => `<p>BIOSTART quietly cheers you on. You’ll earn <b>badges</b> as you make progress, like <b>First save</b>, <b>Resume 50% complete</b>, <b>Lab ready</b> and <b>Accepted!</b></p>
+                <ul><li>A small toast appears the moment you earn one.</li>
+                <li><b>Confetti</b> fires when you mark an item <b>Accepted</b> and when you finish every step of a timeline stage.</li>
+                <li>Your whole collection, with hints for the locked ones, sits at the bottom of your account page.</li>
+                <li>Finishing this tutorial earns you your first badge.</li></ul>`,
+          cta: [{ href: 'profile.html', label: 'See my badges' }] },
+
         { id: 'resume', kicker: 'Create', title: 'The Resume Builder', vis: V.resume, target: 'nav a.nav-btn[href="resume.html"]',
           body: () => `<p>Under <b>Create</b>, build a professional resume with a <b>live preview</b> that updates as you type.</p>
                 <ul><li>Four templates: <b>Modern Biotech, Academic &amp; Research, Industry Corporate, Compact Lab Specialist</b>.</li>
@@ -3165,6 +3918,12 @@ window.addEventListener('DOMContentLoaded', () => {
                 <li>Enter results as “Label: value” and it draws the bar chart for you.</li></ul>`,
           cta: [{ href: 'resume.html#poster', label: 'Open Poster Lab' }] },
 
+        { id: 'myplan', kicker: 'Plan it out', title: 'My Plan: LinkedIn guide and one-page plan', vis: V.myplan, target: 'nav a.nav-btn[href="plan.html"]',
+          body: () => `<p><b>My Plan</b> in the nav bar gives you two choices:</p>
+                <ul><li><b>LinkedIn Guide:</b> a step-by-step walkthrough for biotech students, from setting up safely (LinkedIn requires members to be 16+) to your headline, About section, connections and a 30-day plan. It has a checklist you can tick off and a print button.</li>
+                <li><b>My One-Page Plan:</b> a printable summary of your timeline stage, next steps, saved list with statuses and strengths. Print it or choose “Save as PDF” to share with a parent or counselor.</li></ul>`,
+          cta: [{ href: 'plan.html', label: 'Open My Plan' }] },
+
         { id: 'kit', kicker: 'Useful materials', title: 'Your starter kit', vis: V.kit,
           body: () => `<p>Free, trusted places to start. Each opens in a new tab:</p>
                 <ul class="bt-kit">${KIT.map(k => `<li><a href="${k[2]}" target="_blank" rel="noopener">${esc(k[0])}</a><span>${esc(k[1])}</span></li>`).join('')}</ul>` },
@@ -3176,7 +3935,8 @@ window.addEventListener('DOMContentLoaded', () => {
           body: () => `<p>That’s everything. A few reminders:</p>
                 <ul><li>Reopen this tutorial any time with the round <b>?</b> button in the corner.</li>
                 <li>Press <kbd>/</kbd> to search from any page.</li>
-                <li>Your timeline gets smarter the more you fill in your resume and save items.</li></ul>`,
+                <li>Your timeline gets smarter the more you fill in your resume and save items.</li>
+                <li>Check your account page now and then to see which badges you’ve earned.</li></ul>`,
           cta: [{ href: 'survey.html', label: 'Take the survey', primary: true }] }
     ];
 
@@ -3242,6 +4002,7 @@ window.addEventListener('DOMContentLoaded', () => {
 .bt-card.spot .bt-vis{padding:12px 16px}
 .bt-vis-welcome{flex-direction:row;justify-content:center;gap:18px}
 .bt-big{font-size:54px;line-height:1;width:92px;height:92px;display:grid;place-items:center;background:#EEB0A5;border:3px solid var(--biostart-black,#0d0d0d);border-radius:50%;box-shadow:0 4px 0 var(--biostart-black,#0d0d0d)}
+.bt-logo{display:block;width:112px;height:auto;max-height:100px;object-fit:contain;flex:none}
 .bt-wl b{display:block;font:900 30px/1 var(--font-display,inherit);letter-spacing:.1em;text-transform:uppercase}
 .bt-wl span{font:700 12px/1.4 var(--font-display,inherit);letter-spacing:.1em;text-transform:uppercase;color:var(--biostart-red,#D93829)}
 .bt-form{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;max-width:420px}
@@ -3304,6 +4065,11 @@ window.addEventListener('DOMContentLoaded', () => {
 .bt-poster .pc>div{border:2px solid var(--biostart-black,#0d0d0d);background:#fafafa}
 .bt-poster .mid{display:flex;align-items:flex-end;justify-content:space-around;padding:4px}
 .bt-poster em{display:block;width:12px;height:26px;background:var(--biostart-red,#D93829);border:1.5px solid var(--biostart-black,#0d0d0d)}.bt-poster em.r{height:42px;background:#EEB0A5}
+.bt-medals{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.bt-medals span{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:84px;padding:8px 8px 6px;background:#fff;border:2px solid var(--biostart-black,#0d0d0d);border-radius:10px;box-shadow:0 3px 0 var(--biostart-black,#0d0d0d);font-weight:800;font-size:11px}
+.bt-medals i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#EEB0A5;border:3px solid var(--biostart-red,#D93829);color:var(--biostart-red,#D93829);font-style:normal;font-size:16px}
+.bt-medals span.off{border-style:dashed;border-color:#aaa;box-shadow:none;color:#777}
+.bt-medals span.off i{background:#eee;border-color:#bbb;filter:grayscale(1)}
 .bt-plan{flex-direction:row;gap:10px}
 .bt-plan span{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:var(--biostart-red,#D93829);color:#fff;font:900 16px/1 var(--font-display,inherit);border:3px solid var(--biostart-black,#0d0d0d)}
 @media (max-width:640px){.bt-body h3{font-size:21px}.bt-vis-welcome{flex-direction:column}.bt-doc{flex-direction:column}.bt-foot{flex-direction:column-reverse;align-items:stretch}.bt-nav{justify-content:space-between}.bt-launch span{display:none}.bt-launch{padding:8px}}
@@ -3381,6 +4147,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     function finish() {
         putState({ status: 'done', step: STEPS.length - 1 });
+        try { window.dispatchEvent(new CustomEvent('biostart:progress')); } catch (e) { /* ignore */ }   // lets the badge system notice
         close();
         toast('Tutorial complete. Reopen it any time with the ? button.');
     }
@@ -3529,6 +4296,338 @@ window.addEventListener('DOMContentLoaded', () => {
         if (!st.status) whenReady(() => { if (!getState().status && !root) start(0); });   // first visit: offer it
     }
 
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+})();
+
+/* ==========================================================================
+   BIOSTART MILESTONE MOMENTS
+   - Confetti when you mark an item "Accepted" and when you finish every step
+     of a timeline stage.
+   - Gentle badge toasts ("First save", "Resume 50% complete", ...) the moment
+     you earn one, and a "My badges" shelf on the account page.
+
+   HOW TO ADD: paste this whole file at the very end of script.js (after the
+   tutorial). It injects its own styles, so style.css does not change.
+   Everything is stored in this browser only.
+   ========================================================================== */
+(function () {
+    'use strict';
+
+    const KEY = 'biostart_milestones';
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const reduced = () => window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const profile = () => (typeof userProfile !== 'undefined' && userProfile) ? userProfile : {};
+
+    /* ---------- stored state: which badges are earned, which stages were celebrated ---------- */
+    function load() {
+        try { const o = JSON.parse(localStorage.getItem(KEY)); if (o && typeof o === 'object') return Object.assign({ badges: {}, stages: {}, base: false }, o); } catch (e) { /* ignore */ }
+        return { badges: {}, stages: {}, base: false };
+    }
+    function save(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) { /* ignore */ } }
+
+    /* ---------- reading the student's data ---------- */
+    function resumeFields() {
+        const out = {};
+        try {
+            if (document.getElementById('printable-resume')) {
+                if (typeof resumeIsSample === 'undefined' || !resumeIsSample) {
+                    RESUME_FIELD_IDS.forEach(id => { const el = document.getElementById(id); out[id] = el ? (el.value || '').trim() : ''; });
+                }
+            } else {
+                const d = JSON.parse(localStorage.getItem('biostart_resumeDraft'));
+                if (d && d.fields && !d.sample) Object.keys(d.fields).forEach(k => { out[k] = String(d.fields[k] || '').trim(); });
+            }
+        } catch (e) { /* treat as empty */ }
+        return out;
+    }
+
+    function context() {
+        const p = profile(), r = resumeFields(), g = id => r[id] || '';
+        const ids = Array.isArray(p.savedIds) ? p.savedIds : [];
+        const prog = p.progress || {};
+        const inList = (list, id) => (typeof list !== 'undefined') && list.some(i => i.id === id);
+        const cats = new Set();
+        ids.forEach(id => {
+            if (inList(typeof HIGH_SCHOOLS !== 'undefined' ? HIGH_SCHOOLS : [], id)) cats.add('hs');
+            if (inList(typeof COLLEGES !== 'undefined' ? COLLEGES : [], id)) cats.add('col');
+            if (inList(typeof JOBS !== 'undefined' ? JOBS : [], id)) cats.add('job');
+            if (inList(typeof OPPORTUNITIES !== 'undefined' ? OPPORTUNITIES : [], id)) cats.add('opp');
+        });
+        const sections = [
+            !!(g('res-name') && g('res-email')), !!g('res-summary'), !!g('res-school'), !!g('res-courses'),
+            !!g('res-labskills'), !!g('res-softskills'), !!g('res-certs'), !!(g('res-job-title') || g('res-job-org')),
+            !!g('res-proj-title'), !!g('res-honors'), !!g('res-pub-title')
+        ];
+        const certs = g('res-certs').toLowerCase();
+        let tour = {};
+        try { tour = JSON.parse(localStorage.getItem('biostart_tour')) || {}; } catch (e) { /* ignore */ }
+        const st = load();
+        return {
+            saved: ids.length, cats,
+            survey: !!p.surveyCompleted, named: !!p.name,
+            sec: sections.filter(Boolean).length,
+            labN: g('res-labskills').split(/[,;\n•|]+/).map(x => x.trim()).filter(x => x.length > 1).length,
+            cred: /bace|biotility|citi|responsible conduct|rcr/.test(certs),
+            applied: ids.filter(i => prog[i] === 'Applied' || prog[i] === 'Accepted').length,
+            accepted: ids.filter(i => prog[i] === 'Accepted').length,
+            stages: Object.keys(st.stages).filter(k => st.stages[k] === 'celebrated').length,
+            tourDone: tour.status === 'done'
+        };
+    }
+
+    /* ---------- the badges ---------- */
+    const BADGES = [
+        { id: 'survey', icon: '📝', name: 'On the map', desc: 'Took the survey', hint: 'Take the survey', test: c => c.survey },
+        { id: 'profile', icon: '🧬', name: 'Made it personal', desc: 'Created your profile', hint: 'Create your account profile', test: c => c.named },
+        { id: 'tour', icon: '🧭', name: 'Know your way around', desc: 'Finished the tutorial', hint: 'Finish the tutorial', test: c => c.tourDone },
+        { id: 'save1', icon: '♥', name: 'First save', desc: 'Saved your first item', hint: 'Tap a ♥ on any card', test: c => c.saved >= 1 },
+        { id: 'save5', icon: '📌', name: 'Collector', desc: 'Saved 5 items', hint: 'Save 5 items', test: c => c.saved >= 5 },
+        { id: 'round', icon: '🧩', name: 'Well rounded', desc: 'Saved a school, college, job and opportunity', hint: 'Save one of each kind', test: c => c.cats.size >= 4 },
+        { id: 'res1', icon: '📄', name: 'Resume started', desc: 'Filled in 3 resume sections', hint: 'Fill in 3 resume sections', test: c => c.sec >= 3 },
+        { id: 'res50', icon: '📑', name: 'Resume 50% complete', desc: 'Half your resume sections are filled', hint: 'Fill in 6 of 11 resume sections', test: c => c.sec >= 6 },
+        { id: 'res100', icon: '🏅', name: 'Resume complete', desc: 'Every resume section has content', hint: 'Fill in all 11 resume sections', test: c => c.sec >= 11 },
+        { id: 'lab5', icon: '🧪', name: 'Lab ready', desc: 'Listed 5 lab techniques', hint: 'List 5 lab techniques on your resume', test: c => c.labN >= 5 },
+        { id: 'cred', icon: '📜', name: 'Credentialed', desc: 'Added BACE or CITI to your resume', hint: 'Earn BACE or CITI and list it', test: c => c.cred },
+        { id: 'applied', icon: '✉️', name: 'Application sent', desc: 'Marked something as Applied', hint: 'Set a saved item to Applied', test: c => c.applied >= 1 },
+        { id: 'accepted', icon: '🎉', name: 'Accepted!', desc: 'Marked something as Accepted', hint: 'Set a saved item to Accepted', test: c => c.accepted >= 1 },
+        { id: 'stage', icon: '🚩', name: 'Stage cleared', desc: 'Finished every step of a timeline stage', hint: 'Complete a whole timeline stage', test: c => c.stages >= 1 }
+    ];
+
+    /* ---------- confetti ---------- */
+    const COLORS = ['#D93829', '#0d0d0d', '#EEB0A5', '#F6D5CE', '#f5b700', '#ffffff'];
+    let confettiCanvas = null, confettiRaf = 0, parts = [];
+
+    function confetti(kind, origin) {
+        if (reduced()) return;
+        if (!confettiCanvas) {
+            confettiCanvas = document.createElement('canvas');
+            confettiCanvas.className = 'bm-confetti';
+            confettiCanvas.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(confettiCanvas);
+        }
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const W = window.innerWidth, H = window.innerHeight;
+        confettiCanvas.width = W * dpr; confettiCanvas.height = H * dpr;
+        confettiCanvas.style.width = W + 'px'; confettiCanvas.style.height = H + 'px';
+        const ctx = confettiCanvas.getContext('2d');
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const rnd = (a, b) => a + Math.random() * (b - a);
+        const add = (x, y, n, angle, spread, speed) => {
+            for (let i = 0; i < n; i++) {
+                const a = angle + rnd(-spread, spread), s = rnd(speed * 0.5, speed);
+                parts.push({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, w: rnd(6, 11), h: rnd(4, 7), rot: rnd(0, 6.28), vr: rnd(-0.3, 0.3), tilt: rnd(0, 6.28), vt: rnd(0.08, 0.25), c: COLORS[Math.floor(Math.random() * COLORS.length)], life: 0, max: rnd(110, 190), round: Math.random() < 0.2 });
+            }
+        };
+        const o = origin || { x: W / 2, y: H * 0.55 };
+        if (kind === 'stage') {                       // two cannons from the bottom corners
+            add(0, H, 90, -Math.PI / 3, 0.35, 22);
+            add(W, H, 90, -2 * Math.PI / 3, 0.35, 22);
+            setTimeout(() => { add(W * 0.25, H, 40, -Math.PI / 2, 0.5, 20); add(W * 0.75, H, 40, -Math.PI / 2, 0.5, 20); }, 260);
+        } else if (kind === 'small') {
+            add(o.x, o.y, 26, -Math.PI / 2, 0.9, 9);
+        } else {                                      // 'burst' from the element that was clicked
+            add(o.x, o.y, 120, -Math.PI / 2, Math.PI * 0.8, 16);
+        }
+        if (!confettiRaf) confettiRaf = requestAnimationFrame(function tick() {
+            ctx.clearRect(0, 0, W, H);
+            parts = parts.filter(p => p.life < p.max && p.y < H + 40);
+            parts.forEach(p => {
+                p.life++; p.vy += 0.42; p.vx *= 0.985; p.vy *= 0.985;
+                p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.tilt += p.vt;
+                ctx.save();
+                ctx.globalAlpha = Math.min(1, (p.max - p.life) / 40);
+                ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.scale(1, Math.cos(p.tilt));
+                ctx.fillStyle = p.c;
+                if (p.round) { ctx.beginPath(); ctx.arc(0, 0, p.h / 1.3, 0, 6.28); ctx.fill(); }
+                else { ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); if (p.c === '#ffffff') { ctx.strokeStyle = '#0d0d0d'; ctx.lineWidth = 0.8; ctx.strokeRect(-p.w / 2, -p.h / 2, p.w, p.h); } }
+                ctx.restore();
+            });
+            if (parts.length) confettiRaf = requestAnimationFrame(tick);
+            else { confettiRaf = 0; ctx.clearRect(0, 0, W, H); if (confettiCanvas) { confettiCanvas.remove(); confettiCanvas = null; } }
+        });
+    }
+
+    /* ---------- toasts ---------- */
+    let toastBox = null;
+    function toast(icon, title, text, ms) {
+        if (!toastBox) {
+            toastBox = document.createElement('div');
+            toastBox.className = 'bm-toasts';
+            toastBox.setAttribute('aria-live', 'polite');
+            document.body.appendChild(toastBox);
+        }
+        const t = document.createElement('div');
+        t.className = 'bm-toast';
+        t.innerHTML = `<span class="bm-ico">${esc(icon)}</span><span class="bm-txt"><b>${esc(title)}</b>${text ? `<span>${esc(text)}</span>` : ''}</span>`;
+        while (toastBox.children.length >= 3) toastBox.firstChild.remove();
+        toastBox.appendChild(t);
+        requestAnimationFrame(() => t.classList.add('in'));
+        setTimeout(() => { t.classList.remove('in'); setTimeout(() => t.remove(), 400); }, ms || 4200);
+        return t;
+    }
+
+    function itemName(id) {
+        try { const it = (typeof findSavedItem === 'function') ? findSavedItem(id) : null; return it ? it.name : 'your application'; } catch (e) { return 'your application'; }
+    }
+
+    /* ---------- badges: evaluate, announce, shelf ---------- */
+    function evaluate(announce) {
+        const st = load(), c = context(), fresh = [];
+        BADGES.forEach(b => { if (!st.badges[b.id] && b.test(c)) { st.badges[b.id] = Date.now(); fresh.push(b); } });
+        const firstRun = !st.base;
+        st.base = true;
+        save(st);
+        if (fresh.length) {
+            if (announce && !firstRun) announceBadges(fresh);   // a first run only records what you had already earned
+            renderShelf();
+        }
+        return fresh;
+    }
+
+    let acceptedAt = 0;
+    function announceBadges(list) {
+        if (Date.now() - acceptedAt < 2500) list = list.filter(b => b.id !== 'accepted' && b.id !== 'applied');
+        if (!list.length) return;
+        if (list.length === 1) {
+            const b = list[0];
+            const t = toast(b.icon, 'New badge: ' + b.name, b.desc);
+            const r = t.getBoundingClientRect();
+            confetti('small', { x: window.innerWidth / 2, y: Math.max(80, window.innerHeight - 110) });
+        } else {
+            toast('🏅', list.length + ' new badges', list.map(b => b.name).join(', '), 5600);
+            confetti('small', { x: window.innerWidth / 2, y: Math.max(80, window.innerHeight - 110) });
+        }
+    }
+
+    function renderShelf() {
+        const grid = document.getElementById('saved-grid');   // the saved-items list on the account page
+        if (!grid) return;                                      // the shelf lives on the account page only
+        let shelf = document.getElementById('bm-shelf');
+        if (!shelf) {
+            shelf = document.createElement('section');
+            shelf.id = 'bm-shelf';
+            shelf.className = 'bm-shelf';
+            grid.insertAdjacentElement('afterend', shelf);      // below My Saved Opportunities
+        }
+        const st = load();
+        const earned = BADGES.filter(b => st.badges[b.id]);
+        const fmt = ts => { try { return new Date(ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); } catch (e) { return ''; } };
+        shelf.innerHTML = `<h3>My badges <span class="bm-count">${earned.length} of ${BADGES.length}</span></h3>
+            <ul class="bm-grid">${BADGES.map(b => {
+                const on = !!st.badges[b.id];
+                return `<li class="${on ? 'on' : 'off'}" title="${esc(on ? b.desc : b.hint)}"><span class="bm-medal">${on ? esc(b.icon) : '🔒'}</span><b>${esc(b.name)}</b><span>${on ? 'Earned ' + esc(fmt(st.badges[b.id])) : esc(b.hint)}</span></li>`;
+            }).join('')}</ul>`;
+    }
+
+    /* ---------- "Accepted!" ---------- */
+    function celebrateAccepted(id) {
+        acceptedAt = Date.now();
+        const ae = document.activeElement;
+        let origin = null;
+        if (ae && ae.getBoundingClientRect && ae !== document.body) { const r = ae.getBoundingClientRect(); origin = { x: r.left + r.width / 2, y: r.top + r.height / 2 }; }
+        confetti('burst', origin);
+        toast('🎉', 'Accepted!', itemName(id) + '. Congratulations!', 5200);
+    }
+
+    /* ---------- "Stage complete" (watches the My timeline tab) ---------- */
+    let prev = null;
+    function readTab() {
+        const el = document.querySelector('#tl-tab .tl-tab-sub');
+        if (!el) return null;
+        const m = /^(.*?)\s*·\s*(\d+)\s*(?:of|\/)\s*(\d+)/.exec(el.textContent.trim());
+        return m ? { label: m[1].trim(), done: +m[2], total: +m[3] } : null;
+    }
+    function checkStage() {
+        const now = readTab();
+        if (!now || !now.total) return;
+        const st = load();
+        const complete = now.done === now.total;
+        if (prev && prev.label === now.label && prev.done < prev.total && complete && !st.stages[now.label]) {
+            st.stages[now.label] = 'celebrated';
+            save(st);
+            confetti('stage');
+            toast('🚩', 'Stage complete!', `You finished every step of ${now.label}.`, 6000);
+            evaluate(true);
+        } else if (complete && !st.stages[now.label]) {
+            st.stages[now.label] = 'seen';                    // already complete when we first looked: no fanfare
+            save(st);
+        }
+        prev = now;
+    }
+    function watchTimeline() {
+        let tries = 0;
+        const t = setInterval(() => {
+            const el = document.querySelector('#tl-tab .tl-tab-sub');
+            if (el) {
+                clearInterval(t);
+                new MutationObserver(checkStage).observe(el, { childList: true, characterData: true, subtree: true });
+                setTimeout(checkStage, 400);
+            } else if (++tries > 25) clearInterval(t);
+        }, 250);
+    }
+
+    /* ---------- hooks into the existing functions ---------- */
+    let timer = null;
+    const later = () => { clearTimeout(timer); timer = setTimeout(() => evaluate(true), 350); };
+
+    function hook(name, wrap) {
+        const fn = window[name];
+        if (typeof fn !== 'function') return;
+        window[name] = function () { return wrap(fn, this, arguments); };
+    }
+
+    hook('updateSavedStatus', (fn, self, args) => {
+        const before = (profile().progress || {})[args[0]];
+        const out = fn.apply(self, args);
+        if (args[1] === 'Accepted' && before !== 'Accepted') celebrateAccepted(args[0]);
+        later();
+        return out;
+    });
+    ['toggleLike', 'saveAccountProfile', 'handleSurveySubmit', 'loadSampleResumeData', 'clearResumeForm'].forEach(n => hook(n, (fn, self, args) => { const out = fn.apply(self, args); later(); return out; }));
+
+    document.addEventListener('input', e => { if (e.target && e.target.classList && e.target.classList.contains('resume-field')) later(); });
+    window.addEventListener('storage', later);
+    window.addEventListener('biostart:progress', later);
+
+    /* ---------- styles ---------- */
+    const CSS = `
+.bm-confetti{position:fixed;inset:0;z-index:10040;pointer-events:none}
+.bm-toasts{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:10030;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none;width:min(440px,calc(100vw - 24px))}
+.bm-toast{display:flex;align-items:center;gap:12px;width:100%;background:#fff;color:var(--biostart-black,#0d0d0d);border:3px solid var(--biostart-black,#0d0d0d);border-radius:14px;box-shadow:0 4px 0 var(--biostart-black,#0d0d0d);padding:9px 14px 9px 10px;opacity:0;transform:translateY(14px) scale(.97);transition:opacity .3s,transform .35s cubic-bezier(.2,1.3,.4,1)}
+.bm-toast.in{opacity:1;transform:none}
+.bm-ico{flex:0 0 40px;width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:#EEB0A5;border:3px solid var(--biostart-red,#D93829);font-size:19px;line-height:1;color:var(--biostart-red,#D93829)}
+.bm-txt{display:flex;flex-direction:column;min-width:0;line-height:1.25}
+.bm-txt b{font:800 15px/1.2 var(--font-display,inherit);letter-spacing:.02em}
+.bm-txt span{font-size:12.5px;color:#444}
+.bm-shelf{margin:28px 0 8px}
+.bm-shelf h3{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:18px;text-transform:uppercase;font-weight:900}
+.bm-count{padding:1px 10px;border-radius:12px;background:var(--biostart-black,#0d0d0d);color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em}
+.bm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;list-style:none;margin:0;padding:0}
+.bm-grid li{display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 8px 10px;text-align:center;background:#fff;border:2px solid var(--biostart-black,#0d0d0d);border-radius:12px}
+.bm-grid li.on{box-shadow:0 3px 0 var(--biostart-black,#0d0d0d)}
+.bm-grid li.off{background:#f7f7f7;border-style:dashed;border-color:#aaa}
+.bm-grid li b{font-size:13px;line-height:1.2}
+.bm-grid li span:last-child{font-size:11px;color:#666;line-height:1.3}
+.bm-grid li.off b{color:#777}
+.bm-medal{width:46px;height:46px;display:grid;place-items:center;border-radius:50%;font-size:22px;line-height:1;background:#EEB0A5;border:3px solid var(--biostart-red,#D93829);color:var(--biostart-red,#D93829)}
+.bm-grid li.off .bm-medal{background:#eee;border-color:#bbb;filter:grayscale(1);opacity:.7}
+@media (max-width:520px){.bm-toasts{bottom:76px}}
+@media (prefers-reduced-motion:reduce){.bm-toast{transition:opacity .2s;transform:none}}
+@media print{.bm-confetti,.bm-toasts,.bm-shelf{display:none!important}}
+`;
+
+    function init() {
+        const style = document.createElement('style');
+        style.id = 'biostart-milestones-css';
+        style.textContent = CSS;
+        document.head.appendChild(style);
+        renderShelf();
+        evaluate(true);            // first ever run just records what you'd already earned
+        watchTimeline();
+        window.BiostartMilestones = { confetti, evaluate, badges: BADGES };
+    }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
     else init();
 })();
